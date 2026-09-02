@@ -103,12 +103,12 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-nav">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 xl:px-8">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 xl:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24 gap-2 xl:gap-4">
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative w-[55px] h-[55px] sm:w-[82px] sm:h-[82px] transition-transform group-hover:scale-105 flex items-center justify-center">
+            <div className="relative w-13.75 h-13.75 sm:w-20.5 sm:h-20.5 transition-transform group-hover:scale-105 flex items-center justify-center">
               <img
                 src="/website-logo.webp"
                 alt="Royals Tours Logo"
@@ -239,7 +239,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
           </div>
 
           {/* Mobile Search Bar (outside hamburger menu) */}
-          <div className="xl:hidden relative flex-1 max-w-[130px] xs:max-w-[180px] sm:max-w-[220px]" ref={mobileSearchRef}>
+          <div className="xl:hidden relative flex-1 max-w-32.5 xs:max-w-[180px] sm:max-w-55" ref={mobileSearchRef}>
             <input
               type="text"
               value={searchQuery}
@@ -266,7 +266,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
 
             {/* Mobile Suggestions Panel */}
             {isSearchFocused && searchQuery.trim() !== "" && (
-              <div className="absolute right-0 mt-3 w-[280px] sm:w-80 bg-slate-950/95 backdrop-blur-md border border-slate-800 rounded-2xl shadow-2xl overflow-hidden z-50 animate-fadeIn">
+              <div className="absolute right-0 mt-3 w-70 sm:w-80 bg-slate-950/95 backdrop-blur-md border border-slate-800 rounded-2xl shadow-2xl overflow-hidden z-50 animate-fadeIn">
                 {filteredItems.length === 0 ? (
                   <div className="p-4 text-center text-xs text-slate-400">
                     No results found

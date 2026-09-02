@@ -614,7 +614,7 @@ export default function Home() {
           <div className="marquee-container py-4">
             <div className="marquee-content">
               {repeatedTestimonials.map((test, index) => (
-                <div key={`t1-${index}-${test._id || test.id}`} className="w-[350px] shrink-0 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs flex flex-col justify-between hover-card">
+                <div key={`t1-${index}-${test._id || test.id}`} className="w-87.5 shrink-0 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs flex flex-col justify-between hover-card">
                   <div>
                     <div className="flex items-center gap-1 text-amber-400 mb-3">
                       {Array.from({ length: test.rating || 5 }).map((_, i) => (
@@ -655,7 +655,7 @@ export default function Home() {
             </div>
             <div className="marquee-content" aria-hidden="true">
               {repeatedTestimonials.map((test, index) => (
-                <div key={`t2-${index}-${test._id || test.id}`} className="w-[350px] shrink-0 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs flex flex-col justify-between hover-card">
+                <div key={`t2-${index}-${test._id || test.id}`} className="w-87.5 shrink-0 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs flex flex-col justify-between hover-card">
                   <div>
                     <div className="flex items-center gap-1 text-amber-400 mb-3">
                       {Array.from({ length: test.rating || 5 }).map((_, i) => (
