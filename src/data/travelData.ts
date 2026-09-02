@@ -3563,8 +3563,8 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
       {
         "day": 3,
         "title": "Full Day Fun on Resort World Cruise",
-        "description": "Enjoy a full day of luxury and entertainment on the cruise ship. Take part in on-board activities, theatrical shows, pools, and enjoy buffet",
-        "meals": "served at the cruise restaurants. Overnight stay on cruise (all meals included on board).",
+        "description": "Enjoy a full day of luxury and entertainment on the cruise ship. Take part in on-board activities, theatrical shows, pools, and enjoy buffet meals served at the cruise restaurants. Overnight stay on cruise (all meals included on board).",
+        "meals": "",
         "stay": ""
       },
       {
