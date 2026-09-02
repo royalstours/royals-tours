@@ -1,0 +1,510 @@
+"use client";
+
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+export default function NewHeroSlidePage() {
+  const router = useRouter();
+  const [type, setType] = useState<"image" | "video">("image");
+  const [src, setSrc] = useState("");
+  const [mobileSrc, setMobileSrc] = useState("");
+  const [poster, setPoster] = useState("");
+  const [mobilePoster, setMobilePoster] = useState("");
+  const [alt, setAlt] = useState("");
+  const [badge, setBadge] = useState("");
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
+  const [order, setOrder] = useState("0");
+
+  const [uploading, setUploading] = useState(false);
+  const [mobileUploading, setMobileUploading] = useState(false);
+  const [posterUploading, setPosterUploading] = useState(false);
+  const [mobilePosterUploading, setMobilePosterUploading] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<{
+    src?: string;
+    mobileSrc?: string;
+    poster?: string;
+    mobilePoster?: string;
+  }>({});
+
+  const handleMediaUpload = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: "src" | "mobileSrc" | "poster" | "mobilePoster"
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (field === "src") setUploading(true);
+    else if (field === "mobileSrc") setMobileUploading(true);
+    else if (field === "poster") setPosterUploading(true);
+    else if (field === "mobilePoster") setMobilePosterUploading(true);
+    
+    setError("");
+    setFieldErrors(prev => ({ ...prev, [field]: undefined }));
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        let errorMsg = "Failed to upload file.";
+        if (res.status === 413) {
+          errorMsg = "File is too large (Vercel/server limit is 4.5MB). Please upload a smaller file or paste a URL directly.";
+        } else {
+          try {
+            const contentType = res.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+              const data = await res.json();
+              errorMsg = data.error || errorMsg;
+            } else {
+              const text = await res.text();
+              errorMsg = text || `Upload failed with status ${res.status}`;
+            }
+          } catch {
+            errorMsg = `Upload failed with status ${res.status}`;
+          }
+        }
+        setFieldErrors(prev => ({ ...prev, [field]: errorMsg }));
+        setError(`Failed to upload media: ${errorMsg}`);
+        return;
+      }
+
+      const data = await res.json();
+      if (data.url) {
+        if (field === "src") setSrc(data.url);
+        else if (field === "mobileSrc") setMobileSrc(data.url);
+        else if (field === "poster") setPoster(data.url);
+        else if (field === "mobilePoster") setMobilePoster(data.url);
+      } else {
+        const errorMsg = "Upload succeeded but no URL was returned.";
+        setFieldErrors(prev => ({ ...prev, [field]: errorMsg }));
+        setError(errorMsg);
+      }
+    } catch (err) {
+      const errorMsg = "An error occurred during file upload.";
+      setFieldErrors(prev => ({ ...prev, [field]: errorMsg }));
+      setError(errorMsg);
+    } finally {
+      e.target.value = "";
+      if (field === "src") setUploading(false);
+      else if (field === "mobileSrc") setMobileUploading(false);
+      else if (field === "poster") setPosterUploading(false);
+      else if (field === "mobilePoster") setMobilePosterUploading(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    if (!src.trim()) {
+      setError("Media source URL is required.");
+      return;
+    }
+    if (!alt.trim()) {
+      setError("Alt text is required for accessibility.");
+      return;
+    }
+
+    setSaving(true);
+
+    const payload = {
+      type,
+      src: src.trim(),
+      mobileSrc: mobileSrc.trim(),
+      poster: type === "video" ? poster.trim() : "",
+      mobilePoster: type === "video" ? mobilePoster.trim() : "",
+      alt: alt.trim(),
+      badge: badge.trim(),
+      title: title.trim(),
+      subtitle: subtitle.trim(),
+      order: isNaN(Number(order)) ? 0 : Number(order),
+    };
+
+    try {
+      const res = await fetch("/api/hero-slides", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        router.push("/admin/hero-slides");
+        router.refresh();
+      } else {
+        setError(data.error || "Failed to save slide.");
+      }
+    } catch (err) {
+      setError("An unexpected error occurred while saving.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="max-w-xl mx-auto space-y-6 select-none animate-fadeIn">
+      {/* Breadcrumb Navigation */}
+      <div>
+        <Link
+          href="/admin/hero-slides"
+          className="text-xs font-bold text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-1"
+        >
+          ← Back to Hero Slides
+        </Link>
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase tracking-tight text-slate-900">
+          Create Hero Slide
+        </h2>
+        <p className="text-xs text-slate-400 mt-0.5">
+          Add a new image or video slide with optional custom layout configurations for Desktop and Mobile.
+        </p>
+      </div>
+
+      {error && (
+        <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold">
+          ⚠️ {error}
+        </div>
+      )}
+
+      {/* Main Form */}
+      <form onSubmit={handleSubmit} className="bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-xs space-y-6">
+        
+        {/* Slide Type Selection */}
+        <div className="flex flex-col gap-2">
+          <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+            Slide Media Type
+          </label>
+          <div className="grid grid-cols-2 gap-4">
+            <button
+              type="button"
+              onClick={() => setType("image")}
+              className={`py-3 px-4 rounded-xl border font-bold text-xs uppercase transition-all cursor-pointer ${
+                type === "image"
+                  ? "bg-amber-500 border-amber-500 text-slate-950 shadow-sm"
+                  : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100"
+              }`}
+            >
+              🖼️ Image Slide
+            </button>
+            <button
+              type="button"
+              onClick={() => setType("video")}
+              className={`py-3 px-4 rounded-xl border font-bold text-xs uppercase transition-all cursor-pointer ${
+                type === "video"
+                  ? "bg-amber-500 border-amber-500 text-slate-950 shadow-sm"
+                  : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100"
+              }`}
+            >
+              📹 Video Slide
+            </button>
+          </div>
+        </div>
+
+        {/* Media File Uploader - Desktop */}
+        <div className="flex flex-col gap-2">
+          <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+            Upload Desktop {type} (Recommended: 16:9 / 21:9 Widescreen) <span className="text-rose-500">*</span>
+          </label>
+
+          <div className="flex items-center gap-4">
+            <div className="flex-1">
+              <label className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-4 cursor-pointer transition-all bg-slate-50/50 ${
+                fieldErrors.src ? "border-rose-300 hover:border-rose-400 bg-rose-50/10" : "border-slate-200 hover:border-amber-500"
+              }`}>
+                <span className="text-xl">{type === "video" ? "📹" : "📷"}</span>
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 mt-1">
+                  {uploading ? "Uploading file..." : `Browse desktop ${type} file`}
+                </span>
+                <input
+                  type="file"
+                  accept={type === "video" ? "video/*" : "image/*"}
+                  onChange={(e) => handleMediaUpload(e, "src")}
+                  disabled={uploading}
+                  className="hidden"
+                />
+              </label>
+              {fieldErrors.src && (
+                <p className="text-rose-600 text-[10px] font-bold mt-1.5 flex items-center gap-1 select-text">
+                  <span>⚠️</span> {fieldErrors.src}
+                </p>
+              )}
+            </div>
+
+            {/* Preview */}
+            {src && (
+              <div className="w-20 h-20 rounded border border-slate-200 overflow-hidden relative shrink-0 bg-slate-50">
+                {type === "video" ? (
+                  <video src={src} className="w-full h-full object-cover" muted />
+                ) : (
+                  <img src={src} alt="Preview" className="w-full h-full object-cover" />
+                )}
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1 mt-1">
+            <input
+              type="text"
+              placeholder={`Or paste desktop ${type} URL directly`}
+              value={src}
+              onChange={(e) => setSrc(e.target.value)}
+              className="px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800 font-mono"
+            />
+            <p className="text-[10px] font-bold text-slate-400 mt-1 select-text">
+              💡 Recommended ratios: <strong>16:9</strong> (1920x1080) [Default], <strong>21:9</strong> (2560x1080) [Ultrawide], <strong>16:10</strong> (1920x1200), or <strong>3:2</strong> (1800x1200). Media will cover the screen height, so choose the best fit to prevent important details from cropping.
+            </p>
+          </div>
+        </div>
+
+        {/* Video Poster Image - Desktop */}
+        {type === "video" && (
+          <div className="flex flex-col gap-2 animate-fadeIn">
+            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+              Desktop Video Poster / Fallback Image
+            </label>
+            <div className="flex items-center gap-4">
+              <div className="flex-1">
+                <label className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-4 cursor-pointer transition-all bg-slate-50/50 ${
+                  fieldErrors.poster ? "border-rose-300 hover:border-rose-400 bg-rose-50/10" : "border-slate-200 hover:border-amber-500"
+                }`}>
+                  <span className="text-xl">📷</span>
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 mt-1">
+                    {posterUploading ? "Uploading file..." : "Browse Desktop Poster Image"}
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleMediaUpload(e, "poster")}
+                    disabled={posterUploading}
+                    className="hidden"
+                  />
+                </label>
+                {fieldErrors.poster && (
+                  <p className="text-rose-600 text-[10px] font-bold mt-1.5 flex items-center gap-1 select-text">
+                    <span>⚠️</span> {fieldErrors.poster}
+                  </p>
+                )}
+              </div>
+              {poster && (
+                <div className="w-20 h-20 rounded border border-slate-200 overflow-hidden relative shrink-0">
+                  <img src={poster} alt="Poster Preview" className="w-full h-full object-cover" />
+                </div>
+              )}
+            </div>
+            <input
+              type="text"
+              placeholder="Or paste desktop poster image URL directly"
+              value={poster}
+              onChange={(e) => setPoster(e.target.value)}
+              className="px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800 font-mono mt-1"
+            />
+            <p className="text-[10px] font-bold text-slate-400">
+              Image displayed on desktop screens while the video is loading.
+            </p>
+          </div>
+        )}
+
+        <hr className="border-slate-100" />
+
+        {/* Media File Uploader - Mobile */}
+        <div className="flex flex-col gap-2">
+          <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+            Upload Mobile {type} (Recommended: 9:16 Portrait) <span className="text-slate-400">(Optional)</span>
+          </label>
+
+          <div className="flex items-center gap-4">
+            <div className="flex-1">
+              <label className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-4 cursor-pointer transition-all bg-slate-50/50 ${
+                fieldErrors.mobileSrc ? "border-rose-300 hover:border-rose-400 bg-rose-50/10" : "border-slate-200 hover:border-amber-500"
+              }`}>
+                <span className="text-xl">{type === "video" ? "📹" : "📷"}</span>
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 mt-1">
+                  {mobileUploading ? "Uploading file..." : `Browse mobile ${type} file`}
+                </span>
+                <input
+                  type="file"
+                  accept={type === "video" ? "video/*" : "image/*"}
+                  onChange={(e) => handleMediaUpload(e, "mobileSrc")}
+                  disabled={mobileUploading}
+                  className="hidden"
+                />
+              </label>
+              {fieldErrors.mobileSrc && (
+                <p className="text-rose-600 text-[10px] font-bold mt-1.5 flex items-center gap-1 select-text">
+                  <span>⚠️</span> {fieldErrors.mobileSrc}
+                </p>
+              )}
+            </div>
+
+            {/* Preview */}
+            {mobileSrc && (
+              <div className="w-20 h-20 rounded border border-slate-200 overflow-hidden relative shrink-0 bg-slate-50">
+                {type === "video" ? (
+                  <video src={mobileSrc} className="w-full h-full object-cover" muted />
+                ) : (
+                  <img src={mobileSrc} alt="Preview" className="w-full h-full object-cover" />
+                )}
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1 mt-1">
+            <input
+              type="text"
+              placeholder={`Or paste mobile ${type} URL directly`}
+              value={mobileSrc}
+              onChange={(e) => setMobileSrc(e.target.value)}
+              className="px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800 font-mono"
+            />
+            <p className="text-[10px] font-bold text-slate-400 mt-1 select-text">
+              💡 Recommended ratios: <strong>9:16</strong> (1080x1920) [Default Tall], <strong>4:5</strong> (1080x1350) [Instagram Portrait], <strong>2:3</strong> (1000x1500), <strong>3:4</strong> (960x1280) [Wide Portrait], or <strong>1:1</strong> (1080x1080) [Square].
+            </p>
+          </div>
+        </div>
+
+        {/* Video Poster Image - Mobile */}
+        {type === "video" && (
+          <div className="flex flex-col gap-2 animate-fadeIn">
+            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+              Mobile Video Poster / Fallback Image (Optional)
+            </label>
+            <div className="flex items-center gap-4">
+              <div className="flex-1">
+                <label className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-4 cursor-pointer transition-all bg-slate-50/50 ${
+                  fieldErrors.mobilePoster ? "border-rose-300 hover:border-rose-400 bg-rose-50/10" : "border-slate-200 hover:border-amber-500"
+                }`}>
+                  <span className="text-xl">📷</span>
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 mt-1">
+                    {mobilePosterUploading ? "Uploading file..." : "Browse Mobile Poster Image"}
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleMediaUpload(e, "mobilePoster")}
+                    disabled={mobilePosterUploading}
+                    className="hidden"
+                  />
+                </label>
+                {fieldErrors.mobilePoster && (
+                  <p className="text-rose-600 text-[10px] font-bold mt-1.5 flex items-center gap-1 select-text">
+                    <span>⚠️</span> {fieldErrors.mobilePoster}
+                  </p>
+                )}
+              </div>
+              {mobilePoster && (
+                <div className="w-20 h-20 rounded border border-slate-200 overflow-hidden relative shrink-0">
+                  <img src={mobilePoster} alt="Mobile Poster Preview" className="w-full h-full object-cover" />
+                </div>
+              )}
+            </div>
+            <input
+              type="text"
+              placeholder="Or paste mobile poster image URL directly"
+              value={mobilePoster}
+              onChange={(e) => setMobilePoster(e.target.value)}
+              className="px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800 font-mono mt-1"
+            />
+            <p className="text-[10px] font-bold text-slate-400">
+              Image displayed on mobile screens while the video is loading.
+            </p>
+          </div>
+        )}
+
+        <hr className="border-slate-100" />
+
+        {/* Alt Text */}
+        <div className="flex flex-col gap-2">
+          <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+            Alt Text / Accessibility Label <span className="text-rose-500">*</span>
+          </label>
+          <input
+            type="text"
+            placeholder="e.g., Majestic snow peaks, Couple sunset beach tour"
+            value={alt}
+            onChange={(e) => setAlt(e.target.value)}
+            className="px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800"
+            required
+          />
+        </div>
+
+        {/* Optional Overlays */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Badge */}
+          <div className="flex flex-col gap-2">
+            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+              Optional Badge / Category
+            </label>
+            <input
+              type="text"
+              placeholder="e.g., Explore The World, Coastal Escapes"
+              value={badge}
+              onChange={(e) => setBadge(e.target.value)}
+              className="px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800"
+            />
+          </div>
+
+          {/* Display Order */}
+          <div className="flex flex-col gap-2">
+            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+              Display Order
+            </label>
+            <input
+              type="number"
+              placeholder="e.g., 0"
+              value={order}
+              onChange={(e) => setOrder(e.target.value)}
+              className="px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800"
+            />
+          </div>
+        </div>
+
+        {/* Slide Title */}
+        <div className="flex flex-col gap-2">
+          <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+            Optional Overlay Title
+          </label>
+          <input
+            type="text"
+            placeholder="e.g., Unforgettable Group Journeys"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800"
+          />
+        </div>
+
+        {/* Slide Subtitle */}
+        <div className="flex flex-col gap-2">
+          <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+            Optional Overlay Subtitle / Description
+          </label>
+          <textarea
+            rows={2}
+            placeholder="e.g., Handcrafted travel experiences for passionate adventurers around the globe."
+            value={subtitle}
+            onChange={(e) => setSubtitle(e.target.value)}
+            className="px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-amber-500 text-xs font-semibold text-slate-800 resize-none"
+          />
+        </div>
+
+        {/* Submit */}
+        <div className="pt-2">
+          <button
+            type="submit"
+            disabled={saving || uploading || mobileUploading || posterUploading || mobilePosterUploading}
+            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold uppercase text-[10px] tracking-wider py-4 rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
+          >
+            {saving ? "Creating Slide..." : "➕ Create Slide"}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}

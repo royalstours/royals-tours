@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Theme Colors */
+  --color-primary-navy: #080F1E;
+  --color-secondary-navy: #0C172A;
+  --color-accent-gold: #278eb0;
+  --color-accent-gold-dark: #1f728e;
+  --color-accent-orange: #f17f21;
+  --color-accent-teal: #278eb0;
+  
+  /* Overrides for standard Tailwind palettes to match brand identity */
+  --color-amber-50: #f0f7f9;
+  --color-amber-100: #dceef4;
+  --color-amber-200: #c0e0eb;
+  --color-amber-300: #90ccdf;
+  --color-amber-400: #54afd0;
+  --color-amber-500: #278eb0;
+  --color-amber-550: #278eb0;
+  --color-amber-600: #1f728e;
+  --color-amber-655: #1c5d76;
+  --color-amber-700: #1c5d76;
+  --color-amber-800: #1c4e62;
+  --color-amber-900: #1c4253;
+  --color-amber-950: #0f2b38;
+
+  --color-orange-50: #fff7ed;
+  --color-orange-100: #ffeed7;
+  --color-orange-200: #ffd7af;
+  --color-orange-300: #ffb779;
+  --color-orange-400: #ff9040;
+  --color-orange-500: #f17f21;
+  --color-orange-605: #f17f21;
+  --color-orange-600: #dd6413;
+  --color-orange-700: #b74811;
+  --color-orange-800: #913a13;
+  --color-orange-900: #773113;
+  --color-orange-950: #431705;
+  
+  /* Font Stacks */
+  --font-sans: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-outfit), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-script: var(--font-caveat), cursive;
+  
+  /* Animation Customizations */
+  --animate-dialog: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-pulse-gentle: pulse-gentle 4s infinite ease-in-out;
+  --animate-progress: progress linear forwards;
+}
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #1E293B;
+  
+  /* Font Variables for compatibility */
+  --font-sans: var(--font-plus-jakarta);
+  --font-heading: var(--font-outfit);
+  --font-script: var(--font-caveat);
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Custom Cursive Font Helper */
+.font-script {
+  font-family: var(--font-script) !important;
+  line-height: 1.1;
+}
+
+/* Premium Glassmorphism classes */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.glass-trust {
+  background: #0C172A;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* Gradients */
+.gradient-btn {
+  background: linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-orange) 100%);
+  color: #ffffff;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 14px rgba(39, 142, 176, 0.3);
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(39, 142, 176, 0.45);
+}
+
+.gradient-btn-outline {
+  border: 2px solid transparent;
+  background: linear-gradient(#0C172A, #0C172A) padding-box,
+              linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-orange) 100%) border-box;
+  color: #ffffff;
+  transition: var(--transition-smooth);
+}
+
+.gradient-btn-outline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.05);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hover Zoom & Premium Transitions */
+.hover-card {
+  transition: var(--transition-smooth);
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080F1E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-accent-gold), var(--color-accent-orange));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-gold);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.05); }
+}
+
+@keyframes progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.floating-widget {
+  animation: pulse-gentle 4s infinite ease-in-out;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.floating-widget:hover {
+  animation-play-state: paused;
+  transform: scale(1.1) translateY(-4px);
+}
+
+/* Infinite Marquee Scroll */
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  height: 100%;
+  width: 150px;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  top: 0;
+  background: linear-gradient(to right, #F8FAFC 0%, transparent 100%);
+}
+
+.marquee-container::after {
+  right: 0;
+  top: 0;
+  background: linear-gradient(to left, #F8FAFC 0%, transparent 100%);
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 2rem;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
