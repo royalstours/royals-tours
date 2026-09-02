@@ -17,60 +17,55 @@ interface TopRatedLocationsProps {
 
 export default function TopRatedLocations({ onOpenInquiry }: TopRatedLocationsProps) {
   const fallbackLocations: LocationItem[] = [
-    // Column 1
     {
-      name: "Meghalaya",
-      image: "https://images.unsplash.com/photo-1616091093714-c64882e9ab55?q=80&w=600",
-      inquiryName: "Meghalaya Tour",
+      name: "Kashmir",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788345706/royal_tours/gqxmvyfov40ophksdkps.jpg",
+      link: "/destinations/6a92c2c54532c1a150d79d07",
     },
     {
-      name: "Azerbaijan",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600",
-      inquiryName: "Azerbaijan Tour",
-    },
-    // Column 2
-    {
-      name: "Uttar Pradesh",
-      image: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600",
-      inquiryName: "Uttar Pradesh (Varanasi / Agra) Tour",
+      name: "Bali, Indonesia",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788346941/royal_tours/c1s0arfevzlz4u0wjmku.jpg",
+      link: "/destinations/6a92c2c64532c1a150d79d16",
     },
     {
-      name: "Bhutan",
-      image: "https://images.unsplash.com/photo-1544811096-89a14f806d55?q=80&w=600",
-      link: "/destinations/fd-bhutan",
-    },
-    // Column 3
-    {
-      name: "Rajasthan",
-      image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=600",
-      link: "/packages/pkg-rajasthan",
+      name: "Chardham Yatra",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788346058/royal_tours/xfujwsgtlhld5jpoax8l.jpg",
+      link: "/destinations/6a92c2c54532c1a150d79d0c",
     },
     {
-      name: "Cambodia",
-      image: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=600",
-      inquiryName: "Cambodia Tour",
-    },
-    // Column 4
-    {
-      name: "Leh-Ladakh",
-      image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=600",
-      link: "/packages/pkg-ladakh-bike",
+      name: "Vietnam Wonders",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788346549/royal_tours/qrus47f3346wx95d8sq3.jpg",
+      link: "/destinations/6a92c2c64532c1a150d79d1f",
     },
     {
-      name: "Dubai",
-      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=600",
-      link: "/destinations/fd-dubai",
-    },
-    // Column 5
-    {
-      name: "Karnataka",
-      image: "https://images.unsplash.com/photo-1620127252536-03bdfcf6d5c3?q=80&w=600",
-      inquiryName: "Karnataka (Hampi) Tour",
+      name: "Leh Ladakh",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788345911/royal_tours/ylhnizryd3epq123nrfi.jpg",
+      link: "/destinations/6a92c2c54532c1a150d79d09",
     },
     {
-      name: "Indonesia",
-      image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=600",
-      link: "/packages/pkg-bali-honeymoon",
+      name: "Goa Getaway",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788346449/royal_tours/iqptdowfqffgyn3lthnb.jpg",
+      link: "/destinations/6a92c2c64532c1a150d79d0f",
+    },
+    {
+      name: "Royals Kerala",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788344708/royal_tours/jh1v9vcr4xje8nfdyohq.jpg",
+      link: "/destinations/6a92c2c54532c1a150d79d02",
+    },
+    {
+      name: "Singapore & Cruise",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788346326/royal_tours/ukvhibhfzfvhc5id0qoj.jpg",
+      link: "/destinations/6a92c2c64532c1a150d79d1d",
+    },
+    {
+      name: "Bhutan Himalayan",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788346630/royal_tours/d504lq0shjnolodtpe9e.jpg",
+      link: "/destinations/6a92c2c64532c1a150d79d10",
+    },
+    {
+      name: "Assam & Meghalaya",
+      image: "https://res.cloudinary.com/dgb6durda/image/upload/v1788346732/royal_tours/rhfn5lkqm2astvotchkr.jpg",
+      link: "/destinations/6a92c2c64532c1a150d79d11",
     },
   ];
 

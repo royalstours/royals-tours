@@ -767,7 +767,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹25,999 PP",
     "rawPrice": 25999,
-    "image": "https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=800",
     "highlights": [
       "Arrival in Jammu / Katra",
       "Katra to Srinagar (Scenic Drive)",
@@ -903,7 +903,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹35,999 PP",
     "rawPrice": 35999,
-    "image": "https://images.unsplash.com/photo-1590050752117-238cb0612b1b?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1616091093714-c64882e9ab55?q=80&w=800",
     "highlights": [
       "Arrival at NJP / Bagdogra & Travel to Gangtok",
       "Gangtok to Lachung Alpine Valley",
@@ -1380,7 +1380,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹27,999 PP",
     "rawPrice": 27999,
-    "image": "https://images.unsplash.com/photo-1602631985686-2bb060a9e20e?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=800",
     "highlights": [
       "Arrival in Delhi & Haridwar",
       "New Delhi – Haridwar",
@@ -1532,7 +1532,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹31,999 PP",
     "rawPrice": 31999,
-    "image": "https://images.unsplash.com/photo-1602631985686-2bb060a9e20e?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
     "highlights": [
       "Arrival in Banaras & Kashi Darshan",
       "Banaras to Sonauli Border",
@@ -1696,7 +1696,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹17,999 PP",
     "rawPrice": 17999,
-    "image": "https://images.unsplash.com/photo-1602631985686-2bb060a9e20e?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=800",
     "highlights": [
       "Arrival in Raipur & Travel to Champaran",
       "Champaran Baithakji Sewa & Train to Jagannath Puri",
@@ -2033,7 +2033,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹47,999 PP",
     "rawPrice": 47999,
-    "image": "https://images.unsplash.com/photo-1590050752117-238cb0612b1b?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1616091093714-c64882e9ab55?q=80&w=800",
     "highlights": [
       "Arrive Guwahati - Transfer to Hotel",
       "Guwahati to Bomdila",
@@ -2495,7 +2495,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹2,85,999 PP",
     "rawPrice": 285999,
-    "image": "https://images.unsplash.com/photo-1602631985686-2bb060a9e20e?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1584810359583-96fc3448beaa?q=80&w=800",
     "highlights": [
       "Arrival at Kathmandu and",
       "Kathmandu (1300m) After having morning breakfast, we go for half day special prayers near Pashupatinath temple. (Rudra abishega Homa puja with 11 pandits, if you wish we can arrange with nominal cost). Later",
@@ -3951,16 +3951,16 @@ export const servicesList: ServiceItem[] = [
     ]
   },
   {
-    "id": "srv-rail",
-    "title": "Rail Booking",
-    "subtitle": "Easy & Instant Rail Reservations",
-    "icon": "🚂",
-    "description": "Hassle-free train ticketing and reservation management across India's extensive railway network.",
+    "id": "srv-car",
+    "title": "Car Booking",
+    "subtitle": "Easy & Instant Car Rentals",
+    "icon": "🚗",
+    "description": "Hassle-free car rentals, local sightseeing cabs, and outstation taxi booking services.",
     "features": [
-      "Hassle-free 3AC/2AC Sleeper class reservations",
-      "Immediate seat confirmation checking",
-      "Flexible group ticketing options",
-      "Refund handling in case of train delays/cancellation"
+      "Well-maintained AC sedans, SUVs & Tempo Travelers",
+      "Experienced, polite, and verified drivers",
+      "Flexible hourly, daily, and outstation rental packages",
+      "Transparent pricing with instant booking confirmation"
     ]
   },
   {

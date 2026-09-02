@@ -35,11 +35,12 @@ const getServiceIcon = (emoji: string) => {
           <path d="M6 5v4M6 15v4M18 5v4M18 15v4" />
         </svg>
       );
-    case "🚂":
+    case "🚗":
       return (
         <svg className="w-6 h-6 stroke-amber-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-          <rect x="4" y="3" width="16" height="18" rx="2" />
-          <path d="M4 11h16M12 3v8M8 15h8M8 18h8M6 21v2M18 21v2" />
+          <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11.2 2 11.8 2 12.4V16c0 .6.4 1 1 1h2" />
+          <circle cx="7" cy="17" r="2" />
+          <circle cx="17" cy="17" r="2" />
         </svg>
       );
     case "📑":
@@ -103,7 +104,7 @@ export default function ServicesPage() {
             Our Travel Services
           </h1>
           <p className="text-xs text-slate-450 font-semibold max-w-lg leading-relaxed">
-            From visa assistance to booking flight tickets and train reservations, we coordinate every detail of your vacation.
+            From visa assistance to booking flight tickets and car rentals, we coordinate every detail of your vacation.
           </p>
         </div>
       </section>

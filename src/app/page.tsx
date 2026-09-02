@@ -293,7 +293,7 @@ export default function Home() {
                 Hassle-Free Booking
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                From round-trip flight booking and train reservations to visa processing support, passport assistance, and overseas travel insurance, we provide end-to-end support for a seamless holiday.
+                From round-trip flight booking and car rentals to visa processing support, passport assistance, and overseas travel insurance, we provide end-to-end support for a seamless holiday.
               </p>
             </div>
           </div>
@@ -559,9 +559,6 @@ export default function Home() {
                 className="bg-slate-955 p-8 rounded-3xl border border-slate-800 hover:border-amber-500/30 transition-all flex flex-col justify-between"
               >
                 <div className="space-y-4">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-lg shadow-sm">
-                    {srv.icon}
-                  </div>
                   <div>
                     <div className="flex items-center gap-2">
                       <h3 className="font-heading font-extrabold text-base uppercase text-white">
