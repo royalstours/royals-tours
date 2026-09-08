@@ -268,8 +268,8 @@ export default function HeroSection({
                 </>
               )}
 
-              {/* Dark Ambient Overlay Gradient */}
-              <div className="absolute inset-0 bg-slate-950/40 z-10" />
+              {/* Ambient Overlay Gradient for High Contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/30 z-10" />
             </div>
           ))}
         </div>
@@ -283,7 +283,7 @@ export default function HeroSection({
           <button
             onClick={prevSlide}
             aria-label="Previous Slide"
-            className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full items-center justify-center bg-slate-900/40 hover:bg-amber-500/80 text-white backdrop-blur-md border border-white/10 hover:border-amber-400 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer group"
+            className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full items-center justify-center bg-white/20 hover:bg-orange-500 text-white backdrop-blur-md border border-white/30 hover:border-orange-400 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer group"
           >
             <svg
               className="w-6 h-6 transform group-hover:-translate-x-0.5 transition-transform"
@@ -303,7 +303,7 @@ export default function HeroSection({
           <button
             onClick={nextSlide}
             aria-label="Next Slide"
-            className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full items-center justify-center bg-slate-900/40 hover:bg-amber-500/80 text-white backdrop-blur-md border border-white/10 hover:border-amber-400 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer group"
+            className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full items-center justify-center bg-white/20 hover:bg-orange-500 text-white backdrop-blur-md border border-white/30 hover:border-orange-400 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer group"
           >
             <svg
               className="w-6 h-6 transform group-hover:translate-x-0.5 transition-transform"
@@ -329,14 +329,14 @@ export default function HeroSection({
 
         {/* Optional Media Badge */}
         {currentMedia && currentMedia.badge && (
-          <div className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-heading font-semibold tracking-wider uppercase backdrop-blur-md animate-fadeIn">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+          <div className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/30 border border-orange-400/60 text-orange-200 text-xs sm:text-sm font-heading font-semibold tracking-wider uppercase backdrop-blur-md animate-fadeIn">
+            <span className="w-2 h-2 rounded-full bg-orange-400 animate-ping" />
             {currentMedia.badge}
           </div>
         )}
 
         {/* HEADLINE: Dynamic Title */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none max-w-5xl text-center uppercase tracking-tight text-white font-heading font-black">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none max-w-5xl text-center uppercase text-white font-heading font-black">
           {currentMedia && currentMedia.title ? (
             currentMedia.title
           ) : (
@@ -348,7 +348,7 @@ export default function HeroSection({
         </h1>
 
         {/* Subtitle / Dynamic Description */}
-        <p className="mt-6 text-sm sm:text-base text-slate-200 max-w-2xl font-semibold leading-relaxed">
+        <p className="mt-6 text-sm sm:text-base text-slate-100 max-w-2xl font-semibold leading-relaxed drop-shadow-sm">
           {currentMedia && currentMedia.subtitle ? currentMedia.subtitle : "Curated domestic pure veg departures & custom international holiday escapes."}
         </p>
 
@@ -356,7 +356,7 @@ export default function HeroSection({
         <div className="mt-9 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full max-w-md">
           <a
             href="#featured-packages"
-            className="gradient-btn px-8 py-4 rounded-full font-heading font-semibold text-center flex items-center justify-center gap-2 cursor-pointer shadow-lg w-full sm:w-auto"
+            className="gradient-btn px-8 py-4 rounded-full font-heading font-semibold text-center flex items-center justify-center gap-2 cursor-pointer shadow-lg w-full sm:w-auto text-white"
           >
             Explore Packages
             <svg
@@ -375,7 +375,7 @@ export default function HeroSection({
           </a>
           <button
             onClick={() => openInquiryModal?.("")}
-            className="gradient-btn-outline px-8 py-4 rounded-full font-heading font-semibold text-center border-2 flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto bg-slate-950/40 backdrop-blur-md hover:bg-amber-500/10 transition-colors"
+            className="gradient-btn-outline px-8 py-4 rounded-full font-heading font-semibold text-center border-2 flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto bg-white/15 text-white backdrop-blur-md hover:bg-orange-500/30 transition-colors shadow-md"
           >
             Enquire Now
             <svg

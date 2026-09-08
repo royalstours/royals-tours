@@ -71,24 +71,24 @@ export default function InquiryModal({
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-slate-950/75 backdrop-blur-sm transition-opacity"
+        className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity"
       ></div>
 
       {/* Dialog Container */}
-      <div className="relative bg-white rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl z-10 animate-dialog border border-slate-100 flex flex-col">
+      <div className="relative bg-white rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl z-10 animate-dialog border border-orange-100 flex flex-col">
         {/* Header */}
-        <div className="bg-slate-950 text-white px-6 py-5 flex items-center justify-between border-b border-slate-900">
+        <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white px-6 py-5 flex items-center justify-between shadow-md">
           <div>
             <h3 className="text-base font-extrabold font-heading tracking-wide uppercase">
               Plan Your Next Trip
             </h3>
-            <p className="text-[10px] text-amber-400 font-semibold tracking-wider mt-0.5">
+            <p className="text-[10px] text-white/90 font-bold tracking-wider mt-0.5">
               ROYALS TOURS INQUIRY FORM
             </p>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white p-1 focus:outline-none transition-colors"
+            className="text-white/80 hover:text-white p-1 focus:outline-none transition-colors"
             aria-label="Close dialog"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

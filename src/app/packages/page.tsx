@@ -118,19 +118,19 @@ function CatalogContent() {
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Hero Banner Header */}
-      <section className="bg-slate-950 text-white pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-slate-950/30 z-10" />
-        <div className="absolute right-[-20px] bottom-[-40px] text-white/5 font-black text-[120px] pointer-events-none select-none uppercase">
+      <section className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
+        <div className="absolute inset-0 bg-black/10 z-10" />
+        <div className="absolute right-[-20px] bottom-[-40px] text-white/10 font-black text-[120px] pointer-events-none select-none uppercase">
           Tours
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-4">
-          <span className="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block">
+          <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
             Our Catalog
           </span>
-          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white">
+          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white drop-shadow-sm">
             Majestic Tour Packages
           </h1>
-          <p className="text-xs text-slate-450 font-semibold max-w-lg leading-relaxed">
+          <p className="text-xs text-white/90 font-medium max-w-lg leading-relaxed">
             Choose from our pre-scheduled Pure Veg domestic group departures or custom international vacation packages.
           </p>
         </div>
@@ -173,7 +173,7 @@ function CatalogContent() {
                   onClick={() => setActiveTab("all")}
                   className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === "all"
-                      ? "bg-slate-950 text-white shadow-md"
+                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
                       : "bg-slate-50 text-slate-700 hover:bg-slate-100"
                   }`}
                 >
@@ -183,7 +183,7 @@ function CatalogContent() {
                   onClick={() => setActiveTab("domestic")}
                   className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === "domestic"
-                      ? "bg-slate-950 text-white shadow-md"
+                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
                       : "bg-slate-50 text-slate-700 hover:bg-slate-100"
                   }`}
                 >
@@ -198,7 +198,7 @@ function CatalogContent() {
                   onClick={() => setActiveTab("international")}
                   className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === "international"
-                      ? "bg-slate-950 text-white shadow-md"
+                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
                       : "bg-slate-50 text-slate-700 hover:bg-slate-100"
                   }`}
                 >
@@ -245,14 +245,14 @@ function CatalogContent() {
                     className="bg-white rounded-3xl border border-slate-100 shadow-xs hover-card flex flex-col overflow-hidden text-left"
                   >
                     {/* Image Header */}
-                    <div className="relative h-48 bg-slate-900 shrink-0">
+                    <div className="relative h-48 bg-slate-100 shrink-0">
                       {item.badge && !["international tour", "domestic tour", "domestic group tour"].includes(item.badge.toLowerCase()) && (
-                        <span className="absolute top-4 left-4 z-10 bg-slate-950/80 text-amber-400 border border-amber-500/25 px-3 py-1 rounded-full font-black text-[8px] uppercase tracking-wider">
+                        <span className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-md text-orange-600 border border-orange-200 px-3 py-1 rounded-full font-black text-[8px] uppercase tracking-wider shadow-xs">
                           {item.badge}
                         </span>
                       )}
-                      <span className="absolute bottom-4 right-4 z-10 bg-slate-950/80 text-white border border-slate-800 px-3 py-1 rounded-full font-bold text-[9px] uppercase tracking-wider flex items-center gap-1">
-                        <svg className="w-2.5 h-2.5 stroke-white fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                      <span className="absolute bottom-4 right-4 z-10 bg-white/90 backdrop-blur-md text-slate-800 border border-slate-200 px-3 py-1 rounded-full font-bold text-[9px] uppercase tracking-wider flex items-center gap-1 shadow-xs">
+                        <svg className="w-2.5 h-2.5 stroke-slate-800 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                           <circle cx="12" cy="12" r="10" />
                           <polyline points="12 6 12 12 16 14" />
                         </svg>
@@ -329,7 +329,7 @@ function CatalogContent() {
                             </span>
                           </div>
                           <div
-                            className="bg-slate-950 group-hover:bg-slate-855 text-white font-heading font-black text-[9px] uppercase tracking-wider px-4 py-2 rounded-xl transition-all"
+                            className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-heading font-black text-[9px] uppercase tracking-wider px-4 py-2 rounded-xl transition-all shadow-xs"
                           >
                             Explore →
                           </div>

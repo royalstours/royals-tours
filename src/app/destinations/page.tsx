@@ -168,25 +168,25 @@ export default function DestinationsPage() {
       <Navbar onOpenInquiry={openInquiryModal} />
 
       {/* Page Header */}
-      <section className="relative pt-32 pb-20 bg-slate-950 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-25">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white overflow-hidden shadow-md">
+        <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600"
             alt="Traveler looking out over majestic mountain range"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs uppercase font-heading font-bold text-amber-400 tracking-widest bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full inline-block mb-4">
+          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/20 border border-white/30 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
             EXPLORE THE WORLD WITH US
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
-            Our Featured <span className="text-amber-500">Destinations</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight drop-shadow-sm">
+            Our Featured <span className="text-amber-200">Destinations</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto font-sans leading-relaxed">
             Discover our international group departures featuring country slogans, tropical island retreats, and domestic summit treks.
           </p>
         </div>
@@ -194,34 +194,34 @@ export default function DestinationsPage() {
 
       {/* Trip Finder Wizard Banner */}
       <section className="relative -mt-10 mb-10 z-20 max-w-6xl mx-auto px-4 select-none">
-        <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+        <div className="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 border border-orange-100 shadow-2xl space-y-6">
           <div className="flex items-center gap-2.5">
-            <span className="text-amber-500 text-lg">🎯</span>
+            <span className="text-orange-500 text-lg">🎯</span>
             <div>
-              <h3 className="font-heading font-extrabold text-lg text-white">Find Your Ideal Destination</h3>
-              <p className="text-slate-400 text-xs mt-0.5">Specify your requirements to filter perfect matched itineraries.</p>
+              <h3 className="font-heading font-extrabold text-lg text-slate-900">Find Your Ideal Destination</h3>
+              <p className="text-slate-500 text-xs mt-0.5">Specify your requirements to filter perfect matched itineraries.</p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
             <div className="space-y-2">
-              <label className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Where do you want to explore?</label>
+              <label className="block text-[10px] uppercase font-bold text-slate-500 tracking-wider">Where do you want to explore?</label>
               <select
                 value={activeCategory}
                 onChange={(e) => setActiveCategory(e.target.value as any)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs font-semibold text-white focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer"
               >
                 <option value="all">All Destinations</option>
                 <option value="international">International Departures</option>
                 <option value="domestic">Domestic Getaways</option>
-                <option value="trek">Treks & Summits</option>
+                <option value="trek">Treks &amp; Summits</option>
               </select>
             </div>
             <div className="space-y-2">
-              <label className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">How many days?</label>
+              <label className="block text-[10px] uppercase font-bold text-slate-500 tracking-wider">How many days?</label>
               <select
                 value={finderDuration}
                 onChange={(e) => setFinderDuration(e.target.value as any)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs font-semibold text-white focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer"
               >
                 <option value="all">Any Duration</option>
                 <option value="short">2 - 3 Days (Weekend Escapes)</option>
@@ -232,11 +232,11 @@ export default function DestinationsPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Number of Travelers?</label>
+              <label className="block text-[10px] uppercase font-bold text-slate-500 tracking-wider">Number of Travelers?</label>
               <select
                 value={finderPax}
                 onChange={(e) => setFinderPax(e.target.value as any)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs font-semibold text-white focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer"
               >
                 <option value="all">Any Group Size</option>
                 <option value="2">Couple (2 Persons)</option>
@@ -248,16 +248,16 @@ export default function DestinationsPage() {
           </div>
 
           {(activeCategory !== "all" || finderDuration !== "all" || finderPax !== "all") && (
-            <div className="flex items-center justify-between border-t border-slate-800/80 pt-4 text-xs">
-              <div className="flex items-center gap-1.5 text-slate-400">
+            <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs">
+              <div className="flex items-center gap-1.5 text-slate-500">
                 <span>Active Requirements:</span>
-                {activeCategory !== "all" && <span className="bg-slate-800 text-amber-400 px-2 py-0.5 rounded font-semibold uppercase text-[10px]">{activeCategory}</span>}
-                {finderDuration !== "all" && <span className="bg-slate-800 text-white px-2 py-0.5 rounded font-semibold text-[10px]">{finderDuration === "short" ? "2-3 Days" : finderDuration === "medium" ? "4-6 Days" : finderDuration === "long" ? "7-9 Days" : "10+ Days"}</span>}
-                {finderPax !== "all" && <span className="bg-slate-800 text-white px-2 py-0.5 rounded font-semibold text-[10px]">{finderPax} Travelers</span>}
+                {activeCategory !== "all" && <span className="bg-orange-50 text-orange-600 border border-orange-200 px-2 py-0.5 rounded font-semibold uppercase text-[10px]">{activeCategory}</span>}
+                {finderDuration !== "all" && <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-semibold text-[10px]">{finderDuration === "short" ? "2-3 Days" : finderDuration === "medium" ? "4-6 Days" : finderDuration === "long" ? "7-9 Days" : "10+ Days"}</span>}
+                {finderPax !== "all" && <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-semibold text-[10px]">{finderPax} Travelers</span>}
               </div>
               <button
                 onClick={() => { setActiveCategory("all"); setFinderDuration("all"); setFinderPax("all"); }}
-                className="text-amber-500 hover:text-amber-400 font-bold transition-colors cursor-pointer"
+                className="text-orange-600 hover:text-orange-700 font-bold transition-colors cursor-pointer"
               >
                 Clear All Filters
               </button>
@@ -283,7 +283,7 @@ export default function DestinationsPage() {
                 onClick={() => setActiveCategory(tab.id as any)}
                 className={`px-4 py-2 rounded-full text-xs font-bold font-heading transition-all cursor-pointer ${
                   activeCategory === tab.id
-                    ? "bg-slate-900 text-amber-400 shadow-md"
+                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
@@ -347,7 +347,7 @@ export default function DestinationsPage() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       {item.isFixedDeparture && (
-                        <div className="absolute top-4 right-4 bg-slate-950/85 backdrop-blur-md text-amber-400 text-[10px] font-bold tracking-wider px-3 py-1 rounded-full border border-amber-500/30">
+                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-orange-600 text-[10px] font-bold tracking-wider px-3 py-1 rounded-full border border-orange-200 shadow-xs">
                           GROUP DEPARTURE
                         </div>
                       )}

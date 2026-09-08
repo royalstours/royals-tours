@@ -112,25 +112,25 @@ export default function FaqsPage() {
       <Navbar onOpenInquiry={openInquiryModal} />
 
       {/* Page Header */}
-      <section className="relative pt-32 pb-20 bg-slate-950 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-25">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white overflow-hidden shadow-md">
+        <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600"
             alt="Travel counselor giving advice to traveler"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs uppercase font-heading font-bold text-amber-400 tracking-widest bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full inline-block mb-4">
+          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/20 border border-white/30 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
             HELP &amp; KNOWLEDGE BASE
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
-            Frequently Asked <span className="text-amber-500">Questions</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight drop-shadow-sm">
+            Frequently Asked <span className="text-amber-200">Questions</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto font-sans leading-relaxed">
             Find answers to common questions about international group departures, visa procedures, solo room sharing, and payment schedules.
           </p>
         </div>
@@ -148,7 +148,7 @@ export default function FaqsPage() {
                 onClick={() => { setActiveCategory(cat.id); setOpenIndex(0); }}
                 className={`px-4 py-2 rounded-full text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
                   activeCategory === cat.id
-                    ? "bg-slate-900 text-amber-400 shadow-md"
+                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
@@ -165,7 +165,7 @@ export default function FaqsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search visa, deposit, refund..."
-              className="w-full bg-slate-50 border border-slate-300 rounded-full px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-800"
+              className="w-full bg-slate-50 border border-slate-300 rounded-full px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-orange-400 text-slate-800"
             />
             <svg className="absolute right-3.5 top-2.5 text-slate-400 w-3.5 h-3.5 stroke-current fill-none pointer-events-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8" />
@@ -224,10 +224,10 @@ export default function FaqsPage() {
           )}
 
           {/* Need More Assistance Card */}
-          <div className="mt-14 bg-slate-900 text-white rounded-3xl p-8 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
+          <div className="mt-14 bg-gradient-to-r from-orange-50 via-amber-50 to-teal-50 text-slate-850 rounded-3xl p-8 border border-orange-100/80 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
             <div>
-              <h3 className="text-xl font-bold font-heading text-white">Still have questions?</h3>
-              <p className="text-xs text-slate-400 mt-1">Our travel specialists are available on WhatsApp and Phone 7 days a week.</p>
+              <h3 className="text-xl font-bold font-heading text-slate-900">Still have questions?</h3>
+              <p className="text-xs text-slate-600 mt-1">Our travel specialists are available on WhatsApp and Phone 7 days a week.</p>
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
@@ -235,13 +235,13 @@ export default function FaqsPage() {
                 href="https://wa.me/919723820277"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-full text-xs font-bold font-heading transition-colors"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-full text-xs font-bold font-heading transition-colors shadow-xs"
               >
                 Chat on WhatsApp
               </a>
               <Link
                 href="/contact"
-                className="gradient-btn px-5 py-2.5 rounded-full text-xs font-bold font-heading"
+                className="gradient-btn px-5 py-2.5 rounded-full text-xs font-bold font-heading text-white shadow-xs"
               >
                 Contact Us
               </Link>

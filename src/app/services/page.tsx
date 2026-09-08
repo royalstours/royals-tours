@@ -91,19 +91,19 @@ export default function ServicesPage() {
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Header Banner */}
-      <section className="bg-slate-950 text-white pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-slate-950/30 z-10" />
-        <div className="absolute right-[-20px] bottom-[-40px] text-white/5 font-black text-[120px] pointer-events-none select-none uppercase">
+      <section className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
+        <div className="absolute inset-0 bg-black/10 z-10" />
+        <div className="absolute right-[-20px] bottom-[-40px] text-white/10 font-black text-[120px] pointer-events-none select-none uppercase">
           Services
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-4">
-          <span className="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block">
+          <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
             What We Do
           </span>
-          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white">
+          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white drop-shadow-sm">
             Our Travel Services
           </h1>
-          <p className="text-xs text-slate-450 font-semibold max-w-lg leading-relaxed">
+          <p className="text-xs text-white/90 font-medium max-w-lg leading-relaxed">
             From visa assistance to booking flight tickets and car rentals, we coordinate every detail of your vacation.
           </p>
         </div>
@@ -113,21 +113,21 @@ export default function ServicesPage() {
       <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow space-y-16">
         
         {/* Core USP Special Callout */}
-        <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl flex flex-col md:flex-row gap-8 items-center justify-between relative overflow-hidden border border-slate-800">
+        <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-amber-500 text-white p-8 rounded-3xl shadow-xl flex flex-col md:flex-row gap-8 items-center justify-between relative overflow-hidden border border-orange-400/30">
           <div className="space-y-4 relative z-10 flex-1">
-            <span className="bg-amber-500 text-slate-950 text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider">
+            <span className="bg-white text-orange-600 text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider shadow-xs">
               Exclusive Domestic USP
             </span>
-            <h2 className="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight text-white">
+            <h2 className="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight text-white drop-shadow-sm">
               Catering Kitchen pure Veg Group Departures
             </h2>
-            <p className="text-xs text-slate-350 leading-relaxed font-semibold max-w-2xl">
+            <p className="text-xs text-white/90 leading-relaxed font-medium max-w-2xl">
               We travel with our own dedicated team of Gujarati &amp; Rajasthani cooks. During your tour, we prepare fresh, hot, pure vegetarian, Swaminarayan, and Jain meals daily. Ideal for family group travel!
             </p>
           </div>
           <button
             onClick={() => handleOpenInquiry("Pure Veg Group Departure")}
-            className="gradient-btn px-6 py-3 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-slate-950 shrink-0 relative z-10 cursor-pointer"
+            className="bg-white hover:bg-orange-50 text-orange-600 px-6 py-3 rounded-full font-heading font-bold text-xs uppercase tracking-wider shrink-0 relative z-10 cursor-pointer shadow-md transition-colors"
           >
             Inquire About Veg Tours
           </button>

@@ -239,60 +239,60 @@ export default function Home() {
       <TopRatedLocations onOpenInquiry={handleOpenInquiry} />
 
       {/* Static Why Travel With Us Section */}
-      <section className="bg-slate-900 py-16 border-b border-slate-950 relative overflow-hidden text-white">
+      <section className="bg-gradient-to-b from-orange-50/40 via-white to-orange-50/30 py-20 border-b border-orange-100 relative overflow-hidden text-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-12">
-            <span className="text-[10px] font-black uppercase text-amber-500 tracking-widest bg-amber-500/10 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100 px-3 py-1 rounded-full">
               Why Travel With Us
             </span>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-white">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
               The Royals Tours Experience
             </h2>
-            <p className="text-xs text-slate-400 font-semibold leading-relaxed">
+            <p className="text-xs text-slate-600 font-semibold leading-relaxed">
               We focus on premium comfort, meticulous detail, and absolute safety for a worry-free travel experience.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-950/50 p-8 rounded-2xl border border-slate-800 space-y-4 hover:border-amber-500/40 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 text-2xl font-bold">
-                <svg className="w-6 h-6 stroke-amber-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-xl shadow-orange-500/5 space-y-4 hover:border-orange-400 hover:shadow-orange-500/10 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl font-bold shadow-sm">
+                <svg className="w-6 h-6 stroke-orange-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                 </svg>
               </div>
-              <h3 className="font-heading font-bold text-base uppercase text-white">
+              <h3 className="font-heading font-bold text-base uppercase text-slate-900">
                 Pure Veg &amp; Jain Catering
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 For our domestic group tours, our private catering kitchen team travels with the group, preparing fresh, delicious Gujarati and Rajasthani pure vegetarian, Swaminarayan, and Jain meals daily.
               </p>
             </div>
             
-            <div className="bg-slate-950/50 p-8 rounded-2xl border border-slate-800 space-y-4 hover:border-amber-500/40 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 text-2xl font-bold">
-                <svg className="w-6 h-6 stroke-amber-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-2xl border border-teal-100 shadow-xl shadow-teal-500/5 space-y-4 hover:border-teal-400 hover:shadow-teal-500/10 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-600 text-2xl font-bold shadow-sm">
+                <svg className="w-6 h-6 stroke-teal-600 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <circle cx="12" cy="8" r="5" />
                   <path d="M20 21a8 8 0 0 0-16 0" />
                 </svg>
               </div>
-              <h3 className="font-heading font-bold text-base uppercase text-white">
+              <h3 className="font-heading font-bold text-base uppercase text-slate-900">
                 Expert Tour Managers
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Every tour departs with an experienced, helpful Royals Tours manager who oversees hotel check-ins, local transport, excursions, and ensures guest comfort from arrival to departure.
               </p>
             </div>
 
-            <div className="bg-slate-950/50 p-8 rounded-2xl border border-slate-800 space-y-4 hover:border-amber-500/40 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 text-2xl font-bold">
-                <svg className="w-6 h-6 stroke-amber-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-2xl border border-amber-100 shadow-xl shadow-amber-500/5 space-y-4 hover:border-amber-400 hover:shadow-amber-500/10 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 text-2xl font-bold shadow-sm">
+                <svg className="w-6 h-6 stroke-amber-600 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7 3.5 8.5l7.3 3.6-3.6 3.6L4.5 15l-1 1 2.5 1.5L7.5 20l1-1-.7-2.7 3.6-3.6 3.6 7.3z"/>
                 </svg>
               </div>
-              <h3 className="font-heading font-bold text-base uppercase text-white">
+              <h3 className="font-heading font-bold text-base uppercase text-slate-900">
                 Hassle-Free Booking
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 From round-trip flight booking and car rentals to visa processing support, passport assistance, and overseas travel insurance, we provide end-to-end support for a seamless holiday.
               </p>
             </div>
@@ -382,7 +382,7 @@ export default function Home() {
                       alt={item.destination}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 right-4 bg-slate-950/85 backdrop-blur-md text-amber-400 text-[9px] font-black tracking-widest px-3 py-1 rounded-full border border-amber-500/20 uppercase">
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-orange-600 text-[9px] font-black tracking-widest px-3 py-1 rounded-full border border-orange-200 shadow-xs uppercase">
                       VEG GROUP TOUR
                     </div>
                   </Link>
@@ -538,16 +538,16 @@ export default function Home() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-20 bg-slate-900 text-white border-t border-slate-955">
+      <section className="py-20 bg-gradient-to-b from-slate-50 via-teal-50/20 to-slate-50 text-slate-800 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-16">
-            <span className="text-[10px] font-black uppercase text-amber-500 tracking-widest bg-amber-500/10 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100 px-3 py-1 rounded-full">
               Our Services
             </span>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-white">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
               End-To-End Travel Assistance
             </h2>
-            <p className="text-xs text-slate-405 font-semibold leading-relaxed">
+            <p className="text-xs text-slate-600 font-semibold leading-relaxed">
               We handle every detail of your journey so you can focus entirely on creating unforgettable moments.
             </p>
           </div>
@@ -556,33 +556,33 @@ export default function Home() {
             {servicesList.map((srv) => (
               <div
                 key={srv.id}
-                className="bg-slate-955 p-8 rounded-3xl border border-slate-800 hover:border-amber-500/30 transition-all flex flex-col justify-between"
+                className="bg-white p-8 rounded-3xl border border-slate-200 hover:border-orange-400 hover:shadow-xl shadow-sm transition-all flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="font-heading font-extrabold text-base uppercase text-white">
+                      <h3 className="font-heading font-extrabold text-base uppercase text-slate-900">
                         {srv.title}
                       </h3>
                       {srv.badge && (
-                        <span className="bg-amber-500/20 text-amber-400 font-black text-[8px] uppercase px-2 py-0.5 rounded-full border border-amber-500/15">
+                        <span className="bg-orange-100 text-orange-600 font-black text-[8px] uppercase px-2 py-0.5 rounded-full border border-orange-200">
                           {srv.badge}
                         </span>
                       )}
                     </div>
-                    <span className="text-[10px] text-slate-400 font-semibold block mt-0.5">
+                    <span className="text-[10px] text-slate-500 font-semibold block mt-0.5">
                       {srv.subtitle}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {srv.description}
                   </p>
                 </div>
-                <div className="pt-6 border-t border-slate-800 mt-6">
+                <div className="pt-6 border-t border-slate-100 mt-6">
                   <ul className="space-y-2">
                     {srv.features.slice(0, 3).map((feat, fidx) => (
-                      <li key={fidx} className="flex items-start gap-2 text-[10px] font-bold text-slate-400">
-                        <span className="text-emerald-500">✓</span>
+                      <li key={fidx} className="flex items-start gap-2 text-[10px] font-bold text-slate-600">
+                        <span className="text-teal-600">✓</span>
                         <span>{feat}</span>
                       </li>
                     ))}

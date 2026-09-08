@@ -20,19 +20,19 @@ export default function AboutPage() {
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Header Banner */}
-      <section className="bg-slate-950 text-white pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-slate-950/30 z-10" />
-        <div className="absolute right-[-20px] bottom-[-40px] text-white/5 font-black text-[120px] pointer-events-none select-none uppercase">
+      <section className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
+        <div className="absolute inset-0 bg-black/10 z-10" />
+        <div className="absolute right-[-20px] bottom-[-40px] text-white/10 font-black text-[120px] pointer-events-none select-none uppercase">
           About
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-4">
-          <span className="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block">
+          <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
             Our Story
           </span>
-          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white">
+          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white drop-shadow-sm">
             About Royals Tours
           </h1>
-          <p className="text-xs text-slate-450 font-semibold max-w-lg leading-relaxed">
+          <p className="text-xs text-white/90 font-medium max-w-lg leading-relaxed">
             Crafting majestic travel memories and pure vegetarian group holiday experiences.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function AboutPage() {
             <div className="flex gap-4">
               <Link
                 href="/packages"
-                className="gradient-btn px-6 py-3 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-slate-950 shadow-md cursor-pointer"
+                className="gradient-btn px-6 py-3 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-white shadow-md cursor-pointer"
               >
                 Browse Catalog
               </Link>
@@ -69,7 +69,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="h-96 rounded-3xl overflow-hidden shadow-lg border border-slate-100 relative bg-slate-900">
+          <div className="h-96 rounded-3xl overflow-hidden shadow-lg border border-slate-100 relative bg-slate-100">
             <img
               src="https://images.unsplash.com/photo-1590050752117-238cb0612b1b?q=80&w=800"
               alt="Himalayan Mountains Scenic"

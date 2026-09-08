@@ -113,7 +113,7 @@ export default function PackageDetailPage({
           </p>
           <Link
             href="/packages"
-            className="gradient-btn px-6 py-3 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-slate-950 shadow-md"
+            className="gradient-btn px-6 py-3 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-white shadow-md"
           >
             Browse Travel Catalog
           </Link>
@@ -131,12 +131,12 @@ export default function PackageDetailPage({
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Hero Header */}
-      <section className="relative h-[50vh] bg-slate-950 overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-slate-950/40 z-10" />
+      <section className="relative h-[50vh] bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 overflow-hidden pt-20">
+        <div className="absolute inset-0 bg-black/25 z-10" />
         <img
           src={item.image}
           alt={item.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-80"
         />
         <div className="absolute inset-0 z-20 flex items-end pb-12">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
@@ -252,7 +252,7 @@ export default function PackageDetailPage({
                     {item.itinerary.map((day, idx) => (
                       <div key={idx} className="relative pl-12 space-y-3">
                         {/* Day Counter Bubble */}
-                        <div className="absolute left-1 top-0 w-10 h-10 rounded-full bg-slate-900 border-2 border-amber-500 flex items-center justify-center text-white font-heading font-black text-xs z-10 shadow">
+                        <div className="absolute left-1 top-0 w-10 h-10 rounded-full bg-orange-500 border-2 border-amber-300 flex items-center justify-center text-white font-heading font-black text-xs z-10 shadow-sm">
                           {String(day.day).padStart(2, "0")}
                         </div>
                         
@@ -453,7 +453,7 @@ export default function PackageDetailPage({
                 </a>
                 <button
                   onClick={() => handleOpenInquiry(item.title)}
-                  className="w-full text-center bg-slate-950 hover:bg-slate-850 text-white font-heading font-bold text-xs uppercase tracking-wider py-3.5 rounded-2xl shadow-xs transition-all cursor-pointer"
+                  className="w-full text-center gradient-btn text-white font-heading font-bold text-xs uppercase tracking-wider py-3.5 rounded-2xl shadow-md hover:scale-[1.01] transition-all cursor-pointer"
                 >
                   ⚡ Send Booking Inquiry
                 </button>
@@ -461,18 +461,18 @@ export default function PackageDetailPage({
             </div>
 
             {/* Quick Contact Card */}
-            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-4">
-              <h4 className="font-heading font-black text-xs uppercase tracking-wider text-amber-500">
+            <div className="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 border border-orange-100 shadow-md space-y-4">
+              <h4 className="font-heading font-black text-xs uppercase tracking-wider text-orange-600">
                 Direct Contact Helpline
               </h4>
-              <div className="space-y-3 text-xs font-semibold">
+              <div className="space-y-3 text-xs font-semibold text-slate-700">
                 <div className="flex items-center gap-2.5">
                   <span>📞</span>
-                  <a href="tel:+919723820277" className="hover:text-amber-400">+91 97238 20277</a>
+                  <a href="tel:+919723820277" className="hover:text-orange-600 transition-colors">+91 97238 20277</a>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <span>✉️</span>
-                  <a href="mailto:royalstours.amd@gmail.com" className="hover:text-amber-400">royalstours.amd@gmail.com</a>
+                  <a href="mailto:royalstours.amd@gmail.com" className="hover:text-orange-600 transition-colors">royalstours.amd@gmail.com</a>
                 </div>
               </div>
             </div>

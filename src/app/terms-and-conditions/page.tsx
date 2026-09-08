@@ -13,16 +13,16 @@ export default function TermsAndConditionsPage() {
       <Navbar onOpenInquiry={() => setIsModalOpen(true)} />
 
       {/* Page Header */}
-      <section className="relative pt-32 pb-16 bg-slate-950 text-white">
+      <section className="relative pt-32 pb-16 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white shadow-md">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs uppercase font-heading font-bold text-amber-400 tracking-widest bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full inline-block mb-4">
+          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/20 border border-white/30 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
             LEGAL TRANSPARENCY
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight">
-            Terms &amp; <span className="text-amber-500">Conditions</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight drop-shadow-sm">
+            Terms &amp; <span className="text-amber-200">Conditions</span>
           </h1>
-          <p className="mt-3 text-xs sm:text-sm text-slate-300 font-sans">
-            Last Updated: July 2026 • Please read these terms carefully before booking your trip with Explore and Unite.
+          <p className="mt-3 text-xs sm:text-sm text-white/90 font-sans">
+            Last Updated: July 2026 • Please read these terms carefully before booking your trip with Royals Tours.
           </p>
         </div>
       </section>
@@ -32,16 +32,16 @@ export default function TermsAndConditionsPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-700 text-sm leading-relaxed">
           
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               1. Acceptance of Terms &amp; Contract Formation
             </h2>
             <p>
-              By paying a deposit or full payment for any tour package, international group departure, custom itinerary, or weekend trek organized by <strong>Explore and Unite</strong>, you agree to be bound by these Terms and Conditions. The contract becomes binding once we issue a booking confirmation voucher.
+              By paying a deposit or full payment for any tour package, international group departure, custom itinerary, or weekend trek organized by <strong>Royals Tours</strong>, you agree to be bound by these Terms and Conditions. The contract becomes binding once we issue a booking confirmation voucher.
             </p>
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               2. Booking &amp; Payment Schedule
             </h2>
             <ul className="list-disc pl-5 space-y-2">
@@ -52,7 +52,7 @@ export default function TermsAndConditionsPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               3. Cancellation &amp; Refund Policy
             </h2>
             <p>
@@ -62,9 +62,9 @@ export default function TermsAndConditionsPage() {
             <div className="overflow-x-auto my-4">
               <table className="w-full text-left border-collapse border border-slate-200 text-xs">
                 <thead>
-                  <tr className="bg-slate-900 text-white font-heading">
-                    <th className="p-3 border border-slate-700">Cancellation Timeframe</th>
-                    <th className="p-3 border border-slate-700">Refund Amount</th>
+                  <tr className="bg-gradient-to-r from-orange-500 to-amber-500 text-white font-heading">
+                    <th className="p-3 border border-orange-400">Cancellation Timeframe</th>
+                    <th className="p-3 border border-orange-400">Refund Amount</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,7 +74,7 @@ export default function TermsAndConditionsPage() {
                   </tr>
                   <tr className="border-b border-slate-200">
                     <td className="p-3 font-semibold">15 to 29 days before departure</td>
-                    <td className="p-3 text-amber-600 font-bold">50% refund</td>
+                    <td className="p-3 text-orange-600 font-bold">50% refund</td>
                   </tr>
                   <tr className="border-b border-slate-200 bg-slate-50">
                     <td className="p-3 font-semibold">0 to 14 days before departure / No Show</td>
@@ -86,7 +86,7 @@ export default function TermsAndConditionsPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               4. Passports, Visas &amp; Health Regulations
             </h2>
             <p>
@@ -95,7 +95,7 @@ export default function TermsAndConditionsPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               5. Travel Insurance &amp; Liability Disclaimers
             </h2>
             <p>
@@ -104,7 +104,7 @@ export default function TermsAndConditionsPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               6. Group Code of Conduct &amp; Safety
             </h2>
             <p>
@@ -112,9 +112,9 @@ export default function TermsAndConditionsPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 text-center space-y-2 mt-8">
-            <h3 className="font-bold text-base font-heading text-amber-400">Questions Regarding Terms?</h3>
-            <p className="text-xs text-slate-300">
+          <div className="p-6 bg-orange-50 text-slate-800 rounded-2xl border border-orange-200 text-center space-y-2 mt-8 shadow-sm">
+            <h3 className="font-bold text-base font-heading text-orange-600">Questions Regarding Terms?</h3>
+            <p className="text-xs text-slate-600">
               For any clarification regarding our booking contract or policies, write to us at <code>royalstours.amd@gmail.com</code> or call +91 97238 20277.
             </p>
           </div>

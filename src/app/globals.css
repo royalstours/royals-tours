@@ -1,59 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Theme Colors - Matched Directly to Royals Tours Logo */
-  --color-primary-navy: #07152B;
-  --color-secondary-navy: #0C1E3D;
-  --color-accent-blue: #0F82E1;
-  --color-accent-blue-dark: #0B6CC6;
-  --color-accent-orange: #F07D23;
-  --color-accent-orange-dark: #DC6413;
-  --color-accent-gold: #F07D23;
-  --color-accent-gold-dark: #DC6413;
-  --color-accent-teal: #0F82E1;
+  /* Bright, Sunlit Travel Theme: Mango Sunset & Tropical Teal */
+  --color-primary-navy: #0F766E;
+  --color-secondary-navy: #115E59;
+  --color-accent-blue: #0284C7;
+  --color-accent-blue-dark: #0369A1;
+  --color-accent-orange: #FF6B35;
+  --color-accent-orange-dark: #E85D04;
+  --color-accent-gold: #F59E0B;
+  --color-accent-gold-dark: #D97706;
+  --color-accent-teal: #14B8A6;
   
-  /* Overrides for standard Tailwind amber/orange palettes mapped to Logo Tangerine Orange */
-  --color-amber-50: #FFF8F0;
-  --color-amber-100: #FEEDDC;
-  --color-amber-200: #FDD9B8;
-  --color-amber-300: #FCBE87;
-  --color-amber-400: #FA9A50;
-  --color-amber-500: #F07D23;
-  --color-amber-550: #F07D23;
-  --color-amber-600: #DC6413;
-  --color-amber-605: #DC6413;
-  --color-amber-655: #B64A10;
-  --color-amber-700: #B64A10;
-  --color-amber-800: #913B13;
-  --color-amber-900: #763213;
-  --color-amber-905: #763213;
-  --color-amber-950: #421606;
+  /* Overrides for standard Tailwind amber/orange palettes mapped to Sun-Drenched Mango Coral */
+  --color-amber-50: #FFF8F1;
+  --color-amber-100: #FEECDC;
+  --color-amber-200: #FCD9BD;
+  --color-amber-300: #FDBA8C;
+  --color-amber-400: #FF8A4C;
+  --color-amber-500: #FF6B35;
+  --color-amber-550: #FF6B35;
+  --color-amber-600: #E85D04;
+  --color-amber-605: #E85D04;
+  --color-amber-655: #C74B00;
+  --color-amber-700: #C74B00;
+  --color-amber-800: #9E3B00;
+  --color-amber-900: #7A2F00;
+  --color-amber-905: #7A2F00;
+  --color-amber-950: #421600;
 
-  --color-orange-50: #FFF8F0;
-  --color-orange-100: #FEEDDC;
-  --color-orange-200: #FDD9B8;
-  --color-orange-300: #FCBE87;
-  --color-orange-400: #FA9A50;
-  --color-orange-500: #F07D23;
-  --color-orange-600: #DC6413;
-  --color-orange-605: #DC6413;
-  --color-orange-700: #B64A10;
-  --color-orange-800: #913B13;
-  --color-orange-900: #763213;
-  --color-orange-950: #421606;
+  --color-orange-50: #FFF8F1;
+  --color-orange-100: #FEECDC;
+  --color-orange-200: #FCD9BD;
+  --color-orange-300: #FDBA8C;
+  --color-orange-400: #FF8A4C;
+  --color-orange-500: #FF6B35;
+  --color-orange-600: #E85D04;
+  --color-orange-605: #E85D04;
+  --color-orange-700: #C74B00;
+  --color-orange-800: #9E3B00;
+  --color-orange-900: #7A2F00;
+  --color-orange-950: #421600;
 
-  /* Blue Palette matching the Logo Sky / Ocean Azure Wing */
-  --color-sky-50: #EEF7FF;
-  --color-sky-100: #D9EDFE;
-  --color-sky-200: #B9E0FD;
-  --color-sky-300: #87CAFA;
-  --color-sky-400: #3AA8F6;
-  --color-sky-500: #0F82E1;
-  --color-sky-600: #0B6CC6;
-  --color-sky-700: #0A56A0;
-  --color-sky-800: #0C4A84;
-  --color-sky-900: #103E6E;
-  --color-sky-950: #0B2748;
+  /* Blue / Sky Palette mapped to Bright Coastal Teal & Azure */
+  --color-sky-50: #F0FDF4;
+  --color-sky-100: #CCFBF1;
+  --color-sky-200: #99F6E4;
+  --color-sky-300: #5EEAD4;
+  --color-sky-400: #2DD4BF;
+  --color-sky-500: #14B8A6;
+  --color-sky-600: #0D9488;
+  --color-sky-700: #0F766E;
+  --color-sky-800: #115E59;
+  --color-sky-900: #134E4A;
+  --color-sky-950: #042F2E;
   
   /* Font Stacks */
   --font-sans: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -67,8 +67,8 @@
 }
 
 :root {
-  --background: #F8FAFC;
-  --foreground: #07152B;
+  --background: #FAFCFF;
+  --foreground: #1E293B;
   
   /* Font Variables for compatibility */
   --font-sans: var(--font-plus-jakarta);
@@ -96,63 +96,64 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
 }
 
-/* Premium Glassmorphism classes */
+/* Light & Airy Glassmorphism classes */
 .glass-nav {
-  background: rgba(7, 21, 43, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(15, 130, 225, 0.22);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .glass-trust {
-  background: #07152B;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 107, 53, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* Gradients Matching Logo Dual Tone (Sky Blue to Sunset Orange) */
+/* Gradients: Mango Sun to Tropical Teal */
 .gradient-btn {
-  background: linear-gradient(135deg, #0F82E1 0%, #F07D23 100%);
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8A4C 50%, #FFAA00 100%);
   color: #ffffff;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 14px rgba(15, 130, 225, 0.35);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.35);
 }
 
 .gradient-btn:hover {
+  background: linear-gradient(135deg, #E85D04 0%, #FF6B35 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(240, 125, 35, 0.45);
+  box-shadow: 0 6px 22px rgba(255, 107, 53, 0.45);
 }
 
 .gradient-btn-outline {
   border: 2px solid transparent;
-  background: linear-gradient(#07152B, #07152B) padding-box,
-              linear-gradient(135deg, #0F82E1 0%, #F07D23 100%) border-box;
-  color: #ffffff;
+  background: linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+              linear-gradient(135deg, #FF6B35 0%, #14B8A6 100%) border-box;
+  color: #FF6B35;
   transition: var(--transition-smooth);
 }
 
 .gradient-btn-outline:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(15, 130, 225, 0.25);
+  box-shadow: 0 6px 15px rgba(255, 107, 53, 0.2);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #0F82E1 0%, #F07D23 100%);
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8A4C 40%, #0D9488 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-gold {
-  background: linear-gradient(135deg, #F07D23 0%, #DC6413 100%);
+  background: linear-gradient(135deg, #FF6B35 0%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-blue {
-  background: linear-gradient(135deg, #0F82E1 0%, #0B6CC6 100%);
+  background: linear-gradient(135deg, #0D9488 0%, #0284C7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -165,7 +166,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hover-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
 }
 
 /* Custom Scrollbar */
@@ -174,16 +175,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #07152B;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #0F82E1, #F07D23);
+  background: linear-gradient(180deg, #FF6B35, #FFAA00, #14B8A6);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0F82E1;
+  background: #FF6B35;
 }
 
 /* Keyframes */

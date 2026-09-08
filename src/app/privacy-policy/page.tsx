@@ -13,16 +13,16 @@ export default function PrivacyPolicyPage() {
       <Navbar onOpenInquiry={() => setIsModalOpen(true)} />
 
       {/* Page Header */}
-      <section className="relative pt-32 pb-16 bg-slate-950 text-white">
+      <section className="relative pt-32 pb-16 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white shadow-md">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs uppercase font-heading font-bold text-amber-400 tracking-widest bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full inline-block mb-4">
+          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/20 border border-white/30 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
             DATA PROTECTION
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight">
-            Privacy <span className="text-amber-500">Policy</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight drop-shadow-sm">
+            Privacy <span className="text-amber-200">Policy</span>
           </h1>
-          <p className="mt-3 text-xs sm:text-sm text-slate-300 font-sans">
-            Last Updated: July 2026 • Your privacy and personal data security are paramount at Explore and Unite.
+          <p className="mt-3 text-xs sm:text-sm text-white/90 font-sans">
+            Last Updated: July 2026 • Your privacy and personal data security are paramount at Royals Tours.
           </p>
         </div>
       </section>
@@ -32,16 +32,16 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-700 text-sm leading-relaxed">
           
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               1. Introduction
             </h2>
             <p>
-              This Privacy Policy explains how <strong>Explore and Unite</strong> collects, uses, protects, and discloses personal information obtained from travelers when visiting our website, submitting booking inquiry forms, or communicating with our travel counselors.
+              This Privacy Policy explains how <strong>Royals Tours</strong> collects, uses, protects, and discloses personal information obtained from travelers when visiting our website, submitting booking inquiry forms, or communicating with our travel counselors.
             </p>
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               2. Information We Collect
             </h2>
             <p>We may collect the following personal information when you interact with us:</p>
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               3. How We Use Your Information
             </h2>
             <p>We utilize your personal information strictly for legitimate travel operational purposes:</p>
@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               4. Data Sharing &amp; Third-Party Partners
             </h2>
             <p>
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               5. Data Security &amp; Retention
             </h2>
             <p>
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-amber-500/30 pb-2">
+            <h2 className="text-xl font-bold font-heading text-slate-900 border-b border-orange-200 pb-2">
               6. Your Privacy Rights
             </h2>
             <p>
@@ -93,9 +93,9 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 text-center space-y-2 mt-8">
-            <h3 className="font-bold text-base font-heading text-amber-400">Privacy Inquiries</h3>
-            <p className="text-xs text-slate-300">
+          <div className="p-6 bg-orange-50 text-slate-800 rounded-2xl border border-orange-200 text-center space-y-2 mt-8 shadow-sm">
+            <h3 className="font-bold text-base font-heading text-orange-600">Privacy Inquiries</h3>
+            <p className="text-xs text-slate-600">
               If you have any questions or data requests concerning our Privacy Policy, please contact our Data Privacy officer at <code>royalstours.amd@gmail.com</code>.
             </p>
           </div>

@@ -148,7 +148,7 @@ export default function TrustHighlightsSlider({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12 md:my-16 select-none">
       <section
-        className="relative w-full aspect-[3/4] sm:aspect-[16/9] md:aspect-[21/9] select-none overflow-hidden bg-slate-950 border border-slate-800/80 rounded-3xl sm:rounded-[36px] shadow-xl"
+        className="relative w-full aspect-[3/4] sm:aspect-[16/9] md:aspect-[21/9] select-none overflow-hidden bg-slate-900 border border-slate-200/80 rounded-3xl sm:rounded-[36px] shadow-xl"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={handleTouchStart}
@@ -233,31 +233,31 @@ export default function TrustHighlightsSlider({
                   </div>
                 )}
 
-                {/* Dark tint overlay for text readability */}
-                <div className="absolute inset-0 bg-slate-950/40 z-10" />
+                {/* Soft gradient overlay for text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
 
                 {/* Glassmorphic Ad Copy Card */}
                 {(slide.title || slide.badge || slide.subtitle) && (
-                  <div className="absolute left-4 right-4 bottom-4 sm:left-12 sm:bottom-16 sm:right-auto sm:max-w-md bg-slate-900/80 border border-white/10 backdrop-blur-md p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl text-white select-text pointer-events-auto select-none">
+                  <div className="absolute left-4 right-4 bottom-4 sm:left-12 sm:bottom-16 sm:right-auto sm:max-w-md bg-white/95 border border-white/80 backdrop-blur-xl p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl text-slate-900 select-text pointer-events-auto select-none">
                     {slide.badge && (
-                      <span className="inline-block bg-amber-500 text-slate-950 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest leading-none mb-2 sm:mb-3">
+                      <span className="inline-block bg-orange-500 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest leading-none mb-2 sm:mb-3 shadow-sm">
                         {slide.badge}
                       </span>
                     )}
                     {slide.title && (
-                      <h3 className="font-heading font-black text-lg sm:text-2xl lg:text-3xl uppercase tracking-tight leading-tight mb-2 text-white">
+                      <h3 className="font-heading font-black text-lg sm:text-2xl lg:text-3xl uppercase tracking-tight leading-tight mb-2 text-slate-900">
                         {slide.title}
                       </h3>
                     )}
                     {slide.subtitle && (
-                      <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-4 sm:mb-5">
+                      <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4 sm:mb-5">
                         {slide.subtitle}
                       </p>
                     )}
                     {slide.ctaText && slide.ctaLink && (
                       <Link
                         href={slide.ctaLink}
-                        className="gradient-btn px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 hover:scale-105 transition-transform duration-300 shadow-md pointer-events-auto"
+                        className="gradient-btn px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 hover:scale-105 transition-transform duration-300 shadow-md pointer-events-auto text-white"
                       >
                         {slide.ctaText}
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -278,7 +278,7 @@ export default function TrustHighlightsSlider({
             <button
               onClick={prevSlide}
               aria-label="Previous Slide"
-              className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/40 hover:bg-amber-500/80 text-white backdrop-blur-md border border-white/10 hover:border-amber-400 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer animate-none"
+              className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-white/85 hover:bg-orange-500 text-slate-800 hover:text-white backdrop-blur-md border border-white/50 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer animate-none"
             >
               <svg
                 className="w-5 h-5"
@@ -298,7 +298,7 @@ export default function TrustHighlightsSlider({
             <button
               onClick={nextSlide}
               aria-label="Next Slide"
-              className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/40 hover:bg-amber-500/80 text-white backdrop-blur-md border border-white/10 hover:border-amber-400 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer animate-none"
+              className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-white/85 hover:bg-orange-500 text-slate-800 hover:text-white backdrop-blur-md border border-white/50 transition-all duration-300 transform hover:scale-110 shadow-lg cursor-pointer animate-none"
             >
               <svg
                 className="w-5 h-5"
@@ -329,8 +329,8 @@ export default function TrustHighlightsSlider({
                   aria-label={`Go to slide ${idx + 1}`}
                   className={`h-2 rounded-full transition-all duration-500 cursor-pointer overflow-hidden ${
                     isActive
-                      ? "w-6 bg-amber-400 ring-2 ring-amber-400/30"
-                      : "w-2 bg-white/40 hover:bg-white/70"
+                      ? "w-6 bg-orange-500 ring-2 ring-orange-400/30"
+                      : "w-2 bg-white/60 hover:bg-white"
                   }`}
                 />
               );

@@ -38,8 +38,8 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-nav">
-      {/* Top Brand Gradient Accent Line */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-[#0F82E1] via-[#F07D23] to-[#0F82E1]" />
+      {/* Top Vibrant Travel Gradient Stripe */}
+      <div className="h-[2.5px] w-full bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500" />
 
       <div className="max-w-360 mx-auto px-4 sm:px-6 xl:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24 gap-2 xl:gap-4">
@@ -54,10 +54,10 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-white font-heading font-extrabold text-[12px] xs:text-sm sm:text-base leading-tight tracking-wider">
-                ROYALS <span className="text-amber-500">TOURS</span>
+              <span className="text-slate-900 font-heading font-extrabold text-[12px] xs:text-sm sm:text-base leading-tight tracking-wider">
+                ROYALS <span className="text-orange-500">TOURS</span>
               </span>
-              <span className="hidden sm:block text-[9px] text-slate-400 font-sans tracking-[0.18em] leading-none mt-0.5">
+              <span className="hidden sm:block text-[9px] text-slate-500 font-sans tracking-[0.18em] leading-none mt-0.5">
                 MAJESTIC JOURNEYS. MEMORIES.
               </span>
             </div>
@@ -72,13 +72,13 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                   href={item.href}
                   className={`text-[9.5px] 2xl:text-xs font-bold uppercase tracking-wider transition-colors relative py-1.5 whitespace-nowrap ${
                     isActive(item.href)
-                      ? "text-amber-400 font-extrabold"
-                      : "text-slate-200 hover:text-amber-400"
+                      ? "text-orange-600 font-extrabold"
+                      : "text-slate-700 hover:text-orange-500"
                   }`}
                 >
                   {item.label}
                   {isActive(item.href) && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400 to-amber-500 rounded-full shadow-[0_0_8px_rgba(240,125,35,0.7)] animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 to-amber-400 rounded-full shadow-[0_0_8px_rgba(255,107,53,0.5)] animate-fade-in" />
                   )}
                 </Link>
               ))}
@@ -89,7 +89,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
           <div className="hidden xl:block shrink-0">
             <button
               onClick={() => onOpenInquiry("")}
-              className="gradient-btn px-6 py-2.5 rounded-full font-heading font-bold text-xs flex items-center gap-2 cursor-pointer text-white shadow-lg shadow-orange-500/20 hover:shadow-orange-500/35"
+              className="gradient-btn px-6 py-2.5 rounded-full font-heading font-bold text-xs flex items-center gap-2 cursor-pointer text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40"
             >
               Enquire Now
               <svg className="w-4.5 h-4.5 transform rotate-45" fill="currentColor" viewBox="0 0 20 20">
@@ -102,7 +102,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
           <div className="xl:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white hover:text-amber-400 p-2 focus:outline-none"
+              className="text-slate-800 hover:text-orange-500 p-2 focus:outline-none"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -122,7 +122,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#07152B]/98 backdrop-blur-xl border-b border-sky-500/20 px-4 pt-4 pb-6 space-y-4 shadow-2xl select-none">
+        <div className="xl:hidden bg-white/98 backdrop-blur-xl border-b border-orange-100 px-4 pt-4 pb-6 space-y-4 shadow-xl select-none">
           {/* Mobile Links */}
           <div className="space-y-1">
             {navItems.map((item) => (
@@ -132,8 +132,8 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-3 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors ${
                   isActive(item.href)
-                    ? "bg-sky-500/15 text-amber-400 font-bold border border-sky-500/30"
-                    : "text-slate-200 hover:bg-white/5 hover:text-white"
+                    ? "bg-orange-50 text-orange-600 font-bold border border-orange-200"
+                    : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
                 }`}
               >
                 {item.label}
@@ -147,7 +147,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenInquiry("");
               }}
-              className="w-full gradient-btn py-3.5 rounded-xl font-heading font-bold text-xs flex items-center justify-center gap-2 cursor-pointer text-white shadow-lg shadow-orange-500/20"
+              className="w-full gradient-btn py-3.5 rounded-xl font-heading font-bold text-xs flex items-center justify-center gap-2 cursor-pointer text-white shadow-lg shadow-orange-500/25"
             >
               Enquire Now
               <svg className="w-4 h-4 transform rotate-45" fill="currentColor" viewBox="0 0 20 20">
@@ -165,14 +165,14 @@ export default function Navbar(props: NavbarProps) {
   return (
     <Suspense fallback={
       <header className="fixed top-0 left-0 right-0 z-50 glass-nav h-20 sm:h-24">
-        <div className="h-[2px] w-full bg-gradient-to-r from-[#0F82E1] via-[#F07D23] to-[#0F82E1]" />
+        <div className="h-[2.5px] w-full bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500" />
         <div className="max-w-360 mx-auto px-4 sm:px-6 xl:px-8 flex items-center justify-between h-full">
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-13.75 h-13.75 sm:w-20.5 sm:h-20.5 flex items-center justify-center">
               <img src="/website-logo.webp" alt="Royals Tours Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-white font-heading font-extrabold text-[12px] xs:text-sm sm:text-base leading-tight tracking-wider">
-              ROYALS <span className="text-amber-500">TOURS</span>
+            <span className="text-slate-900 font-heading font-extrabold text-[12px] xs:text-sm sm:text-base leading-tight tracking-wider">
+              ROYALS <span className="text-orange-500">TOURS</span>
             </span>
           </Link>
         </div>
