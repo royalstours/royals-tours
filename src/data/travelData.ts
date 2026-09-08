@@ -2180,10 +2180,10 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "statue-of-unity": {
     "title": "Statue Of Unity",
     "name": "Statue of Unity",
-    "slogan": "",
+    "slogan": "Stand before the world's tallest monument, cruise along the sacred Narmada, and explore Gujarat's heritage marvels.",
     "category": "domestic",
     "duration": "5 Days / 4 Nights",
-    "badge": "",
+    "badge": "World's Tallest Monument",
     "price": "₹24,999 PP",
     "rawPrice": 24999,
     "image": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
@@ -2192,13 +2192,28 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
       "Jungle Safari, Zarwani Eco Tour & Ekta Cruise",
       "Poicha Nilkanthdham Temple & Vadodara",
       "Laxmi Vilas Palace & Ahmedabad Heritage Tour"
-],
-    "description": "",
+    ],
+    "description": "Embark on an inspiring 5-day journey to the iconic Statue of Unity, the world's tallest monument standing at 182 meters in Kevadia. Experience the scenic Valley of Flowers, the thrilling Jungle Safari, and the mesmerizing evening Laser Light and Sound Show. Enjoy a relaxing cruise on the Narmada River and witness the divine Narmada Maha Aarti. The tour also takes you to the serene Nilkanthdham Swaminarayan Temple in Poicha, the royal Laxmi Vilas Palace in Vadodara, and the historic heritage wonders of Ahmedabad, complete with comfortable AC coach transfers and delicious pure veg meals prepared fresh daily.",
     "location": "Statue of Unity",
-    "bestTimeToVisit": "",
-    "groupSize": "",
-    "included": [],
-    "excluded": [],
+    "bestTimeToVisit": "October to March",
+    "groupSize": "12 - 25 Guests",
+    "included": [
+      "4 Nights comfortable hotel accommodation (Kevadia, Vadodara, Ahmedabad)",
+      "Daily breakfast, lunch, and dinner (Pure Veg & Jain meals prepared fresh)",
+      "All transfers and sightseeing by AC coach / vehicle",
+      "Statue of Unity entry tickets with Viewing Gallery access (subject to slot)",
+      "Scenic Ekta Cruise Ride on the Narmada River",
+      "Evening Laser Light & Sound Show and Unity Glow Garden entry",
+      "Jungle Safari & Khalwani to Zarwani Eco Tourism tour",
+      "Poicha Nilkanthdham Temple & Vadodara Laxmi Vilas Palace visits",
+      "Dedicated tour coordinator and 24/7 guest assistance"
+    ],
+    "excluded": [
+      "Train/Air tickets to Ahmedabad & return",
+      "Personal expenses (laundry, shopping, tips, telephone calls)",
+      "Optional adventure rides and camera entry fees",
+      "Anything not explicitly mentioned in the inclusions"
+    ],
     "itinerary": [
       {
             "day": 1,

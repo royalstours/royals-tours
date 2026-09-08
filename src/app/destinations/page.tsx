@@ -365,14 +365,16 @@ export default function DestinationsPage() {
                         </h3>
 
                         {/* COUNTRY SLOGAN / SUBTEXT DISPLAY */}
-                        <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3 shadow-2xs">
-                          <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
-                            <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
-                          </svg>
-                          <p className="text-xs font-semibold italic text-orange-900/90 leading-snug">
-                            "{item.slogan}"
-                          </p>
-                        </div>
+                        {item.slogan && item.slogan.trim() && (
+                          <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3 shadow-2xs">
+                            <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
+                              <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
+                            </svg>
+                            <p className="text-xs font-semibold italic text-orange-900/90 leading-snug">
+                              "{item.slogan}"
+                            </p>
+                          </div>
+                        )}
 
                         <p className="text-xs text-slate-600 mt-3 leading-relaxed font-medium">
                           {item.description}
