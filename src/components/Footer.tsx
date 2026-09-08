@@ -59,7 +59,7 @@ export default function Footer() {
                 <span className="text-orange-500">📍</span>
                 <span>
                   Royals Tours, Office No. 456, M/7, Second Floor,
-                  Chandan Complex, Above Mirch Masala, Opp Femina,
+                  Chandan Complex, Above Mirch Masala, Opp. Femina Town,
                   Swastik Cross Road, C.G. Road, Navrangpura, Ahmedabad - 380009
                 </span>
               </a>

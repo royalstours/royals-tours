@@ -94,7 +94,7 @@ export default function ContactPage() {
                   Call / WhatsApp
                 </h3>
                 <div className="mt-2 space-y-1 text-sm font-semibold text-slate-900">
-                  <a href="tel:+919723820277" className="block hover:text-orange-600 transition-colors">+91 97238 20277 (WhatsApp)</a>
+                  <a href="tel:+919723820277" className="block hover:text-orange-600 transition-colors">+91 97238 20277</a>
                 </div>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                 </h3>
                 <p className="mt-2 text-xs font-semibold text-slate-800 leading-relaxed">
                   Royals Tours, Office No. 456, M/7, Second Floor,
-                  Chandan Complex, Above Mirch Masala, Opp Femina,
+                  Chandan Complex, Above Mirch Masala, Opp. Femina Town,
                   Swastik Cross Road, C.G. Road, Navrangpura, Ahmedabad - 380009
                 </p>
               </div>
