@@ -104,7 +104,7 @@ export default function TopRatedLocations({ onOpenInquiry }: TopRatedLocationsPr
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
             Best Top Rated Locations
           </h2>
-          <div className="w-12 h-1 bg-amber-500 rounded mt-2.5"></div>
+          <div className="w-14 h-1.5 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full mt-2.5"></div>
         </div>
 
         {/* Circular Grid Container */}
@@ -114,7 +114,7 @@ export default function TopRatedLocations({ onOpenInquiry }: TopRatedLocationsPr
               const content = (
                 <div className="flex flex-col items-center group cursor-pointer">
                   {/* Circular Image wrapper with micro-animations */}
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border border-slate-200/80 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-amber-500 group-hover:shadow-md">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-orange-100/90 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-orange-500 group-hover:ring-4 group-hover:ring-orange-400/20 group-hover:shadow-lg">
                     <Image
                       src={loc.image}
                       alt={loc.name}
@@ -126,7 +126,7 @@ export default function TopRatedLocations({ onOpenInquiry }: TopRatedLocationsPr
                     <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   {/* Label */}
-                  <span className="mt-3 text-center text-xs sm:text-sm font-semibold text-slate-700 group-hover:text-amber-600 transition-colors leading-tight font-heading px-1">
+                  <span className="mt-3 text-center text-xs sm:text-sm font-bold text-slate-700 group-hover:text-orange-600 transition-colors leading-tight font-heading px-1">
                     {loc.name}
                   </span>
                 </div>

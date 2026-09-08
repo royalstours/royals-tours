@@ -142,31 +142,31 @@ export default function PackageDetailPage({
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <div className="flex flex-wrap gap-2">
               {item.category === "international" ? (
-                <span className="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest flex items-center gap-1.5">
-                  <svg className="w-3 h-3 stroke-amber-400 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest flex items-center gap-1.5 backdrop-blur-sm">
+                  <svg className="w-3 h-3 stroke-amber-200 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7 3.5 8.5l7.3 3.6-3.6 3.6L4.5 15l-1 1 2.5 1.5L7.5 20l1-1-.7-2.7 3.6-3.6 3.6 7.3z"/>
                   </svg>
                   International Group departure
                 </span>
               ) : (
-                <span className="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest flex items-center gap-1.5">
-                  <svg className="w-3 h-3 stroke-amber-400 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest flex items-center gap-1.5 backdrop-blur-sm">
+                  <svg className="w-3 h-3 stroke-emerald-200 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                   </svg>
                   Domestic Pure Veg departure
                 </span>
               )}
               {item.badge && (
-                <span className="bg-white/10 text-white border border-white/20 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest">
+                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest backdrop-blur-sm">
                   {item.badge}
                 </span>
               )}
             </div>
-            <h1 className="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white max-w-4xl leading-tight">
+            <h1 className="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white max-w-4xl leading-tight drop-shadow-sm">
               {item.title}
             </h1>
             {item.slogan && (
-              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-semibold max-w-2xl">
+              <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-semibold max-w-2xl drop-shadow-2xs">
                 {item.slogan}
               </p>
             )}
@@ -193,7 +193,7 @@ export default function PackageDetailPage({
 
             {/* Inclusions USP special callout */}
             {item.category === "domestic" && (
-              <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-3xl flex gap-4 items-start shadow-xs">
+              <div className="bg-emerald-50 border border-emerald-200/80 p-6 rounded-3xl flex gap-4 items-start shadow-xs">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 shrink-0">
                   <svg className="w-5 h-5 stroke-emerald-600 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
@@ -217,8 +217,8 @@ export default function PackageDetailPage({
                   onClick={() => setActiveTab("itinerary")}
                   className={`flex-1 py-4 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer border-b-2 ${
                     activeTab === "itinerary"
-                      ? "text-amber-600 bg-white border-amber-500"
-                      : "text-slate-500 hover:text-slate-700 border-transparent"
+                      ? "text-orange-600 bg-white border-orange-500 font-black"
+                      : "text-slate-500 hover:text-orange-600 border-transparent"
                   }`}
                 >
                   🗺️ Detailed Itinerary
@@ -227,8 +227,8 @@ export default function PackageDetailPage({
                   onClick={() => setActiveTab("inclusions")}
                   className={`flex-1 py-4 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer border-b-2 ${
                     activeTab === "inclusions"
-                      ? "text-amber-600 bg-white border-amber-500"
-                      : "text-slate-500 hover:text-slate-700 border-transparent"
+                      ? "text-orange-600 bg-white border-orange-500 font-black"
+                      : "text-slate-500 hover:text-orange-600 border-transparent"
                   }`}
                 >
                   📝 Inclusions &amp; Exclusions
@@ -237,8 +237,8 @@ export default function PackageDetailPage({
                   onClick={() => setActiveTab("guidelines")}
                   className={`flex-1 py-4 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer border-b-2 ${
                     activeTab === "guidelines"
-                      ? "text-amber-600 bg-white border-amber-500"
-                      : "text-slate-500 hover:text-slate-700 border-transparent"
+                      ? "text-orange-600 bg-white border-orange-500 font-black"
+                      : "text-slate-500 hover:text-orange-600 border-transparent"
                   }`}
                 >
                   📑 Travel Guidelines
@@ -248,11 +248,11 @@ export default function PackageDetailPage({
               <div className="p-6 sm:p-8">
                 {/* 1. Tab: Detailed Itinerary */}
                 {activeTab === "itinerary" && (
-                  <div className="space-y-8 relative before:absolute before:left-6 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-100">
+                  <div className="space-y-8 relative before:absolute before:left-6 before:top-2 before:bottom-2 before:w-0.5 before:bg-orange-100">
                     {item.itinerary.map((day, idx) => (
                       <div key={idx} className="relative pl-12 space-y-3">
                         {/* Day Counter Bubble */}
-                        <div className="absolute left-1 top-0 w-10 h-10 rounded-full bg-orange-500 border-2 border-amber-300 flex items-center justify-center text-white font-heading font-black text-xs z-10 shadow-sm">
+                        <div className="absolute left-1 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 border-2 border-amber-200 flex items-center justify-center text-white font-heading font-black text-xs z-10 shadow-md shadow-orange-500/20">
                           {String(day.day).padStart(2, "0")}
                         </div>
                         
@@ -262,15 +262,15 @@ export default function PackageDetailPage({
                           </h3>
                           <div className="flex flex-wrap gap-2 text-[8px] font-black uppercase text-slate-400">
                             {day.meals && (
-                              <span className="bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md flex items-center gap-1">
-                                <svg className="w-2.5 h-2.5 stroke-amber-600 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                              <span className="bg-orange-50/60 border border-orange-100 text-orange-900 px-2 py-0.5 rounded-md flex items-center gap-1 font-bold">
+                                <svg className="w-2.5 h-2.5 stroke-orange-600 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                                   <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                                 </svg>
                                 {day.meals}
                               </span>
                             )}
                             {day.stay && (
-                              <span className="bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md flex items-center gap-1">
+                              <span className="bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md flex items-center gap-1 font-bold text-slate-600">
                                 <svg className="w-2.5 h-2.5 stroke-slate-500 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                                   <path d="M3 21h18M9 21V9a3 3 0 0 1 6 0v12M2 9h20M2 17h2M20 17h2M2 5h20M9 5h6" />
                                 </svg>
@@ -294,12 +294,12 @@ export default function PackageDetailPage({
                     {/* Inclusions */}
                     <div className="space-y-4 pr-0 md:pr-6">
                       <h3 className="font-heading font-black text-xs uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
-                        <span className="text-base">✓</span> What's Included
+                        <span className="text-base font-black">✓</span> What's Included
                       </h3>
                       <ul className="space-y-3">
                         {item.included.map((inc, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-650 font-bold">
-                            <span className="text-emerald-500 shrink-0">✓</span>
+                            <span className="text-emerald-500 shrink-0 font-black">✓</span>
                             <span className="leading-tight">{inc}</span>
                           </li>
                         ))}
@@ -309,12 +309,12 @@ export default function PackageDetailPage({
                     {/* Exclusions */}
                     <div className="space-y-4 pt-6 md:pt-0 pl-0 md:pl-8 border-t md:border-t-0">
                       <h3 className="font-heading font-black text-xs uppercase tracking-wider text-rose-700 flex items-center gap-1.5">
-                        <span className="text-base">✕</span> What's Excluded
+                        <span className="text-base font-black">✕</span> What's Excluded
                       </h3>
                       <ul className="space-y-3">
                         {item.excluded.map((exc, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-650 font-bold">
-                            <span className="text-rose-500 shrink-0">✕</span>
+                            <span className="text-rose-500 shrink-0 font-black">✕</span>
                             <span className="leading-tight">{exc}</span>
                           </li>
                         ))}
@@ -361,7 +361,7 @@ export default function PackageDetailPage({
                 <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">
                   Package Pricing starts at
                 </span>
-                <span className="text-2xl font-heading font-black text-slate-950">
+                <span className="text-2xl font-heading font-black text-orange-600">
                   {(() => {
                     const formatPrice = (priceStr: string) => {
                       if (!priceStr) return "";
@@ -398,7 +398,7 @@ export default function PackageDetailPage({
                             <span className="font-bold text-slate-900 uppercase text-[10px] block">{tier.name}</span>
                             {tier.details && <span className="text-[9px] text-slate-400 block leading-none mt-0.5">{tier.details}</span>}
                           </div>
-                          <span className="font-heading font-bold text-slate-950 font-mono">
+                          <span className="font-heading font-bold text-orange-600 font-mono">
                             {formatPrice(tier.price)}
                           </span>
                         </div>
@@ -410,23 +410,23 @@ export default function PackageDetailPage({
 
               {/* Inclusions Summary Icons */}
               <div className="grid grid-cols-3 gap-3 border-y border-slate-100 py-4 text-center">
-                <div>
-                  <svg className="w-5 h-5 stroke-amber-500 fill-none mx-auto mb-1.5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <div className="p-2 rounded-2xl bg-sky-50/50">
+                  <svg className="w-5 h-5 stroke-sky-600 fill-none mx-auto mb-1.5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M3 21h18M9 21V9a3 3 0 0 1 6 0v12M2 9h20M2 17h2M20 17h2M2 5h20M9 5h6" />
                   </svg>
-                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-wide">3★/4★ Hotel</span>
+                  <span className="text-[9px] font-black text-sky-800 uppercase tracking-wide">3★/4★ Hotel</span>
                 </div>
-                <div>
-                  <svg className="w-5 h-5 stroke-amber-500 fill-none mx-auto mb-1.5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <div className="p-2 rounded-2xl bg-emerald-50/50">
+                  <svg className="w-5 h-5 stroke-emerald-600 fill-none mx-auto mb-1.5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                   </svg>
-                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-wide">Pure Veg</span>
+                  <span className="text-[9px] font-black text-emerald-800 uppercase tracking-wide">Pure Veg</span>
                 </div>
-                <div>
-                  <svg className="w-5 h-5 stroke-amber-500 fill-none mx-auto mb-1.5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <div className="p-2 rounded-2xl bg-amber-50/50">
+                  <svg className="w-5 h-5 stroke-amber-600 fill-none mx-auto mb-1.5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v7h2m14 0c0 1.1-.9 2-2 2s-2-.9-2-2 1.1-2 2-2 2 .9 2 2zm-12 0c0 1.1-.9 2-2 2s-2-.9-2-2 1.1-2 2-2 2 .9 2 2z" />
                   </svg>
-                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-wide">Sightseeing</span>
+                  <span className="text-[9px] font-black text-amber-800 uppercase tracking-wide">Sightseeing</span>
                 </div>
               </div>
 
@@ -438,7 +438,7 @@ export default function PackageDetailPage({
                     download
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-heading font-bold text-xs uppercase tracking-wider py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full text-center bg-slate-100 hover:bg-orange-50 hover:text-orange-600 text-slate-800 border border-slate-200 font-heading font-bold text-xs uppercase tracking-wider py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>📄</span> Download Itinerary PDF
                   </a>
@@ -461,7 +461,7 @@ export default function PackageDetailPage({
             </div>
 
             {/* Quick Contact Card */}
-            <div className="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 border border-orange-100 shadow-md space-y-4">
+            <div className="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 border border-orange-200/80 shadow-md space-y-4">
               <h4 className="font-heading font-black text-xs uppercase tracking-wider text-orange-600">
                 Direct Contact Helpline
               </h4>

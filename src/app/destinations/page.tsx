@@ -284,7 +284,7 @@ export default function DestinationsPage() {
                 className={`px-4 py-2 rounded-full text-xs font-bold font-heading transition-all cursor-pointer ${
                   activeCategory === tab.id
                     ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    : "bg-slate-100 text-slate-600 hover:bg-orange-50 hover:text-orange-600"
                 }`}
               >
                 {tab.label}
@@ -299,7 +299,7 @@ export default function DestinationsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search Bhutan, Thailand, Trek..."
-              className="w-full bg-slate-50 border border-slate-300 rounded-full px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-800"
+              className="w-full bg-slate-50 border border-slate-300 rounded-full px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-orange-400 text-slate-800"
             />
             <svg className="absolute right-3.5 top-2.5 text-slate-400 w-3.5 h-3.5 stroke-current fill-none pointer-events-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8" />
@@ -335,7 +335,7 @@ export default function DestinationsPage() {
                 <div
                   key={item.id}
                   id={item.id}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200/70 flex flex-col justify-between hover-card group"
+                  className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/70 hover:border-orange-300 hover:shadow-orange-500/10 flex flex-col justify-between hover-card group"
                 >
                   <div>
                     {/* Card Image */}
@@ -347,7 +347,7 @@ export default function DestinationsPage() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       {item.isFixedDeparture && (
-                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-orange-600 text-[10px] font-bold tracking-wider px-3 py-1 rounded-full border border-orange-200 shadow-xs">
+                        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-orange-600 text-[10px] font-bold tracking-wider px-3 py-1 rounded-full border border-orange-300 shadow-xs">
                           GROUP DEPARTURE
                         </div>
                       )}
@@ -356,22 +356,22 @@ export default function DestinationsPage() {
                     {/* Card Body */}
                     <div className="p-6">
                       <Link href={item.isFixedDeparture ? `/destinations/${item.id}` : `/packages/${item.id}`}>
-                        <h3 className="text-lg font-extrabold text-slate-900 font-heading tracking-wide uppercase group-hover:text-amber-600 transition-colors">
+                        <h3 className="text-lg font-extrabold text-slate-900 font-heading tracking-wide uppercase group-hover:text-orange-600 transition-colors">
                           {item.name}
                         </h3>
                       </Link>
 
                       {/* COUNTRY SLOGAN / SUBTEXT DISPLAY */}
-                      <div className="mt-3 flex items-start gap-2 text-amber-900 bg-amber-50/80 border border-amber-200/70 rounded-xl p-3 shadow-2xs">
-                        <svg className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
+                      <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3 shadow-2xs">
+                        <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
                           <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
                         </svg>
-                        <p className="text-xs font-semibold italic leading-snug">
+                        <p className="text-xs font-semibold italic text-orange-900/90 leading-snug">
                           "{item.slogan}"
                         </p>
                       </div>
 
-                      <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+                      <p className="text-xs text-slate-600 mt-3 leading-relaxed font-medium">
                         {item.description}
                       </p>
 
@@ -380,7 +380,7 @@ export default function DestinationsPage() {
                         {item.highlights.map((h: string, idx: number) => (
                           <span
                             key={idx}
-                            className="bg-slate-100 text-slate-700 text-[11px] px-2.5 py-1 rounded-md border border-slate-200/50 font-medium"
+                            className="bg-orange-50/60 text-orange-900 text-[11px] px-2.5 py-1 rounded-md border border-orange-100 font-medium"
                           >
                             • {h}
                           </span>
@@ -393,12 +393,12 @@ export default function DestinationsPage() {
                   <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/60 flex items-center justify-between gap-2">
                     <div>
                       <span className="block text-[10px] text-slate-400 font-bold uppercase">Package Price</span>
-                      <span className="text-xl font-black text-amber-600 font-heading">{item.price}</span>
+                      <span className="text-xl font-black text-orange-600 font-heading">{item.price}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Link
                         href={item.isFixedDeparture ? `/destinations/${item.id}` : `/packages/${item.id}`}
-                        className="px-3.5 py-2 rounded-full text-xs font-bold font-heading text-slate-800 bg-slate-100 border border-slate-200 hover:bg-slate-200 hover:text-slate-900 transition-colors"
+                        className="px-3.5 py-2 rounded-full text-xs font-bold font-heading text-slate-800 bg-white border border-slate-200 hover:bg-orange-50 hover:text-orange-600 transition-colors shadow-2xs"
                       >
                         View Details
                       </Link>

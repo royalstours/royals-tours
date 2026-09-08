@@ -135,46 +135,50 @@ export default function ServicesPage() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesList.map((srv) => (
-            <div
-              key={srv.id}
-              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-xl shadow-xs">
-                  {getServiceIcon(srv.icon)}
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-heading font-black text-base uppercase text-slate-900 leading-tight">
-                      {srv.title}
-                    </h3>
-                    {srv.badge && (
-                      <span className="bg-amber-500/20 text-amber-600 font-black text-[8px] uppercase px-2 py-0.5 rounded-full border border-amber-500/15">
-                        {srv.badge}
-                      </span>
-                    )}
+          {servicesList.map((srv, sIdx) => {
+            const borderColors = ["hover:border-orange-400", "hover:border-teal-400", "hover:border-sky-400", "hover:border-amber-400", "hover:border-emerald-400", "hover:border-indigo-400"];
+            const hoverColor = borderColors[sIdx % borderColors.length];
+            return (
+              <div
+                key={srv.id}
+                className={`bg-white p-8 rounded-3xl border border-slate-200 ${hoverColor} hover:shadow-xl shadow-xs transition-all flex flex-col justify-between`}
+              >
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/15 to-amber-500/10 flex items-center justify-center text-xl shadow-xs">
+                    {getServiceIcon(srv.icon)}
                   </div>
-                  <span className="text-[10px] text-slate-400 font-semibold block mt-0.5">
-                    {srv.subtitle}
-                  </span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-heading font-black text-base uppercase text-slate-900 leading-tight">
+                        {srv.title}
+                      </h3>
+                      {srv.badge && (
+                        <span className="bg-orange-100 text-orange-600 font-black text-[8px] uppercase px-2.5 py-0.5 rounded-full border border-orange-200">
+                          {srv.badge}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[10px] text-slate-500 font-semibold block mt-0.5">
+                      {srv.subtitle}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                    {srv.description}
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                  {srv.description}
-                </p>
+                <div className="pt-6 border-t border-slate-100 mt-6">
+                  <ul className="space-y-2">
+                    {srv.features.map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-[10px] font-bold text-slate-600">
+                        <span className="text-teal-600 font-black shrink-0">✓</span>
+                        <span className="leading-tight">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="pt-6 border-t border-slate-100 mt-6">
-                <ul className="space-y-2">
-                  {srv.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-[10px] font-bold text-slate-600">
-                      <span className="text-emerald-500 shrink-0">✓</span>
-                      <span className="leading-tight">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </main>

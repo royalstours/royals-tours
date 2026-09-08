@@ -95,7 +95,7 @@ export default function GalleryPage() {
                 className={`px-5 py-2.5 rounded-full text-xs font-bold font-heading transition-all cursor-pointer ${
                   activeCategory === tab.id
                     ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    : "bg-slate-100 text-slate-600 hover:bg-orange-50 hover:text-orange-600"
                 }`}
               >
                 {tab.label}
@@ -114,7 +114,7 @@ export default function GalleryPage() {
               <div
                 key={item.id}
                 onClick={() => setSelectedPhoto(item)}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 cursor-pointer"
+                className="group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 hover:border-orange-300 hover:shadow-orange-500/10 cursor-pointer transition-all"
               >
                 <div className="relative h-72 w-full overflow-hidden">
                   <Image
@@ -125,8 +125,8 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                   
-                  <div className="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase px-3 py-1 rounded-md shadow flex items-center gap-1.5">
-                    <svg className="w-3 h-3 stroke-slate-950 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5">
+                    <svg className="w-3 h-3 stroke-white fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
@@ -134,10 +134,10 @@ export default function GalleryPage() {
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
-                    <h3 className="font-extrabold text-base font-heading group-hover:text-amber-400 transition-colors">
+                    <h3 className="font-extrabold text-base font-heading group-hover:text-amber-300 transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-slate-300 line-clamp-2">
+                    <p className="text-xs text-slate-200 line-clamp-2 font-medium">
                       {item.caption}
                     </p>
                   </div>

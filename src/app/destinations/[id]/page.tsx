@@ -206,9 +206,9 @@ export default function DestinationDetailPage({ params }: PageProps) {
                     {destination.highlights.map((highlight, index) => (
                       <div
                         key={index}
-                        className="bg-amber-50/70 border border-amber-200/60 rounded-xl p-3.5 flex items-center gap-3"
+                        className="bg-orange-50/70 border border-orange-200/60 rounded-xl p-3.5 flex items-center gap-3"
                       >
-                        <span className="w-7 h-7 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-xs shrink-0">
+                        <span className="w-7 h-7 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 text-white font-bold flex items-center justify-center text-xs shrink-0 shadow-xs">
                           ✓
                         </span>
                         <span className="text-xs font-semibold text-slate-800 font-heading">
@@ -223,13 +223,13 @@ export default function DestinationDetailPage({ params }: PageProps) {
               {/* ITINERARY TIMELINE ACCORDION */}
               {destination.itinerary && destination.itinerary.length > 0 && (
                 <div className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs">
-                  <span className="text-xs uppercase font-heading font-bold text-amber-500 tracking-wider">
+                  <span className="text-xs uppercase font-heading font-bold text-orange-600 tracking-wider">
                     DAY BY DAY SCHEDULE
                   </span>
                   <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                     Tour Itinerary
                   </h2>
-                  <div className="w-12 h-1 bg-amber-500 rounded mt-3 mb-6" />
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mt-3 mb-6" />
 
                   <div className="space-y-4">
                     {destination.itinerary.map((day) => {
@@ -239,8 +239,8 @@ export default function DestinationDetailPage({ params }: PageProps) {
                           key={day.day}
                           className={`rounded-2xl border transition-all overflow-hidden ${
                             isOpen
-                              ? "border-amber-400 bg-amber-50/30 shadow-sm"
-                              : "border-slate-200 bg-white hover:border-slate-300"
+                              ? "border-orange-400 bg-orange-50/30 shadow-sm"
+                              : "border-slate-200 bg-white hover:border-orange-200"
                           }`}
                         >
                           <button
@@ -248,7 +248,7 @@ export default function DestinationDetailPage({ params }: PageProps) {
                             className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
                           >
                             <div className="flex items-center gap-3 sm:gap-4">
-                              <span className="w-10 h-10 rounded-xl bg-orange-500 text-white font-black font-heading flex items-center justify-center text-xs shrink-0 shadow-sm">
+                              <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white font-black font-heading flex items-center justify-center text-xs shrink-0 shadow-sm">
                                 Day {day.day}
                               </span>
                               <h3 className="font-extrabold text-slate-900 text-sm sm:text-base font-heading">
@@ -261,13 +261,13 @@ export default function DestinationDetailPage({ params }: PageProps) {
                           </button>
 
                           {isOpen && (
-                            <div className="px-5 pb-5 pt-1 border-t border-amber-200/40 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3">
+                            <div className="px-5 pb-5 pt-1 border-t border-orange-200/40 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3">
                               <p className="whitespace-pre-line font-medium text-slate-700">{day.description}</p>
 
                               <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-slate-500">
                                 {day.meals && (
-                                  <span className="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1 rounded-md text-amber-700">
-                                    <svg className="w-3.5 h-3.5 stroke-amber-700 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                                  <span className="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1 rounded-md text-orange-700">
+                                    <svg className="w-3.5 h-3.5 stroke-orange-600 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                                       <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                                     </svg>
                                     {day.meals}
@@ -293,13 +293,13 @@ export default function DestinationDetailPage({ params }: PageProps) {
 
               {/* INCLUSIONS & EXCLUSIONS GRID */}
               <div className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs">
-                <span className="text-xs uppercase font-heading font-bold text-amber-500 tracking-wider">
+                <span className="text-xs uppercase font-heading font-bold text-orange-600 tracking-wider">
                   WHAT TO EXPECT
                 </span>
                 <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                   Inclusions &amp; Exclusions
                 </h2>
-                <div className="w-12 h-1 bg-amber-500 rounded mt-3 mb-6" />
+                <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mt-3 mb-6" />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* INCLUSIONS */}

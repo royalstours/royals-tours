@@ -239,38 +239,39 @@ export default function Home() {
       <TopRatedLocations onOpenInquiry={handleOpenInquiry} />
 
       {/* Static Why Travel With Us Section */}
-      <section className="bg-gradient-to-b from-orange-50/40 via-white to-orange-50/30 py-20 border-b border-orange-100 relative overflow-hidden text-slate-800">
+      <section className="bg-gradient-to-b from-orange-50/50 via-white to-amber-50/30 py-20 border-b border-orange-100 relative overflow-hidden text-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-12">
-            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
               Why Travel With Us
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
               The Royals Tours Experience
             </h2>
+            <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mx-auto"></div>
             <p className="text-xs text-slate-600 font-semibold leading-relaxed">
               We focus on premium comfort, meticulous detail, and absolute safety for a worry-free travel experience.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-xl shadow-orange-500/5 space-y-4 hover:border-orange-400 hover:shadow-orange-500/10 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl font-bold shadow-sm">
-                <svg className="w-6 h-6 stroke-orange-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-3xl border border-orange-150 shadow-xl shadow-orange-500/5 space-y-4 hover:border-orange-400 hover:shadow-orange-500/15 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/15 to-amber-500/10 flex items-center justify-center text-orange-500 text-2xl font-bold shadow-xs">
+                <svg className="w-6 h-6 stroke-orange-500 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                 </svg>
               </div>
               <h3 className="font-heading font-bold text-base uppercase text-slate-900">
                 Pure Veg &amp; Jain Catering
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 For our domestic group tours, our private catering kitchen team travels with the group, preparing fresh, delicious Gujarati and Rajasthani pure vegetarian, Swaminarayan, and Jain meals daily.
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl border border-teal-100 shadow-xl shadow-teal-500/5 space-y-4 hover:border-teal-400 hover:shadow-teal-500/10 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-600 text-2xl font-bold shadow-sm">
-                <svg className="w-6 h-6 stroke-teal-600 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-3xl border border-teal-150 shadow-xl shadow-teal-500/5 space-y-4 hover:border-teal-400 hover:shadow-teal-500/15 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500/15 to-emerald-500/10 flex items-center justify-center text-teal-600 text-2xl font-bold shadow-xs">
+                <svg className="w-6 h-6 stroke-teal-600 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <circle cx="12" cy="8" r="5" />
                   <path d="M20 21a8 8 0 0 0-16 0" />
                 </svg>
@@ -278,21 +279,21 @@ export default function Home() {
               <h3 className="font-heading font-bold text-base uppercase text-slate-900">
                 Expert Tour Managers
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Every tour departs with an experienced, helpful Royals Tours manager who oversees hotel check-ins, local transport, excursions, and ensures guest comfort from arrival to departure.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl border border-amber-100 shadow-xl shadow-amber-500/5 space-y-4 hover:border-amber-400 hover:shadow-amber-500/10 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 text-2xl font-bold shadow-sm">
-                <svg className="w-6 h-6 stroke-amber-600 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-3xl border border-amber-150 shadow-xl shadow-amber-500/5 space-y-4 hover:border-amber-400 hover:shadow-amber-500/15 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/15 to-yellow-500/10 flex items-center justify-center text-amber-600 text-2xl font-bold shadow-xs">
+                <svg className="w-6 h-6 stroke-amber-600 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7 3.5 8.5l7.3 3.6-3.6 3.6L4.5 15l-1 1 2.5 1.5L7.5 20l1-1-.7-2.7 3.6-3.6 3.6 7.3z"/>
                 </svg>
               </div>
               <h3 className="font-heading font-bold text-base uppercase text-slate-900">
                 Hassle-Free Booking
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 From round-trip flight booking and car rentals to visa processing support, passport assistance, and overseas travel insurance, we provide end-to-end support for a seamless holiday.
               </p>
             </div>
@@ -307,41 +308,41 @@ export default function Home() {
             
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-[10px] font-black uppercase text-amber-605 tracking-widest bg-amber-500/15 px-3 py-1 rounded-full">
+                <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block mb-3">
                   {homeAbout.welcomeTag}
                 </span>
-                <h2 className="mt-3 text-2xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">
+                <h2 className="text-2xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">
                   {homeAbout.heading}
                 </h2>
-                <div className="w-12 h-1 bg-amber-500 rounded mt-3"></div>
+                <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mt-3"></div>
               </div>
 
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-semibold">
                 {homeAbout.paragraph1}
               </p>
-              <p className="text-slate-550 text-xs leading-relaxed">
+              <p className="text-slate-550 text-xs leading-relaxed font-medium">
                 {homeAbout.paragraph2}
               </p>
 
               {/* Stat badges */}
               <div className="grid grid-cols-3 gap-4 pt-4">
-                <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl text-center">
-                  <span className="block text-xl sm:text-2xl font-black font-heading text-amber-500">{homeAbout.stat1Value}</span>
-                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat1Label}</span>
+                <div className="bg-gradient-to-br from-orange-50 to-amber-50/40 border border-orange-200/70 p-4 rounded-2xl text-center shadow-xs">
+                  <span className="block text-xl sm:text-2xl font-black font-heading text-orange-600">{homeAbout.stat1Value}</span>
+                  <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat1Label}</span>
                 </div>
-                <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl text-center">
-                  <span className="block text-xl sm:text-2xl font-black font-heading text-amber-500">{homeAbout.stat2Value}</span>
-                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat2Label}</span>
+                <div className="bg-gradient-to-br from-teal-50 to-emerald-50/40 border border-teal-200/70 p-4 rounded-2xl text-center shadow-xs">
+                  <span className="block text-xl sm:text-2xl font-black font-heading text-teal-600">{homeAbout.stat2Value}</span>
+                  <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat2Label}</span>
                 </div>
-                <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl text-center">
-                  <span className="block text-xl sm:text-2xl font-black font-heading text-amber-500">{homeAbout.stat3Value}</span>
-                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat3Label}</span>
+                <div className="bg-gradient-to-br from-sky-50 to-blue-50/40 border border-sky-200/70 p-4 rounded-2xl text-center shadow-xs">
+                  <span className="block text-xl sm:text-2xl font-black font-heading text-sky-600">{homeAbout.stat3Value}</span>
+                  <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat3Label}</span>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border border-slate-150 shadow-md group">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-2 border-orange-100 ring-4 ring-orange-400/20 shadow-xl group">
                 <img
                   src={homeAbout.image}
                   alt={homeAbout.imageAlt}
@@ -355,18 +356,18 @@ export default function Home() {
       </section>
 
       {/* Dynamic Group Departures */}
-      <section id="group-departures" className="py-20 bg-slate-50 border-y border-slate-100">
+      <section id="group-departures" className="py-20 bg-gradient-to-b from-slate-50 via-orange-50/20 to-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
-            <span className="text-[10px] font-black uppercase text-amber-600 tracking-widest bg-amber-500/15 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
               VEG GROUP DEPARTURES
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
               Scheduled Veg Group Tours
             </h2>
-            <div className="w-12 h-1 bg-amber-500 rounded mx-auto mt-2"></div>
-            <p className="text-xs text-slate-500 font-semibold leading-relaxed mt-1">
+            <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mx-auto"></div>
+            <p className="text-xs text-slate-600 font-semibold leading-relaxed mt-1">
               Join one of our premium pure veg departures featuring private kitchen cooks preparing Gujarati and Jain meals.
             </p>
           </div>
@@ -374,7 +375,7 @@ export default function Home() {
           {/* Grid of departures */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {dbFixedDepartures.slice(0, 6).map((item) => (
-              <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-xs border border-slate-100 flex flex-col justify-between hover-card group">
+              <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-xs border border-orange-100/80 hover:border-orange-300 flex flex-col justify-between hover-card group">
                 <div>
                   <Link href={`/destinations/${item.id}`} className="relative h-56 w-full overflow-hidden block">
                     <img
@@ -382,24 +383,24 @@ export default function Home() {
                       alt={item.destination}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-orange-600 text-[9px] font-black tracking-widest px-3 py-1 rounded-full border border-orange-200 shadow-xs uppercase">
+                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-orange-600 text-[9px] font-black tracking-widest px-3 py-1 rounded-full border border-orange-300 shadow-sm uppercase">
                       VEG GROUP TOUR
                     </div>
                   </Link>
 
                   <div className="p-6">
                     <Link href={`/destinations/${item.id}`}>
-                      <h3 className="text-base font-black text-slate-900 tracking-tight font-heading uppercase group-hover:text-amber-550 transition-colors">
+                      <h3 className="text-base font-black text-slate-900 tracking-tight font-heading uppercase group-hover:text-orange-600 transition-colors">
                         {item.destination}
                       </h3>
                     </Link>
 
                     {item.slogan && (
-                      <div className="mt-3 flex items-start gap-2 text-amber-800 bg-amber-50/50 border border-amber-100 rounded-xl p-3">
-                        <svg className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
+                      <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3">
+                        <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
                           <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
                         </svg>
-                        <p className="text-[10px] font-semibold italic text-amber-905/90 leading-snug">
+                        <p className="text-[10px] font-semibold italic text-orange-900/90 leading-snug">
                           "{item.slogan}"
                         </p>
                       </div>
@@ -411,7 +412,7 @@ export default function Home() {
                         {item.highlights.slice(0, 4).map((hl: string, index: number) => (
                           <span
                             key={index}
-                            className="bg-slate-50 text-slate-600 text-[9px] px-2 py-0.5 rounded border border-slate-100 font-bold uppercase tracking-wider"
+                            className="bg-orange-50/60 text-orange-900 text-[9px] px-2 py-0.5 rounded-md border border-orange-100 font-bold uppercase tracking-wider"
                           >
                             • {hl}
                           </span>
@@ -421,15 +422,15 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between bg-slate-50/30">
+                <div className="px-6 pb-6 pt-3 border-t border-orange-100 flex items-center justify-between bg-orange-50/20">
                   <div className="flex flex-col">
                     <span className="text-[9px] uppercase font-black text-slate-400 tracking-wider">PACKAGE COST</span>
-                    <span className="text-base font-black text-amber-600 font-heading">{item.price}</span>
+                    <span className="text-base font-black text-orange-600 font-heading">{item.price}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Link
                       href={`/destinations/${item.id}`}
-                      className="px-3.5 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-wider text-slate-800 bg-slate-100 border border-slate-200/50 hover:bg-slate-200 transition-colors"
+                      className="px-3.5 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:bg-orange-50 hover:text-orange-600 transition-colors shadow-2xs"
                     >
                       Details
                     </Link>
@@ -449,7 +450,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/destinations"
-              className="inline-flex items-center gap-2 text-xs font-black font-heading text-slate-800 hover:text-amber-500 transition-colors uppercase tracking-wider bg-slate-100 border border-slate-200/50 px-6 py-2.5 rounded-full hover:shadow-sm"
+              className="inline-flex items-center gap-2 text-xs font-black font-heading text-orange-600 hover:text-orange-700 transition-colors uppercase tracking-wider bg-white border-2 border-orange-300 hover:border-orange-400 px-7 py-3 rounded-full hover:shadow-md"
             >
               Browse All Veg Group Departures →
             </Link>
@@ -463,21 +464,21 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
-            <span className="text-[10px] font-black uppercase text-amber-600 tracking-widest bg-amber-500/15 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
               POPULAR HOLIDAYS
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
               Featured Tour Escapes
             </h2>
-            <div className="w-12 h-1 bg-amber-500 rounded mx-auto mt-2"></div>
-            <p className="text-xs text-slate-500 font-semibold leading-relaxed mt-1">
+            <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mx-auto"></div>
+            <p className="text-xs text-slate-600 font-semibold leading-relaxed mt-1">
               Explore our handpicked customizable international getaways and special domestic journeys.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {dbFeaturedPackages.slice(0, 4).map((pkg) => (
-              <div key={pkg.id} className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-xs flex flex-col justify-between hover-card group">
+              <div key={pkg.id} className="bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-300 shadow-xs flex flex-col justify-between hover-card group">
                 <div>
                   <Link href={`/packages/${pkg.id}`} className="relative h-48 w-full overflow-hidden block">
                     <img
@@ -486,33 +487,33 @@ export default function Home() {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     {pkg.badge && !["international tour", "domestic tour", "domestic group tour"].includes(pkg.badge.toLowerCase()) && (
-                      <div className="absolute top-3 left-3 bg-amber-500 text-slate-950 font-black text-[8px] uppercase tracking-wider px-2 py-0.5 rounded shadow">
+                      <div className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black text-[8px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
                         {pkg.badge}
                       </div>
                     )}
                   </Link>
 
                   <div className="p-5">
-                    <span className="text-[8px] text-slate-400 font-black uppercase tracking-wider bg-slate-100 px-2 py-0.5 rounded inline-block mb-2">
+                    <span className="text-[8px] text-sky-700 font-black uppercase tracking-wider bg-sky-50 border border-sky-200/80 px-2 py-0.5 rounded-md inline-block mb-2">
                       ⏳ {pkg.duration}
                     </span>
                     <Link href={`/packages/${pkg.id}`}>
-                      <h3 className="font-black text-base text-slate-900 group-hover:text-amber-500 transition-colors uppercase tracking-tight leading-tight">
+                      <h3 className="font-black text-base text-slate-900 group-hover:text-orange-600 transition-colors uppercase tracking-tight leading-tight">
                         {pkg.name}
                       </h3>
                     </Link>
-                    <p className="text-[10px] text-slate-450 mt-1 font-semibold block leading-tight truncate">{pkg.subtext}</p>
+                    <p className="text-[10px] text-slate-500 mt-1 font-semibold block leading-tight truncate">{pkg.subtext}</p>
                     
-                    <p className="text-xs text-slate-500 mt-3 leading-relaxed line-clamp-2">
+                    <p className="text-xs text-slate-600 mt-3 leading-relaxed line-clamp-2 font-medium">
                       {pkg.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-5 py-4 border-t border-slate-100 bg-slate-50/30 flex items-center justify-between">
+                <div className="px-5 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
                   <div>
-                    <span className="block text-[8px] text-slate-450 font-bold uppercase tracking-wider">Starting From</span>
-                    <span className="text-base font-black text-amber-600 font-heading">{pkg.price}</span>
+                    <span className="block text-[8px] text-slate-400 font-bold uppercase tracking-wider">Starting From</span>
+                    <span className="text-base font-black text-orange-600 font-heading">{pkg.price}</span>
                   </div>
                   <Link
                     href={`/packages/${pkg.id}`}
@@ -528,7 +529,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/packages"
-              className="inline-flex items-center gap-2 text-xs font-black font-heading text-slate-800 hover:text-amber-500 transition-colors uppercase tracking-wider bg-slate-100 border border-slate-200/50 px-6 py-2.5 rounded-full hover:shadow-sm"
+              className="inline-flex items-center gap-2 text-xs font-black font-heading text-orange-600 hover:text-orange-700 transition-colors uppercase tracking-wider bg-white border-2 border-orange-300 hover:border-orange-400 px-7 py-3 rounded-full hover:shadow-md"
             >
               Browse All Custom Tour Packages →
             </Link>
@@ -541,55 +542,60 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-slate-50 via-teal-50/20 to-slate-50 text-slate-800 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-16">
-            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
               Our Services
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
               End-To-End Travel Assistance
             </h2>
+            <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mx-auto"></div>
             <p className="text-xs text-slate-600 font-semibold leading-relaxed">
               We handle every detail of your journey so you can focus entirely on creating unforgettable moments.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesList.map((srv) => (
-              <div
-                key={srv.id}
-                className="bg-white p-8 rounded-3xl border border-slate-200 hover:border-orange-400 hover:shadow-xl shadow-sm transition-all flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-heading font-extrabold text-base uppercase text-slate-900">
-                        {srv.title}
-                      </h3>
-                      {srv.badge && (
-                        <span className="bg-orange-100 text-orange-600 font-black text-[8px] uppercase px-2 py-0.5 rounded-full border border-orange-200">
-                          {srv.badge}
-                        </span>
-                      )}
+            {servicesList.map((srv, sIdx) => {
+              const borderColors = ["hover:border-orange-400", "hover:border-teal-400", "hover:border-sky-400", "hover:border-amber-400", "hover:border-emerald-400", "hover:border-indigo-400"];
+              const hoverColor = borderColors[sIdx % borderColors.length];
+              return (
+                <div
+                  key={srv.id}
+                  className={`bg-white p-8 rounded-3xl border border-slate-200 ${hoverColor} hover:shadow-xl shadow-xs transition-all flex flex-col justify-between`}
+                >
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="font-heading font-extrabold text-base uppercase text-slate-900">
+                          {srv.title}
+                        </h3>
+                        {srv.badge && (
+                          <span className="bg-orange-100 text-orange-600 font-black text-[8px] uppercase px-2 py-0.5 rounded-full border border-orange-200">
+                            {srv.badge}
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-[10px] text-slate-500 font-semibold block mt-0.5">
+                        {srv.subtitle}
+                      </span>
                     </div>
-                    <span className="text-[10px] text-slate-500 font-semibold block mt-0.5">
-                      {srv.subtitle}
-                    </span>
+                    <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                      {srv.description}
+                    </p>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {srv.description}
-                  </p>
+                  <div className="pt-6 border-t border-slate-100 mt-6">
+                    <ul className="space-y-2">
+                      {srv.features.slice(0, 3).map((feat, fidx) => (
+                        <li key={fidx} className="flex items-start gap-2 text-[10px] font-bold text-slate-600">
+                          <span className="text-teal-600 font-black">✓</span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <div className="pt-6 border-t border-slate-100 mt-6">
-                  <ul className="space-y-2">
-                    {srv.features.slice(0, 3).map((feat, fidx) => (
-                      <li key={fidx} className="flex items-start gap-2 text-[10px] font-bold text-slate-600">
-                        <span className="text-teal-600">✓</span>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -599,34 +605,34 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto space-y-3 mb-16">
-            <span className="text-[10px] font-black uppercase text-amber-600 tracking-widest bg-amber-500/15 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
               TESTIMONIALS
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
               Happy Guests Speak
             </h2>
-            <div className="w-12 h-1 bg-amber-500 rounded mx-auto mt-2"></div>
+            <div className="w-16 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-teal-500 rounded-full mx-auto"></div>
           </div>
 
           <div className="marquee-container py-4">
             <div className="marquee-content">
               {repeatedTestimonials.map((test, index) => (
-                <div key={`t1-${index}-${test._id || test.id}`} className="w-87.5 shrink-0 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs flex flex-col justify-between hover-card">
+                <div key={`t1-${index}-${test._id || test.id}`} className="w-87.5 shrink-0 bg-white p-6 rounded-3xl border border-slate-150 hover:border-orange-300 shadow-xs flex flex-col justify-between hover-card">
                   <div>
-                    <div className="flex items-center gap-1 text-amber-400 mb-3">
+                    <div className="flex items-center gap-1 mb-3">
                       {Array.from({ length: test.rating || 5 }).map((_, i) => (
-                        <svg key={i} className="w-3 h-3 fill-current text-amber-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192z" />
                         </svg>
                       ))}
                     </div>
-                    <p className="text-xs text-slate-650 italic leading-relaxed line-clamp-4">
+                    <p className="text-xs text-slate-700 italic leading-relaxed line-clamp-4 font-medium">
                       "{test.comment}"
                     </p>
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-200 bg-slate-100 flex items-center justify-center shrink-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-orange-200 bg-orange-50 flex items-center justify-center shrink-0">
                       {test.avatar ? (
                         <img
                           src={test.avatar}
@@ -634,14 +640,14 @@ export default function Home() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <span className="text-[10px] font-bold text-slate-500 uppercase">
+                        <span className="text-[10px] font-bold text-orange-600 uppercase">
                           {test.name.slice(0, 2)}
                         </span>
                       )}
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900 font-heading leading-tight uppercase">{test.name}</h4>
-                      <span className="text-[9px] text-amber-600 font-bold block mt-0.5 uppercase tracking-wide">{test.trip}</span>
+                      <span className="text-[9px] text-orange-600 font-bold block mt-0.5 uppercase tracking-wide bg-orange-50/80 px-2 py-0.5 rounded border border-orange-150 inline-block">{test.trip}</span>
                       {test.role && (
                         <span className="text-[8px] text-slate-400 block mt-0.5 font-normal uppercase tracking-wider">{test.role}</span>
                       )}
@@ -652,22 +658,22 @@ export default function Home() {
             </div>
             <div className="marquee-content" aria-hidden="true">
               {repeatedTestimonials.map((test, index) => (
-                <div key={`t2-${index}-${test._id || test.id}`} className="w-87.5 shrink-0 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs flex flex-col justify-between hover-card">
+                <div key={`t2-${index}-${test._id || test.id}`} className="w-87.5 shrink-0 bg-white p-6 rounded-3xl border border-slate-150 hover:border-orange-300 shadow-xs flex flex-col justify-between hover-card">
                   <div>
-                    <div className="flex items-center gap-1 text-amber-400 mb-3">
+                    <div className="flex items-center gap-1 mb-3">
                       {Array.from({ length: test.rating || 5 }).map((_, i) => (
-                        <svg key={i} className="w-3 h-3 fill-current text-amber-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192z" />
                         </svg>
                       ))}
                     </div>
-                    <p className="text-xs text-slate-650 italic leading-relaxed line-clamp-4">
+                    <p className="text-xs text-slate-700 italic leading-relaxed line-clamp-4 font-medium">
                       "{test.comment}"
                     </p>
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-200 bg-slate-100 flex items-center justify-center shrink-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-orange-200 bg-orange-50 flex items-center justify-center shrink-0">
                       {test.avatar ? (
                         <img
                           src={test.avatar}
@@ -675,14 +681,14 @@ export default function Home() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <span className="text-[10px] font-bold text-slate-500 uppercase">
+                        <span className="text-[10px] font-bold text-orange-600 uppercase">
                           {test.name.slice(0, 2)}
                         </span>
                       )}
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900 font-heading leading-tight uppercase">{test.name}</h4>
-                      <span className="text-[9px] text-amber-600 font-bold block mt-0.5 uppercase tracking-wide">{test.trip}</span>
+                      <span className="text-[9px] text-orange-600 font-bold block mt-0.5 uppercase tracking-wide bg-orange-50/80 px-2 py-0.5 rounded border border-orange-150 inline-block">{test.trip}</span>
                       {test.role && (
                         <span className="text-[8px] text-slate-400 block mt-0.5 font-normal uppercase tracking-wider">{test.role}</span>
                       )}

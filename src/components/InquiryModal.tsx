@@ -126,7 +126,7 @@ export default function InquiryModal({
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="e.g. Ramesh Patel"
-                  className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-slate-800"
+                  className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-slate-800"
                 />
               </div>
 
@@ -142,7 +142,7 @@ export default function InquiryModal({
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="name@example.com"
-                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-slate-800"
+                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-slate-800"
                   />
                 </div>
                 {/* Phone */}
@@ -156,7 +156,7 @@ export default function InquiryModal({
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     placeholder="e.g. +91 97238 20277"
-                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-slate-800"
+                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-slate-800"
                   />
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function InquiryModal({
                     type="date"
                     value={form.travelDate}
                     onChange={(e) => setForm({ ...form, travelDate: e.target.value })}
-                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-slate-800 cursor-pointer"
+                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-slate-800 cursor-pointer"
                   />
                 </div>
                 {/* Number of Travelers */}
@@ -185,7 +185,7 @@ export default function InquiryModal({
                     min={1}
                     value={form.travelers}
                     onChange={(e) => setForm({ ...form, travelers: parseInt(e.target.value) || 1 })}
-                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-slate-800"
+                    className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-slate-800"
                   />
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function InquiryModal({
                 <select
                   value={selectedDestination}
                   onChange={(e) => setSelectedDestination(e.target.value)}
-                  className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-slate-800 cursor-pointer"
+                  className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-slate-800 cursor-pointer"
                 >
                   <option value="">-- Select a Destination --</option>
                   {Object.values(detailedTravelItems).map((item) => (
@@ -219,7 +219,7 @@ export default function InquiryModal({
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="e.g. Food preference (Jain/Swaminarayan), room sharing preferences..."
-                  className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-slate-800 resize-none"
+                  className="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-slate-800 resize-none"
                 ></textarea>
               </div>
 
@@ -227,7 +227,7 @@ export default function InquiryModal({
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full gradient-btn mt-2 py-3 rounded-xl font-heading font-semibold text-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 text-slate-950"
+                className="w-full gradient-btn mt-2 py-3.5 rounded-xl font-heading font-bold text-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 text-white shadow-md shadow-orange-500/20"
               >
                 {loading ? "Sending Inquiry..." : "Submit Booking Inquiry"}
                 {!loading && (

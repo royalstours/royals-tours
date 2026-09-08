@@ -83,9 +83,9 @@ export default function ContactPage() {
           <div className="space-y-6">
             
             {/* Phone Helplines */}
-            <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-xs space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-lg">
-                <svg className="w-5 h-5 stroke-amber-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-orange-300 shadow-xs space-y-4 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-lg">
+                <svg className="w-5 h-5 stroke-orange-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
               </div>
@@ -94,15 +94,15 @@ export default function ContactPage() {
                   Call / WhatsApp
                 </h3>
                 <div className="mt-2 space-y-1 text-sm font-semibold text-slate-900">
-                  <a href="tel:+919723820277" className="block hover:text-amber-500">+91 97238 20277 (WhatsApp)</a>
+                  <a href="tel:+919723820277" className="block hover:text-orange-600 transition-colors">+91 97238 20277 (WhatsApp)</a>
                 </div>
               </div>
             </div>
 
             {/* Email Address */}
-            <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-xs space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-lg">
-                <svg className="w-5 h-5 stroke-amber-500 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <div className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-teal-300 shadow-xs space-y-4 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-lg">
+                <svg className="w-5 h-5 stroke-teal-600 fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
@@ -112,7 +112,7 @@ export default function ContactPage() {
                   Email Helpline
                 </h3>
                 <div className="mt-2 text-sm font-semibold text-slate-900">
-                  <a href="mailto:royalstours.amd@gmail.com" className="hover:text-amber-500">royalstours.amd@gmail.com</a>
+                  <a href="mailto:royalstours.amd@gmail.com" className="hover:text-orange-600 transition-colors">royalstours.amd@gmail.com</a>
                 </div>
               </div>
             </div>
@@ -122,16 +122,16 @@ export default function ContactPage() {
               href="https://maps.app.goo.gl/j6B38M5stnRt5kae7"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-xs space-y-4 block hover:border-amber-500/50 hover:shadow-md transition-all duration-300 group"
+              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-xs space-y-4 block hover:border-orange-400 hover:shadow-md transition-all duration-300 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-lg group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-lg group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                 <svg className="w-5 h-5 stroke-amber-500 fill-none group-hover:stroke-white transition-colors duration-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </div>
               <div>
-                <h3 className="font-heading font-black text-xs uppercase tracking-wider text-slate-400 group-hover:text-amber-500 transition-colors duration-300">
+                <h3 className="font-heading font-black text-xs uppercase tracking-wider text-slate-400 group-hover:text-orange-600 transition-colors duration-300">
                   Office Address
                 </h3>
                 <p className="mt-2 text-xs font-semibold text-slate-800 leading-relaxed">
@@ -183,7 +183,7 @@ export default function ContactPage() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="e.g. Ramesh Patel"
-                      className="bg-slate-55 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     />
                   </div>
                   {/* Phone */}
@@ -197,7 +197,7 @@ export default function ContactPage() {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="e.g. +91 97238 20277"
-                      className="bg-slate-55 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     />
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export default function ContactPage() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="name@example.com"
-                      className="bg-slate-55 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     />
                   </div>
                   {/* Subject */}
@@ -228,7 +228,7 @@ export default function ContactPage() {
                       value={form.subject}
                       onChange={(e) => setForm({ ...form, subject: e.target.value })}
                       placeholder="e.g. Booking Kashmir Package"
-                      className="bg-slate-55 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     />
                   </div>
                 </div>
@@ -244,7 +244,7 @@ export default function ContactPage() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Write details of your travel plan or question here..."
-                    className="bg-slate-55 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-amber-500 resize-none"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
                   ></textarea>
                 </div>
 
@@ -252,7 +252,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full gradient-btn py-3 rounded-xl font-heading font-semibold text-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 text-slate-950"
+                  className="w-full gradient-btn py-3 rounded-xl font-heading font-semibold text-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 text-white shadow-md shadow-orange-500/20"
                 >
                   {loading ? "Sending..." : "Send Message"}
                   {!loading && (

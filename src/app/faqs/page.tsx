@@ -149,7 +149,7 @@ export default function FaqsPage() {
                 className={`px-4 py-2 rounded-full text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
                   activeCategory === cat.id
                     ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    : "bg-slate-100 text-slate-600 hover:bg-orange-50 hover:text-orange-600"
                 }`}
               >
                 {getCategoryIcon(cat.id)}
@@ -201,20 +201,22 @@ export default function FaqsPage() {
               {filteredFaqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs"
+                  className={`bg-white rounded-2xl border transition-all overflow-hidden shadow-xs ${
+                    openIndex === idx ? "border-orange-300 shadow-orange-500/5" : "border-slate-200 hover:border-orange-200"
+                  }`}
                 >
                   <button
                     onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                    className="w-full text-left p-6 flex items-center justify-between font-heading font-bold text-slate-900 text-base focus:outline-none"
+                    className="w-full text-left p-6 flex items-center justify-between font-heading font-bold text-slate-900 text-base focus:outline-none hover:text-orange-600 transition-colors cursor-pointer"
                   >
                     <span>{faq.question}</span>
-                    <span className="text-amber-500 text-xl font-bold ml-4 shrink-0">
+                    <span className="text-orange-600 text-xl font-bold ml-4 shrink-0">
                       {openIndex === idx ? "−" : "+"}
                     </span>
                   </button>
 
                   {openIndex === idx && (
-                    <div className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-slate-50/50">
+                    <div className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-orange-100 pt-4 bg-orange-50/20 font-medium">
                       {faq.answer}
                     </div>
                   )}
