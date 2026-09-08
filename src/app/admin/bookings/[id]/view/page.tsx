@@ -203,8 +203,8 @@ export default function BookingViewPage({ params }: PageProps) {
           {/* Top-left navy swoop curve with gold border */}
           <div className="absolute top-0 left-0 w-[480px] h-[160px] z-0 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 480 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0H420C350 0 290 40 230 80C170 120 90 160 0 160V0Z" fill="#080F1E" />
-              <path d="M420 0C350 0 290 40 230 80C170 120 90 160 0 160" stroke="#f17f21" strokeWidth="2.5" />
+              <path d="M0 0H420C350 0 290 40 230 80C170 120 90 160 0 160V0Z" fill="#0A1128" />
+              <path d="M420 0C350 0 290 40 230 80C170 120 90 160 0 160" stroke="#FF5E36" strokeWidth="2.5" />
             </svg>
           </div>
 
@@ -232,8 +232,8 @@ export default function BookingViewPage({ params }: PageProps) {
             {/* Slogan */}
             <div className="flex flex-col items-center justify-center text-center mt-2 relative w-[240px] h-[100px]">
               <svg className="absolute w-[220px] h-[45px] bottom-[-15px] left-2.5 z-0 pointer-events-none" viewBox="0 0 220 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 35 C 60 15 120 15 210 25" stroke="#f17f21" strokeWidth="1" strokeDasharray="3 3" />
-                <text x="212" y="27" fill="#278eb0" fontSize="10" transform="rotate(10, 212, 27)">✈</text>
+                <path d="M10 35 C 60 15 120 15 210 25" stroke="#FF5E36" strokeWidth="1" strokeDasharray="3 3" />
+                <text x="212" y="27" fill="#F59E0B" fontSize="10" transform="rotate(10, 212, 27)">✈</text>
               </svg>
               <span className="font-script text-amber-500 text-3xl font-bold leading-none z-10">Royals</span>
               <span className="font-heading font-black text-slate-900 text-md tracking-tight uppercase leading-none z-10">Departures</span>
@@ -499,8 +499,8 @@ export default function BookingViewPage({ params }: PageProps) {
             {/* Navy curve overlay block */}
             <div className="absolute top-0 bottom-0 right-0 w-[420px] z-20 pointer-events-none">
               <svg className="w-full h-full" viewBox="0 0 420 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path d="M420 40H0 C40 40 80 20 120 0 H420 V40Z" fill="#080F1E" />
-                <path d="M0 40C40 40 80 20 120 0H420" stroke="#f17f21" strokeWidth="1.5" />
+                <path d="M420 40H0 C40 40 80 20 120 0 H420 V40Z" fill="#0A1128" />
+                <path d="M0 40C40 40 80 20 120 0H420" stroke="#FF5E36" strokeWidth="1.5" />
               </svg>
               <div className="absolute inset-0 flex items-center justify-end pr-5 text-white font-heading font-black text-[7.5px] uppercase tracking-wider">
                 <span>Let's explore the world together.</span>

@@ -222,15 +222,15 @@ export default function InvoiceViewPage({ params }: PageProps) {
           {/* Header Container */}
           <div className="relative h-[155px] -mx-6 -mt-6 overflow-hidden shrink-0">
             {/* Top Navy Blue Header Banner */}
-            <div className="absolute inset-0 bg-[#080F1E] z-0 overflow-hidden">
+            <div className="absolute inset-0 bg-[#0A1128] z-0 overflow-hidden">
               <svg className="absolute bottom-0 left-0 w-full h-[60px] pointer-events-none" viewBox="0 0 1120 60" fill="none" preserveAspectRatio="none">
                 <path d="M0 60C220 15 420 45 620 30C820 15 1020 45 1120 20V60H0Z" fill="#ffffff" />
-                <path d="M0 60C220 15 420 45 620 30C820 15 1020 45 1120 20" stroke="#f17f21" strokeWidth="1.8" />
+                <path d="M0 60C220 15 420 45 620 30C820 15 1020 45 1120 20" stroke="#FF5E36" strokeWidth="1.8" />
               </svg>
               {/* Dashed Airplane loop path */}
               <svg className="absolute w-[200px] h-[55px] top-[75px] left-[150px] pointer-events-none" viewBox="0 0 200 55" fill="none">
-                <path d="M10 45 C 50 15 110 15 170 30" stroke="#f17f21" strokeWidth="1" strokeDasharray="3 3" />
-                <text x="172" y="32" fill="#278eb0" fontSize="10" transform="rotate(15, 172, 32)">✈</text>
+                <path d="M10 45 C 50 15 110 15 170 30" stroke="#FF5E36" strokeWidth="1" strokeDasharray="3 3" />
+                <text x="172" y="32" fill="#F59E0B" fontSize="10" transform="rotate(15, 172, 32)">✈</text>
               </svg>
             </div>
 
@@ -487,12 +487,12 @@ export default function InvoiceViewPage({ params }: PageProps) {
               </div>
 
               <div className="flex flex-col gap-1.5 mt-2">
-                <div className="bg-[#080F1E] text-white rounded-lg px-2.5 py-1.5 flex justify-between items-center font-black">
+                <div className="bg-[#0A1128] text-white rounded-lg px-2.5 py-1.5 flex justify-between items-center font-black">
                   <span className="text-[7.5px] uppercase tracking-wider text-white/70">AMOUNT PAID</span>
                   <span className="text-amber-500 mr-2">:</span>
                   <span className="font-mono text-[10.5px]">₹ {invoice.priceSummary?.amountPaid.toLocaleString("en-IN")}</span>
                 </div>
-                <div className="bg-[#f17f21] text-white rounded-lg px-2.5 py-1.5 flex justify-between items-center font-black">
+                <div className="bg-[#FF5E36] text-white rounded-lg px-2.5 py-1.5 flex justify-between items-center font-black">
                   <span className="text-[7.5px] uppercase tracking-wider text-white/90">BALANCE DUE</span>
                   <span className="text-white mr-2">:</span>
                   <span className="font-mono text-[10.5px]">₹ {invoice.priceSummary?.balanceDue.toLocaleString("en-IN")}</span>
