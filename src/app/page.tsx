@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InquiryModal from "@/components/InquiryModal";
@@ -15,6 +16,7 @@ import { servicesList, testimonials, fixedDepartures, featuredPackages } from "@
 let cachedAllItems: any[] | null = null;
 
 export default function Home() {
+  const router = useRouter();
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [selectedDest, setSelectedDest] = useState("");
 
@@ -374,77 +376,84 @@ export default function Home() {
 
           {/* Grid of departures */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {dbFixedDepartures.slice(0, 6).map((item) => (
-              <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-xs border border-orange-100/80 hover:border-orange-300 flex flex-col justify-between hover-card group">
-                <div>
-                  <Link href={`/destinations/${item.id}`} className="relative h-56 w-full overflow-hidden block">
-                    <img
-                      src={item.image}
-                      alt={item.destination}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-orange-600 text-[9px] font-black tracking-widest px-3 py-1 rounded-full border border-orange-300 shadow-sm uppercase">
-                      VEG GROUP TOUR
+            {dbFixedDepartures.slice(0, 6).map((item) => {
+              const targetUrl = `/destinations/${item.id}`;
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => router.push(targetUrl)}
+                  className="bg-white rounded-3xl overflow-hidden shadow-xs border border-orange-100/80 hover:border-orange-300 flex flex-col justify-between hover-card group cursor-pointer transition-all duration-300"
+                >
+                  <div>
+                    <div className="relative h-56 w-full overflow-hidden block">
+                      <img
+                        src={item.image}
+                        alt={item.destination}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-orange-600 text-[9px] font-black tracking-widest px-3 py-1 rounded-full border border-orange-300 shadow-sm uppercase">
+                        VEG GROUP TOUR
+                      </div>
                     </div>
-                  </Link>
 
-                  <div className="p-6">
-                    <Link href={`/destinations/${item.id}`}>
+                    <div className="p-6">
                       <h3 className="text-base font-black text-slate-900 tracking-tight font-heading uppercase group-hover:text-orange-600 transition-colors">
                         {item.destination}
                       </h3>
-                    </Link>
 
-                    {item.slogan && (
-                      <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3">
-                        <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
-                          <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
-                        </svg>
-                        <p className="text-[10px] font-semibold italic text-orange-900/90 leading-snug">
-                          "{item.slogan}"
-                        </p>
-                      </div>
-                    )}
+                      {item.slogan && (
+                        <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3">
+                          <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
+                          </svg>
+                          <p className="text-[10px] font-semibold italic text-orange-900/90 leading-snug">
+                            "{item.slogan}"
+                          </p>
+                        </div>
+                      )}
 
-                    {/* Highlights */}
-                    {item.highlights && item.highlights.length > 0 && (
-                      <div className="mt-4 flex flex-wrap gap-1">
-                        {item.highlights.slice(0, 4).map((hl: string, index: number) => (
-                          <span
-                            key={index}
-                            className="bg-orange-50/60 text-orange-900 text-[9px] px-2 py-0.5 rounded-md border border-orange-100 font-bold uppercase tracking-wider"
-                          >
-                            • {hl}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                      {/* Highlights */}
+                      {item.highlights && item.highlights.length > 0 && (
+                        <div className="mt-4 flex flex-wrap gap-1">
+                          {item.highlights.slice(0, 4).map((hl: string, index: number) => (
+                            <span
+                              key={index}
+                              className="bg-orange-50/60 text-orange-900 text-[9px] px-2 py-0.5 rounded-md border border-orange-100 font-bold uppercase tracking-wider"
+                            >
+                              • {hl}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
+
+                  <div className="px-6 pb-6 pt-3 border-t border-orange-100 flex items-center justify-between bg-orange-50/20">
+                    <div className="flex flex-col">
+                      <span className="text-[9px] uppercase font-black text-slate-400 tracking-wider">PACKAGE COST</span>
+                      <span className="text-base font-black text-orange-600 font-heading">{item.price}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="px-3.5 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-wider text-slate-800 bg-white border border-slate-200 group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors shadow-2xs inline-block"
+                      >
+                        Details
+                      </span>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenInquiry(item.destination);
+                        }}
+                        className="gradient-btn px-3.5 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-wider flex items-center gap-1 cursor-pointer"
+                      >
+                        Enquire
+                      </button>
+                    </div>
+                  </div>
+
                 </div>
-
-                <div className="px-6 pb-6 pt-3 border-t border-orange-100 flex items-center justify-between bg-orange-50/20">
-                  <div className="flex flex-col">
-                    <span className="text-[9px] uppercase font-black text-slate-400 tracking-wider">PACKAGE COST</span>
-                    <span className="text-base font-black text-orange-600 font-heading">{item.price}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Link
-                      href={`/destinations/${item.id}`}
-                      className="px-3.5 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:bg-orange-50 hover:text-orange-600 transition-colors shadow-2xs"
-                    >
-                      Details
-                    </Link>
-                    <button
-                      onClick={() => handleOpenInquiry(item.destination)}
-                      className="gradient-btn px-3.5 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-wider flex items-center gap-1 cursor-pointer"
-                    >
-                      Enquire
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-12 text-center">
@@ -477,53 +486,57 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {dbFeaturedPackages.slice(0, 4).map((pkg) => (
-              <div key={pkg.id} className="bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-300 shadow-xs flex flex-col justify-between hover-card group">
-                <div>
-                  <Link href={`/packages/${pkg.id}`} className="relative h-48 w-full overflow-hidden block">
-                    <img
-                      src={pkg.image}
-                      alt={pkg.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {pkg.badge && !["international tour", "domestic tour", "domestic group tour"].includes(pkg.badge.toLowerCase()) && (
-                      <div className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black text-[8px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                        {pkg.badge}
-                      </div>
-                    )}
-                  </Link>
+            {dbFeaturedPackages.slice(0, 4).map((pkg) => {
+              const targetUrl = `/packages/${pkg.id}`;
+              return (
+                <div
+                  key={pkg.id}
+                  onClick={() => router.push(targetUrl)}
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-300 shadow-xs flex flex-col justify-between hover-card group cursor-pointer transition-all duration-300"
+                >
+                  <div>
+                    <div className="relative h-48 w-full overflow-hidden block">
+                      <img
+                        src={pkg.image}
+                        alt={pkg.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {pkg.badge && !["international tour", "domestic tour", "domestic group tour"].includes(pkg.badge.toLowerCase()) && (
+                        <div className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black text-[8px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                          {pkg.badge}
+                        </div>
+                      )}
+                    </div>
 
-                  <div className="p-5">
-                    <span className="text-[8px] text-sky-700 font-black uppercase tracking-wider bg-sky-50 border border-sky-200/80 px-2 py-0.5 rounded-md inline-block mb-2">
-                      ⏳ {pkg.duration}
-                    </span>
-                    <Link href={`/packages/${pkg.id}`}>
+                    <div className="p-5">
+                      <span className="text-[8px] text-sky-700 font-black uppercase tracking-wider bg-sky-50 border border-sky-200/80 px-2 py-0.5 rounded-md inline-block mb-2">
+                        ⏳ {pkg.duration}
+                      </span>
                       <h3 className="font-black text-base text-slate-900 group-hover:text-orange-600 transition-colors uppercase tracking-tight leading-tight">
                         {pkg.name}
                       </h3>
-                    </Link>
-                    <p className="text-[10px] text-slate-500 mt-1 font-semibold block leading-tight truncate">{pkg.subtext}</p>
-                    
-                    <p className="text-xs text-slate-600 mt-3 leading-relaxed line-clamp-2 font-medium">
-                      {pkg.description}
-                    </p>
+                      <p className="text-[10px] text-slate-500 mt-1 font-semibold block leading-tight truncate">{pkg.subtext}</p>
+                      
+                      <p className="text-xs text-slate-600 mt-3 leading-relaxed line-clamp-2 font-medium">
+                        {pkg.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="px-5 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
-                  <div>
-                    <span className="block text-[8px] text-slate-400 font-bold uppercase tracking-wider">Starting From</span>
-                    <span className="text-base font-black text-orange-600 font-heading">{pkg.price}</span>
+                  <div className="px-5 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+                    <div>
+                      <span className="block text-[8px] text-slate-400 font-bold uppercase tracking-wider">Starting From</span>
+                      <span className="text-base font-black text-orange-600 font-heading">{pkg.price}</span>
+                    </div>
+                    <span
+                      className="gradient-btn px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-wider inline-block"
+                    >
+                      Details
+                    </span>
                   </div>
-                  <Link
-                    href={`/packages/${pkg.id}`}
-                    className="gradient-btn px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-wider cursor-pointer"
-                  >
-                    Details
-                  </Link>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-12 text-center">

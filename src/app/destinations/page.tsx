@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InquiryModal from "@/components/InquiryModal";
@@ -12,6 +13,7 @@ import { fixedDepartures, featuredPackages } from "@/data/travelData";
 let cachedDestinations: any[] | null = null;
 
 export default function DestinationsPage() {
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDestination, setSelectedDestination] = useState("");
   const [activeCategory, setActiveCategory] = useState<"all" | "international" | "domestic" | "trek">("all");
@@ -331,88 +333,92 @@ export default function DestinationsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filtered.map(item => (
-                <div
-                  key={item.id}
-                  id={item.id}
-                  className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/70 hover:border-orange-300 hover:shadow-orange-500/10 flex flex-col justify-between hover-card group"
-                >
-                  <div>
-                    {/* Card Image */}
-                    <Link href={item.isFixedDeparture ? `/destinations/${item.id}` : `/packages/${item.id}`} className="relative h-60 w-full overflow-hidden block">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {item.isFixedDeparture && (
-                        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-orange-600 text-[10px] font-bold tracking-wider px-3 py-1 rounded-full border border-orange-300 shadow-xs">
-                          GROUP DEPARTURE
-                        </div>
-                      )}
-                    </Link>
+              {filtered.map(item => {
+                const targetUrl = item.isFixedDeparture ? `/destinations/${item.id}` : `/packages/${item.id}`;
+                return (
+                  <div
+                    key={item.id}
+                    id={item.id}
+                    onClick={() => router.push(targetUrl)}
+                    className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/70 hover:border-orange-300 hover:shadow-orange-500/10 flex flex-col justify-between hover-card group cursor-pointer transition-all duration-300"
+                  >
+                    <div>
+                      {/* Card Image */}
+                      <div className="relative h-60 w-full overflow-hidden block">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        {item.isFixedDeparture && (
+                          <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-orange-600 text-[10px] font-bold tracking-wider px-3 py-1 rounded-full border border-orange-300 shadow-xs">
+                            GROUP DEPARTURE
+                          </div>
+                        )}
+                      </div>
 
-                    {/* Card Body */}
-                    <div className="p-6">
-                      <Link href={item.isFixedDeparture ? `/destinations/${item.id}` : `/packages/${item.id}`}>
+                      {/* Card Body */}
+                      <div className="p-6">
                         <h3 className="text-lg font-extrabold text-slate-900 font-heading tracking-wide uppercase group-hover:text-orange-600 transition-colors">
                           {item.name}
                         </h3>
-                      </Link>
 
-                      {/* COUNTRY SLOGAN / SUBTEXT DISPLAY */}
-                      <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3 shadow-2xs">
-                        <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
-                          <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
-                        </svg>
-                        <p className="text-xs font-semibold italic text-orange-900/90 leading-snug">
-                          "{item.slogan}"
+                        {/* COUNTRY SLOGAN / SUBTEXT DISPLAY */}
+                        <div className="mt-3 flex items-start gap-2 text-orange-950 bg-gradient-to-r from-orange-50/80 to-amber-50/80 border border-orange-200/60 rounded-xl p-3 shadow-2xs">
+                          <svg className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" />
+                          </svg>
+                          <p className="text-xs font-semibold italic text-orange-900/90 leading-snug">
+                            "{item.slogan}"
+                          </p>
+                        </div>
+
+                        <p className="text-xs text-slate-600 mt-3 leading-relaxed font-medium">
+                          {item.description}
                         </p>
-                      </div>
 
-                      <p className="text-xs text-slate-600 mt-3 leading-relaxed font-medium">
-                        {item.description}
-                      </p>
-
-                      {/* Highlights */}
-                      <div className="mt-4 flex flex-wrap gap-1.5">
-                        {item.highlights.map((h: string, idx: number) => (
-                          <span
-                            key={idx}
-                            className="bg-orange-50/60 text-orange-900 text-[11px] px-2.5 py-1 rounded-md border border-orange-100 font-medium"
-                          >
-                            • {h}
-                          </span>
-                        ))}
+                        {/* Highlights */}
+                        <div className="mt-4 flex flex-wrap gap-1.5">
+                          {item.highlights.map((h: string, idx: number) => (
+                            <span
+                              key={idx}
+                              className="bg-orange-50/60 text-orange-900 text-[11px] px-2.5 py-1 rounded-md border border-orange-100 font-medium"
+                            >
+                              • {h}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Card Action Footer */}
-                  <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/60 flex items-center justify-between gap-2">
-                    <div>
-                      <span className="block text-[10px] text-slate-400 font-bold uppercase">Package Price</span>
-                      <span className="text-xl font-black text-orange-600 font-heading">{item.price}</span>
+                    {/* Card Action Footer */}
+                    <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/60 flex items-center justify-between gap-2">
+                      <div>
+                        <span className="block text-[10px] text-slate-400 font-bold uppercase">Package Price</span>
+                        <span className="text-xl font-black text-orange-600 font-heading">{item.price}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="px-3.5 py-2 rounded-full text-xs font-bold font-heading text-slate-800 bg-white border border-slate-200 group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors shadow-2xs inline-block"
+                        >
+                          View Details
+                        </span>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openInquiryModal(item.name);
+                          }}
+                          className="gradient-btn px-4 py-2 rounded-full text-xs font-bold font-heading flex items-center gap-1 cursor-pointer"
+                        >
+                          Book
+                        </button>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Link
-                        href={item.isFixedDeparture ? `/destinations/${item.id}` : `/packages/${item.id}`}
-                        className="px-3.5 py-2 rounded-full text-xs font-bold font-heading text-slate-800 bg-white border border-slate-200 hover:bg-orange-50 hover:text-orange-600 transition-colors shadow-2xs"
-                      >
-                        View Details
-                      </Link>
-                      <button
-                        onClick={() => openInquiryModal(item.name)}
-                        className="gradient-btn px-4 py-2 rounded-full text-xs font-bold font-heading flex items-center gap-1 cursor-pointer"
-                      >
-                        Book
-                      </button>
-                    </div>
-                  </div>
 
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
           )}
 
