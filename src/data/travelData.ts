@@ -100,7 +100,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
 "deluxe-kerala-tours": {
     "title": "Delux Kerala",
     "name": "Deluxe Kerala Tours",
-    "slogan": "Celebrate Diwali in the serene landscapes of God’s Own Country, Kerala, on this deluxe 7-day tour.",
+    "slogan": "Celebrate holidays in God’s Own Country with lush tea plantations in Munnar, spice hills in Thekkady, and serene Alleppey backwaters.",
     "category": "domestic",
     "duration": "7 Days / 6 Nights",
     "badge": "",
@@ -216,7 +216,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "royal-kerala": {
     "title": "Royal Kerala",
     "name": "Royals Kerala",
-    "slogan": "Celebrate Diwali in God’s Own Country, Kerala, with this royal 8-day package.",
+    "slogan": "Cruise the peaceful backwaters of Alleppey, wander through misty tea gardens of Munnar, and witness majestic Athirappilly waterfalls.",
     "category": "domestic",
     "duration": "8 Days / 7 Nights",
     "badge": "",
@@ -340,7 +340,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "south-india": {
     "title": "Delux South",
     "name": "South India",
-    "slogan": "Embark on a delightful 9-day journey across the scenic hill stations and royal cities of South India.",
+    "slogan": "Experience the cool tea hills of Ooty, the royal Mysore Palace, and the scenic beauty of Coorg and Kodaikanal.",
     "category": "domestic",
     "duration": "9 Days / 8 Nights",
     "badge": "",
@@ -475,7 +475,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "south-india-tours": {
     "title": "Royal South",
     "name": "South India Tours",
-    "slogan": "Explore the mystical beauty, majestic heritage, and serene landscapes of South India on this comprehensive 11-day A.",
+    "slogan": "Explore the ancient temples, misty hill stations, and royal heritage of Tamil Nadu, Karnataka, and Kerala.",
     "category": "domestic",
     "duration": "11 Days / 10 Nights",
     "badge": "",
@@ -625,7 +625,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "himanchal": {
     "title": "Delux Himachal",
     "name": "Himanchal",
-    "slogan": "Experience the snow-capped peaks, pine valleys, and spiritual heritage of Himachal Pradesh and Amritsar on this premium 9-day tour.",
+    "slogan": "Discover snowy Solang Valley, picturesque Shimla ridge, holy Golden Temple Amritsar, and scenic Himalayan pine valleys.",
     "category": "domestic",
     "duration": "8 Days / 7 Nights",
     "badge": "",
@@ -761,7 +761,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "kashmir": {
     "title": "Delux Kashmir",
     "name": "Kashmir",
-    "slogan": "Immerse yourself in the ultimate beauty of Kashmir, widely celebrated as the “Heaven of Earth,” alongside the sacred pilgrimage to Vaishno Devi.",
+    "slogan": "Experience paradise on Earth with a Dal Lake Shikara ride, Gulmarg snow gondola, Pahalgam valleys, and sacred Vaishno Devi darshan.",
     "category": "domestic",
     "duration": "7 Days / 6 Nights",
     "badge": "",
@@ -897,7 +897,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "scenic-beauty-sikkim": {
     "title": "Sikkim",
     "name": "Scenic Beauty Sikkim",
-    "slogan": "Explore the pristine valleys, high-altitude lakes, and majestic Himalayan peaks of Sikkim and Darjeeling.",
+    "slogan": "Marvel at sacred glacial Tsomgo Lake, serene Gangtok monasteries, and sunrise over Mt. Kanchenjunga from Tiger Hill.",
     "category": "domestic",
     "duration": "8 Days / 7 Nights",
     "badge": "",
@@ -1025,7 +1025,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "majestic-leh-ladakh-adventure": {
     "title": "Leh Ladakh",
     "name": "Majestic Leh Ladakh Adventure",
-    "slogan": "Embark on the ultimate adventure to the land of high passes, Leh Ladakh.",
+    "slogan": "Conquer the world's highest motorable passes, marvel at turquoise Pangong Lake, and ride double-humped camels in Nubra Valley.",
     "category": "domestic",
     "duration": "7 Days / 6 Nights",
     "badge": "",
@@ -1141,7 +1141,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "nainital-blissful-uttaranchal": {
     "title": "Delux Nainital",
     "name": "Nainital Blissful Uttaranchal",
-    "slogan": "Explore the majestic hills, wild jungles, and holy river banks of Uttarakhand on this beautiful 9-day tour.",
+    "slogan": "Glide on serene Naini Lake, encounter wild tigers in Jim Corbett, and seek divine peace in sacred Haridwar and Rishikesh.",
     "category": "domestic",
     "duration": "7 Days / 6 Nights",
     "badge": "",
@@ -1384,7 +1384,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "chardham-yatra": {
     "title": "Delux Chardham",
     "name": "Chardham Yatra",
-    "slogan": "Chardham Yatra Tour Packages Trip Duration 12 Days Accommodation Stay at Haridwar, Barkot, Uttarkashi, Guptkashi, Kedarnath, Badrinath & Rudraprayag Days Meals 10 Breakfast 10 Dinner Group Size Flights All flights included Transportation All Transfers Included Tour Highlights.",
+    "slogan": "Embark on a soul-stirring Himalayan pilgrimage to Yamunotri, Gangotri, Kedarnath, and Badrinath for divine salvation.",
     "category": "domestic",
     "duration": "12 Days / 11 Nights",
     "badge": "",
@@ -1529,7 +1529,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "nepal-muktinath": {
     "title": "Royal Nepal Muktinath",
     "name": "Nepal Muktinath",
-    "slogan": "Embark on a divine 13-day spiritual pilgrimage across Varanasi (Kashi Vishwanath), Nepal, Muktinath (Pulhashram), Ayodhya, and Chhapaiya.",
+    "slogan": "Seek divine salvation at holy Muktinath, sacred Pashupatinath in Kathmandu, Kashi Vishwanath in Varanasi, and Ram Janmabhoomi in Ayodhya.",
     "category": "domestic",
     "duration": "13 Days / 12 Nights",
     "badge": "",
@@ -1693,7 +1693,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "jagannath-puri-gangasagar-tour": {
     "title": "Delux Puri Gangasagear",
     "name": "Jagannath Puri & Gangasagar Tour",
-    "slogan": "Embark on a sacred 6-day pilgrimage covering the holy sites of Champaran, the famous coastal Jagannath Puri, Konark Sun Temple, Bhubaneswar, the cultural city of Kolkata, and the holy confluence of Gangasagar.",
+    "slogan": "Take a holy dip at Gangasagar, seek blessings of Lord Jagannath in Puri, marvel at Konark Sun Temple, and visit Dakshineswar Kali Mandir.",
     "category": "domestic",
     "duration": "6 Days / 5 Nights",
     "badge": "",
@@ -1797,7 +1797,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "go-goa-vacation-package": {
     "title": "Delux Go Goa",
     "name": "Go Goa Vacation Package",
-    "slogan": "Enjoy your summer holidays in Goa with this deluxe 5-day vacation package.",
+    "slogan": "Unwind on sun-kissed golden beaches, historic Portuguese churches, and thrilling watersports in tropical Goa.",
     "category": "domestic",
     "duration": "4 Days / 3 Nights",
     "badge": "",
@@ -1894,7 +1894,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "bhutan-himalayan": {
     "title": "Royal Bhutan",
     "name": "Bhutan Himalayan",
-    "slogan": "Discover the Land of the Thunder Dragon on this scenic 9-day Bhutan Himalayan Escape.",
+    "slogan": "Hike to the legendary Tiger’s Nest monastery, cross high Himalayan passes, and discover the peaceful Land of the Thunder Dragon.",
     "category": "domestic",
     "duration": "9 Days / 8 Nights",
     "badge": "",
@@ -2030,7 +2030,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "assam-meghalaya-tour": {
     "title": "Royal Assam",
     "name": "Assam Meghalaya Tour",
-    "slogan": "At Bharat Darshan Travels, we have crafted an exciting and unforgettable 12-day journey that takes you through some of the most beautiful destinations in Northeast India.",
+    "slogan": "Explore the emerald tea gardens of Assam, the living root bridges of Meghalaya, and the majestic wildlife of Kaziranga.",
     "category": "domestic",
     "duration": "12 Days / 11 Nights",
     "badge": "",
@@ -2296,7 +2296,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "rann-utsav-package": {
     "title": "Ran Utsav",
     "name": "Family Rann Utsav Package",
-    "slogan": "Experience the white salt desert of Kutch, the historical town of Bhuj, and the ancient excavations of Dholavira.",
+    "slogan": "Witness the mesmerizing white salt desert under full moonlight, vibrant Kutchi folk culture, and the UNESCO heritage of Dholavira.",
     "category": "domestic",
     "duration": "4 Days / 3 Nights",
     "badge": "Tent City Special",
@@ -2390,7 +2390,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "rajasthan-tour-package": {
     "title": "Royal Ran Rajeshthan",
     "name": "Family Rajasthan Tour Package",
-    "slogan": "Explore the heritage, palaces, and deserts of Jaipur, Jodhpur, and Jaisalmer.",
+    "slogan": "Immerse yourself in royal Rajputana grandeur, golden desert sand dunes, and majestic palaces across Jaipur, Jodhpur, and Jaisalmer.",
     "category": "domestic",
     "duration": "4 Days / 3 Nights",
     "badge": "Heritage Special",
@@ -2663,7 +2663,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "bali-cost-saver-1-summer-2026": {
     "title": "Bali Cost Saver 1 Summer 2026",
     "name": "Bali Cost Saver 1 Summer 2026",
-    "slogan": "Discover the tropical beauty of Indonesia with this cost-saver 8-day Bali Summer package.",
+    "slogan": "Experience iconic clifftop Uluwatu sunsets, lush Ubud rice terraces, Mount Batur panoramas, and thrilling water sports in Bali.",
     "category": "international",
     "duration": "8 Days / 7 Nights",
     "badge": "",
@@ -2788,7 +2788,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "bali-cost-saver-ii-summer-2026": {
     "title": "Bali Cost Saver II Summer 2026",
     "name": "Bali Cost Saver II Summer 2026",
-    "slogan": "Indulge in a premium 8-day Bali holiday with our Cost Saver II package.",
+    "slogan": "Indulge in a private pool villa in Ubud, white-sand Nusa Penida island beaches, and traditional Balinese cultural wonders.",
     "category": "international",
     "duration": "8 Days / 7 Nights",
     "badge": "",
@@ -3036,7 +3036,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "phuket-krabi": {
     "title": "Phuket Krabi",
     "name": "Phuket Krabi",
-    "slogan": "Experience the best of tropical Thailand with this exciting 6-day Phuket and Krabi tour package.",
+    "slogan": "Sail through emerald waters to Phi Phi Islands, explore James Bond Island, and relax on the pristine limestone beaches of Krabi.",
     "category": "international",
     "duration": "6 Days / 5 Nights",
     "badge": "",
@@ -3135,7 +3135,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "singapore-malaysia-cost-saver": {
     "title": "Singapore Malaysia Cost Saver",
     "name": "Singapore Malaysia Cost Saver",
-    "slogan": "Embark on the ultimate 7-day Singapore & Malaysia group tour.",
+    "slogan": "Discover Sentosa Island, Marina Bay Sands, Genting Highlands cable car, and iconic Petronas Twin Towers on this budget-friendly holiday.",
     "category": "international",
     "duration": "7 Days / 6 Nights",
     "badge": "",
@@ -3254,7 +3254,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "singapore-malaysia-thailand-cost-saver": {
     "title": "Singapore Malaysia Thailand Cost Saver",
     "name": "Singapore Malaysia Thailand Cost Saver",
-    "slogan": "Embark on the ultimate Southeast Asian exploration covering three beautiful nations: Singapore, Malaysia, and Thailand.",
+    "slogan": "Explore Singapore's futuristic skyline, Malaysia's Genting Highlands, and Thailand's Pattaya beaches on an all-inclusive super value tour.",
     "category": "international",
     "duration": "11 Days / 10 Nights",
     "badge": "",
@@ -3403,7 +3403,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "singapore-malaysia-thailand-tour": {
     "title": "Singapore Malaysia Thailand Tour",
     "name": "Singapore Malaysia Thailand Tour",
-    "slogan": "Embark on an epic 11-day journey exploring the absolute best of Southeast Asia! This comprehensive, flight-inclusive tour package covers the hyper-modern city-state of Singapore, the vibrant cultural melting pot of Malaysia (Kuala Lumpur & Genting), and the exotic tropical beauty of Thailand (Bangkok & Pattaya).",
+    "slogan": "Experience the ultimate Southeast Asian tri-nation adventure across glittering Singapore, vibrant Malaysia, and tropical Thailand.",
     "category": "international",
     "duration": "11 Days / 10 Nights",
     "badge": "",
@@ -3564,7 +3564,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "singapore-cruise-malaysia": {
     "title": "Singapore – Cruise – Malaysia",
     "name": "Singapore – Cruise – Malaysia",
-    "slogan": "Create unforgettable memories with our 8-day Singapore – Cruise – Malaysia tour package.",
+    "slogan": "Sail on a luxury ocean cruise, explore modern Singapore, and experience vibrant Kuala Lumpur and Genting Highlands.",
     "category": "international",
     "duration": "8 Days / 7 Nights",
     "badge": "",
@@ -3811,7 +3811,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
   "vietnam-wonders-explorer": {
     "title": "Vietnam Wonders Explorer",
     "name": "Vietnam Wonders Explorer",
-    "slogan": "Experience the ultimate beauty of Vietnam on this premium 8-day flight-inclusive tour.",
+    "slogan": "Cruise the mystical emerald waters of Halong Bay, walk the iconic Golden Bridge in Ba Na Hills, and relax in tropical Phu Quoc.",
     "category": "international",
     "duration": "8 Days / 7 Nights",
     "badge": "",

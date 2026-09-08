@@ -66,26 +66,26 @@ export default function Home() {
 
           const fds = data.filter((item: any) => item.isFixedDeparture).map((item: any) => ({
             id: item.id,
-            destination: item.name,
-            slogan: item.slogan,
-            highlights: item.highlights,
+            destination: item.name || item.title || "Special Departure",
+            slogan: item.slogan || item.subtext || "",
+            highlights: item.highlights || [],
             price: formatPrice(item),
             image: item.image,
-            duration: item.duration,
-            description: item.description
+            duration: item.duration || "5N / 6D",
+            description: item.description || ""
           }));
           const pkgs = data.filter((item: any) => !item.isFixedDeparture).map((item: any) => ({
             id: item.id,
-            name: item.name,
-            subtext: item.slogan,
-            category: item.category,
-            duration: item.duration,
-            badge: item.badge,
+            name: item.name || item.title || "Tour Package",
+            subtext: item.slogan || item.subtext || "",
+            category: item.category || "domestic",
+            duration: item.duration || "5N / 6D",
+            badge: item.badge || "",
             price: formatPrice(item),
-            rawPrice: item.rawPrice,
+            rawPrice: item.rawPrice || 0,
             image: item.image,
-            highlights: item.highlights,
-            description: item.description
+            highlights: item.highlights || [],
+            description: item.description || ""
           }));
           setDbFixedDepartures(fds);
           setDbFeaturedPackages(pkgs);

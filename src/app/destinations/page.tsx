@@ -87,11 +87,11 @@ export default function DestinationsPage() {
   const allDestinations = [
     ...dbFixedDepartures.map(fd => ({
       id: fd.id,
-      name: fd.destination,
-      slogan: fd.slogan,
+      name: fd.destination || fd.name || "Special Departure",
+      slogan: fd.slogan || fd.subtext || "",
       category: "international" as const,
-      highlights: fd.highlights,
-      price: fd.price,
+      highlights: fd.highlights || [],
+      price: fd.price || "",
       image: fd.image,
       isFixedDeparture: true,
       duration: fd.duration || "5N / 6D",
@@ -99,15 +99,15 @@ export default function DestinationsPage() {
     })),
     ...dbFeaturedPackages.map(pkg => ({
       id: pkg.id,
-      name: pkg.name,
-      slogan: pkg.subtext,
-      category: pkg.category,
-      highlights: pkg.highlights,
-      price: pkg.price,
+      name: pkg.name || pkg.title || "Tour Package",
+      slogan: pkg.slogan || pkg.subtext || "",
+      category: pkg.category || "domestic",
+      highlights: pkg.highlights || [],
+      price: pkg.price || "",
       image: pkg.image,
       isFixedDeparture: false,
-      duration: pkg.duration,
-      description: pkg.description
+      duration: pkg.duration || "5N / 6D",
+      description: pkg.description || ""
     }))
   ];
 
@@ -143,10 +143,12 @@ export default function DestinationsPage() {
     if (!matchesCat) return false;
 
     // 2. Search Filter
+    const query = searchQuery.toLowerCase().trim();
     const matchesSearch =
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.slogan.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.highlights.some((h: string) => h.toLowerCase().includes(searchQuery.toLowerCase()));
+      !query ||
+      item.name.toLowerCase().includes(query) ||
+      (item.slogan || "").toLowerCase().includes(query) ||
+      item.highlights.some((h: string) => h.toLowerCase().includes(query));
     if (!matchesSearch) return false;
 
     // 3. Duration Filter
