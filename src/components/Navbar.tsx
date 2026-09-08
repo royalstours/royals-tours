@@ -74,8 +74,8 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                     href={item.href}
                     className={`text-[10px] 2xl:text-xs font-bold uppercase tracking-wider transition-all duration-200 px-3 py-1.5 rounded-full whitespace-nowrap ${
                       active
-                        ? "bg-gradient-to-r from-orange-500/12 via-amber-500/10 to-teal-500/12 text-orange-600 font-extrabold border border-orange-200/80 shadow-xs"
-                        : "text-slate-700 hover:text-orange-600 hover:bg-orange-50/70"
+                        ? "bg-white/95 text-orange-600 font-extrabold border border-orange-300/90 shadow-xs"
+                        : "text-slate-800 hover:text-orange-600 hover:bg-white/70"
                     }`}
                   >
                     {item.label}
@@ -102,7 +102,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
           <div className="xl:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-800 hover:text-orange-500 p-2 focus:outline-none transition-colors"
+              className="text-slate-800 hover:text-orange-600 p-2 focus:outline-none transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -122,7 +122,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white/98 backdrop-blur-xl border-b border-orange-100 px-4 pt-4 pb-6 space-y-4 shadow-xl select-none">
+        <div className="xl:hidden bg-gradient-to-b from-[#FFF5ED]/98 via-[#FFFBF0]/98 to-[#F0FDFA]/98 backdrop-blur-2xl border-b border-orange-200/80 px-4 pt-4 pb-6 space-y-4 shadow-2xl select-none">
           {/* Mobile Links */}
           <div className="space-y-1">
             {navItems.map((item) => {
@@ -134,8 +134,8 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors ${
                     active
-                      ? "bg-gradient-to-r from-orange-500/15 to-amber-500/10 text-orange-600 font-extrabold border border-orange-200"
-                      : "text-slate-700 hover:bg-orange-50/50 hover:text-orange-600"
+                      ? "bg-white text-orange-600 font-extrabold border border-orange-300 shadow-xs"
+                      : "text-slate-800 hover:bg-white/70 hover:text-orange-600"
                   }`}
                 >
                   {item.label}
