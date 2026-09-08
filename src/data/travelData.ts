@@ -1274,27 +1274,37 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "id": "nainital-blissful-uttaranchal"
   },
   "delhi-haridwar-gokul-mathura-vrundavan": {
-    "title": "Delux Delhi Akshrdham",
+    "title": "Delhi Haridwar Gokul Mathura Vrindavan Tour",
     "name": "Delhi Haridwar Gokul Mathura Vrundavan",
-    "slogan": "",
+    "slogan": "Experience the divine aura of sacred Haridwar, the spiritual bliss of Rishikesh Ganga Aarti, and the eternal love in Mathura and Vrindavan.",
     "category": "domestic",
     "duration": "6 Days / 5 Nights",
-    "badge": "",
+    "badge": "Spiritual Yatra",
     "price": "₹22,999 PP",
     "rawPrice": 22999,
     "image": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=800",
     "highlights": [
-      "Ahmedabad to Delhi",
-      "Delhi to Haridwar",
-      "Haridwar",
-      "Haridwar to rusikesh,, vundavan"
+      "Delhi Akshardham Temple & India Gate Sightseeing",
+      "Haridwar Har Ki Pauri Evening Ganga Aarti & Sacred Dip",
+      "Rishikesh Ram Jhula, Laxman Jhula & Spiritual Ashrams",
+      "Gokul, Mathura Janmabhoomi & Vrindavan Prem Mandir"
     ],
-    "description": "",
-    "location": "Delhi to Haridwar",
-    "bestTimeToVisit": "",
-    "groupSize": "12 - 18 Guests",
-    "included": [],
-    "excluded": [],
+    "description": "Embark on an enriching 6-day spiritual journey traversing the historic capital of Delhi, the sacred ghats of Haridwar and Rishikesh, and the divine Krishna Janmabhoomi lands of Gokul, Mathura, and Vrindavan. Marvel at the grand Akshardham Temple in Delhi, witness the mesmerizing evening Ganga Aarti at Har Ki Pauri, explore spiritual ashrams and iconic suspension bridges in Rishikesh, and immerse yourself in the divine energy of Banke Bihari Temple and Prem Mandir in Vrindavan. Traveling with Royals Tours ensures comfortable AC coach transport, hotel stays, and fresh pure vegetarian and Jain meals prepared daily by our private kitchen team.",
+    "location": "Delhi, Haridwar, Rishikesh, Mathura & Vrindavan",
+    "bestTimeToVisit": "September to April",
+    "groupSize": "15 - 30 Guests",
+    "included": [
+      "5 Nights comfortable hotel accommodation",
+      "Daily breakfast, lunch, and dinner (Pure Veg & Jain meals prepared by private kitchen team)",
+      "All transfers and sightseeing by comfortable 2x2 AC Pushback Coach",
+      "Guided darshan and temple assistance throughout the tour",
+      "Experienced tour manager traveling with the group"
+    ],
+    "excluded": [
+      "Train or flight tickets from hometown to Delhi & return",
+      "Personal expenses (laundry, shopping, telephone, tips)",
+      "Special temple puja/VIP pass fees or personal offerings"
+    ],
     "itinerary": [
       {
         "day": 1,
@@ -2495,12 +2505,12 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "id": "rajasthan-tour-package"
   },
   "kailash-mansarovar-yatra-2026-13-nights-14-days": {
-    "title": "Royal Kailash Mansarovear",
+    "title": "Kailash Mansarovar Yatra 2026",
     "name": "Kailash Mansarovar Yatra 2026 13 Nights / 14 Days",
-    "slogan": "",
+    "slogan": "Fulfill the sacred lifelong dream of circumambulating Mount Kailash and taking a holy dip in the crystal waters of Lake Manasarovar.",
     "category": "domestic",
     "duration": "14 Days / 13 Nights",
-    "badge": "",
+    "badge": "Sacred Himalayan Yatra",
     "price": "₹2,85,999 PP",
     "rawPrice": 285999,
     "image": "https://images.unsplash.com/photo-1584810359583-96fc3448beaa?q=80&w=800",
@@ -2509,13 +2519,25 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
       "Holy Bath & Puja at Sacred Lake Manasarovar",
       "Complete 3-Day Kailash Parikrama via Dolma La Pass",
       "Visit Diraphuk, Zutulpuk & Chiu Monasteries"
-],
-    "description": "",
-    "location": "Day 2 Activity",
-    "bestTimeToVisit": "",
-    "groupSize": "",
-    "included": [],
-    "excluded": [],
+    ],
+    "description": "Join our highly organized 14-day Kailash Mansarovar Yatra, the ultimate pilgrimage to the abode of Lord Shiva in Tibet. Starting with sacred Pashupatinath darshan in Kathmandu, the journey ascends through the Himalayas to the mystical Lake Manasarovar for holy snan and havan puja. Undertake the spiritually transformative 3-day Kailash Parikrama (Kora) crossing the formidable Dolma La Pass (5,630m), visiting the monasteries of Diraphuk, Zutulpuk, and Chiu. Our seasoned Sherpa guides, high-altitude support teams, oxygen cylinders, medical readiness, and dedicated pure vegetarian kitchen team provide unparalleled safety, warmth, and peace of mind throughout this sacred expedition.",
+    "location": "Tibet (China) via Kathmandu, Nepal",
+    "bestTimeToVisit": "May to September",
+    "groupSize": "15 - 35 Guests",
+    "included": [
+      "13 Nights accommodation (hotels in Kathmandu & guesthouses/mud houses in Tibet)",
+      "Daily pure vegetarian meals prepared fresh by our Sherpa cooking team",
+      "Tibet Group Visa, Alien Travel Permits & Kailash entry permits",
+      "AC coach transfers in Nepal and luxury tourist bus in Tibet",
+      "Yaks and yak drivers for carrying common luggage during Parikrama",
+      "Oxygen cylinders, Gamow bag, and medical first-aid support",
+      "Experienced English/Hindi-speaking Tibetan guide and Nepali tour leader"
+    ],
+    "excluded": [
+      "International airfare to Kathmandu and return",
+      "Horse/Pony and personal porter charges during Kailash Parikrama",
+      "Emergency evacuation, travel insurance, and medical expenses"
+    ],
     "itinerary": [
       {
             "day": 1,
@@ -2891,12 +2913,12 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "id": "bali-cost-saver-ii-summer-2026"
   },
   "diwali-dubai-ex-ahmedabad": {
-    "title": "Diwali Dubai Ex Ahmedabad – 08 & 10 November 2026 7 Days • Super Deal",
+    "title": "Diwali Dubai Ex Ahmedabad 7 Days • Super Deal",
     "name": "Diwali Dubai Ex Ahmedabad – 08 & 10 November 2026 7 Days • Super Deal",
-    "slogan": "",
+    "slogan": "Celebrate a sparkling Diwali in glamorous Dubai with Burj Khalifa, thrilling Desert Safari, and futuristic Abu Dhabi wonders.",
     "category": "international",
-    "duration": "",
-    "badge": "",
+    "duration": "7 Days / 6 Nights",
+    "badge": "Diwali Festive Special",
     "price": "₹147,999 PP",
     "rawPrice": 147999,
     "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800",
@@ -2905,13 +2927,26 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
       "Desert Safari with 4x4 Dune Bashing & BBQ Dinner",
       "Abu Dhabi City Tour & BAPS Swaminarayan Temple",
       "Dubai Miracle Garden & Global Village"
-],
-    "description": "",
-    "location": "Diwali Dubai Ex Ahmedabad – 08 & 10 November 2026 7 Days • Super Deal",
-    "bestTimeToVisit": "",
-    "groupSize": "",
-    "included": [],
-    "excluded": [],
+    ],
+    "description": "Celebrate the festival of lights with an unforgettable 7-day luxury vacation to Dubai and Abu Dhabi, flying directly ex-Ahmedabad. Ascend to the 124th floor of the world-famous Burj Khalifa, experience an adrenaline-pumping 4x4 Desert Safari with dune bashing and Arabian BBQ dinner, and cruise along the glittering Dubai Marina. Explore the blooming floral artistry at Dubai Miracle Garden, the global cultural pavilions of Global Village, the magnificent BAPS Hindu Mandir, and the grandeur of Sheikh Zayed Grand Mosque in Abu Dhabi. Features return direct flights, premium hotel accommodation, daily Indian meals, and seamless guided tour assistance.",
+    "location": "Dubai & Abu Dhabi, UAE",
+    "bestTimeToVisit": "November (Diwali Special)",
+    "groupSize": "20 - 40 Guests",
+    "included": [
+      "Return economy class flights directly from Ahmedabad to Dubai",
+      "6 Nights stay in premium 4-star city hotel with daily breakfasts",
+      "Daily Indian lunches and dinners at top-rated restaurants",
+      "Desert Safari with 4x4 Land Cruiser dune bashing, Tanoura show & BBQ",
+      "Burj Khalifa 124th floor non-peak entry ticket",
+      "Full day Abu Dhabi city tour including Sheikh Zayed Mosque and BAPS Mandir",
+      "Dubai Miracle Garden and Global Village entry tickets",
+      "UAE Tourist Visa processing and Overseas Travel Insurance"
+    ],
+    "excluded": [
+      "Dubai Tourism Dirham fee payable directly at hotel",
+      "Personal expenses (shopping, mini bar, telephone, laundry)",
+      "Tips to drivers and tour guides"
+    ],
     "itinerary": [
       {
             "day": 1,
@@ -3654,27 +3689,39 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "id": "singapore-cruise-malaysia"
   },
   "thailand-7-day": {
-    "title": "Thailend  7 Days • Super Deal",
-    "name": "Thailend  7 Days • Super Deal",
-    "slogan": "",
+    "title": "Thailand 7 Days • Super Deal",
+    "name": "Thailand 7 Days • Super Deal",
+    "slogan": "Discover the enchanting culture, lush mountains, and vibrant cityscapes of Chiang Mai, Chiang Rai, and Bangkok.",
     "category": "international",
-    "duration": "",
-    "badge": "",
+    "duration": "7 Days / 6 Nights",
+    "badge": "International Super Deal",
     "price": "₹87,999 PP",
     "rawPrice": 87999,
     "image": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800",
     "highlights": [
-      "Arrive Chiang Mai & City Temples",
-      "Doi Inthanon National Park & Waterfalls",
-      "Elephant Jungle Sanctuary Experience",
-      "Golden Triangle, Blue Temple & Mekong Boat Ride"
-],
-    "description": "",
-    "location": "Thailend  7 Days • Super Deal",
-    "bestTimeToVisit": "",
-    "groupSize": "",
-    "included": [],
-    "excluded": [],
+      "Chiang Mai Ancient City Temples & Night Bazaar",
+      "Doi Inthanon National Park & Majestic Waterfalls",
+      "Ethical Elephant Jungle Sanctuary Interaction",
+      "Chiang Rai White & Blue Temples & Golden Triangle Cruise"
+    ],
+    "description": "Experience the exotic charm and natural wonders of northern and central Thailand on this exciting 7-day Super Deal package. Begin in historic Chiang Mai with ancient golden temples and breathtaking mountain panoramas at Doi Inthanon National Park. Connect with gentle elephants at an ethical sanctuary, explore the famous White Temple (Wat Rong Khun) and Blue Temple in Chiang Rai, and cruise the iconic Golden Triangle on the Mekong River bordering Thailand, Laos, and Myanmar. Conclude with vibrant city sightseeing, bustling night markets, and authentic Indian dinners in Bangkok, all supported with direct flight bookings and guided transfers.",
+    "location": "Chiang Mai, Chiang Rai & Bangkok, Thailand",
+    "bestTimeToVisit": "October to April",
+    "groupSize": "12 - 25 Guests",
+    "included": [
+      "Return flights and domestic Thailand intercity travel",
+      "6 Nights in handpicked 4-star hotels with daily buffet breakfasts",
+      "Daily Indian lunches and dinners throughout the tour",
+      "Guided full-day excursion to Doi Inthanon National Park",
+      "Ethical Elephant Sanctuary half-day interactive experience",
+      "Chiang Rai full day tour including White Temple, Blue Temple & Mekong boat ride",
+      "Thailand E-Visa assistance and airport transfers"
+    ],
+    "excluded": [
+      "Personal expenses (laundry, beverages, massage, shopping)",
+      "Camera fees and optional activities at attractions",
+      "Tips for local guide and drivers"
+    ],
     "itinerary": [
       {
             "day": 1,
