@@ -262,7 +262,7 @@ export default function DestinationDetailPage({ params }: PageProps) {
 
                           {isOpen && (
                             <div className="px-5 pb-5 pt-1 border-t border-amber-200/40 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3">
-                              <p>{day.description}</p>
+                              <p className="whitespace-pre-line font-medium text-slate-700">{day.description}</p>
 
                               <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-slate-500">
                                 {day.meals && (

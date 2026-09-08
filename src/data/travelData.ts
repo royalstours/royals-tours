@@ -1382,11 +1382,11 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "rawPrice": 27999,
     "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=800",
     "highlights": [
-      "Arrival in Delhi & Haridwar",
-      "New Delhi – Haridwar",
-      "Haridwar - Barkot (170 km)",
-      "Barkot – Yamunotri – Barkot (50 km drive & 6 km one way trek)"
-    ],
+      "Arrival in Delhi & Transfer to Haridwar",
+      "Barkot to Yamunotri Temple Darshan",
+      "Uttarkashi to Gangotri Temple Darshan",
+      "Guptkashi to Sacred Kedarnath Dham & Badrinath"
+],
     "description": "Chardham Yatra Tour Packages Trip Duration 12 Days Accommodation Stay at Haridwar, Barkot, Uttarkashi, Guptkashi, Kedarnath, Badrinath & Rudraprayag Days Meals 10 Breakfast 10 Dinner Group Size Flights All flights included Transportation All Transfers Included Tour Highlights",
     "location": "Arrival in Delhi & Haridwar",
     "bestTimeToVisit": "",
@@ -1395,97 +1395,90 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "excluded": [],
     "itinerary": [
       {
-        "day": 1,
-        "title": "Arrival in Delhi & Haridwar",
-        "description": "",
-        "meals": "",
-        "stay": ""
+            "day": 1,
+            "title": "Arrival in Delhi & Drive to Haridwar (200 km)",
+            "description": "Arrive at New Delhi Airport / Railway Station. Meet our tour captain and drive to the holy city of Haridwar (approx. 200 km). Check in at the hotel and visit Har Ki Pauri in the evening to witness the sacred Ganga Aarti. Dinner and overnight stay in Haridwar.",
+            "meals": "Lunch,Dinner",
+            "stay": "Overnight in Haridwar"
       },
       {
-        "day": 1,
-        "title": "New Delhi – Haridwar",
-        "description": "Today Arrival at New Delhi Airport / Railway Station then proceed to Haridwar. Take a lunch En – Route. Afternoon reaches Haridwar check Inn to your hotel. In the evening visit Har Ki Paudi for Ganga Aarati (Self by Auto). Have dinner and a comfortable overnight stay at Hotel.",
-        "meals": "Lunch,Dinner",
-        "stay": ""
+            "day": 2,
+            "title": "Haridwar to Barkot via Mussoorie (170 km)",
+            "description": "Early morning drive to Barkot. En route, enjoy the scenic views of Kempty Falls in Mussoorie (subject to traffic and timing). Stop for lunch on the way. Arrive in Barkot, check in at the hotel, and relax to prepare for the Yamunotri trek the next day. Dinner and overnight stay in Barkot.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Barkot"
       },
       {
-        "day": 2,
-        "title": "Haridwar - Barkot (170 km)",
-        "description": "Today early morning after breakfast drive to Barkot. Visit Kempty Fall (Subject to Timing schedule and route) to then take lunch En-route. Check-in at your Hotel. The rest of the day is free to relax and store your energy for the Pahad (hill) Yatra of Yamunotri the next day. Overnight stay at Barkot.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 3,
+            "title": "Barkot to Yamunotri Temple Darshan & Return",
+            "description": "Early morning drive to Janki Chatti / Phool Chatti. Begin the 6 km trek to the sacred Yamunotri Dham (by foot, pony, or doli). Cook rice in the natural hot springs of Surya Kund as Prasad, offer prayers at Divya Shila, take a holy dip in Jamunabai Kund, and seek the divine blessings of Goddess Yamuna. Trek back to Janki Chatti and drive back to Barkot for dinner and overnight stay.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Barkot"
       },
       {
-        "day": 3,
-        "title": "Barkot – Yamunotri – Barkot (50 km drive & 6 km one way trek)",
-        "description": "Early morning, Drive to Jankichatti / Phoolchatti, trek start from here to Yamunotri (6 kms). Either by walk or by horse or by dolly at own cost. Arrival at Yamunotri, One can cook rice by packing it in a cloth and dipping it in the hot water of the hot Kund. Pilgrims take this cooked rice home as “Prasad”. Here near the temple “Pooja” can be offered to Divya Shila, after taking bath in Jamunabai Kund’s warm water and having “Darshan” of pious “Yamunaji” returning to Jankichatti. Return back to Barkot, Overnight stay.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 4,
+            "title": "Barkot to Uttarkashi (100 km)",
+            "description": "After breakfast, drive to Uttarkashi along the Bhagirathi River. Check in at the hotel and visit the revered Kashi Vishwanath Temple and Shakti Temple in Uttarkashi. Dinner and overnight stay in Uttarkashi.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Uttarkashi"
       },
       {
-        "day": 4,
-        "title": "Barkot – Uttarkashi (100 km)",
-        "description": "Today Morning After Breakfast Drive to Reach Uttarkashi, Visit Kashi Vishwanath Temple and Evening Free For Relax. Dinner & Overnight Stay At Uttarkashi.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 5,
+            "title": "Uttarkashi to Gangotri Temple Darshan & Return",
+            "description": "Early morning drive to Gangotri Dham along the scenic Bhagirathi River. Offer special pooja and darshan at the sacred Gangotri Temple dedicated to Goddess Ganga. After taking darshan and lunch, drive back to Uttarkashi for dinner and overnight stay.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Uttarkashi"
       },
       {
-        "day": 5,
-        "title": "Uttarkashi – Gangotri – Uttarkashi (90 km drive one way)",
-        "description": "Today Morning after Breakfast Leave for Gangotri Early In the Morning. Post Offering Pooja & Darshan at Gangotri Temple, Take a lunch than drive back to Uttarkashi. Dinner & Overnight Stay At Uttarkashi.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 6,
+            "title": "Uttarkashi to Guptkashi (220 km)",
+            "description": "Early morning drive to Guptkashi via Tehri Dam and the Mandakini River valley. Enjoy lunch en route. Arrive in Guptkashi, check in at the hotel, and visit the ancient Vishwanath Temple and Ardhnareshwar Temple. Dinner and overnight stay in Guptkashi.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Guptkashi"
       },
       {
-        "day": 6,
-        "title": "Uttarkashi – Guptkashi (220 km)",
-        "description": "Today early morning after breakfast leave for Guptkashi. Reach Guptkashi check inn at hotel. Dinner & overnight stay at hotel.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 7,
+            "title": "Guptkashi to Kedarnath Dham Darshan",
+            "description": "Early morning departure for Kedarnath Dham. Helicopter passengers transfer to the helipad for their flight to Kedarnath. Trekking pilgrims proceed to Sonprayag/Gaurikund and begin the sacred 16 km trek to Kedarnath. Perform pooja and darshan at the holy Kedarnath Jyotirlinga temple. Return to Guptkashi for dinner and overnight stay (or self-managed overnight stay at Kedarnath for those doing an overnight halt).",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Guptkashi / Kedarnath"
       },
       {
-        "day": 7,
-        "title": "Guptkashi - Kedarnath - Guptkashi",
-        "description": "Today Early Morning leave for Kedarnath Darshan. By Helicopter: Leave By Vehicle Up To Helipad As Per The Reporting Time, Do Boarding Formalities & Wait Here For Your Time Slot, On Arrival At Kedarnath Perform Early Pooja & Darshan At Temple & Come Back To Helipad To Take Return Flight To Guptkashi, Dinner & Overnight Stay At Guptkashi. By Trek: Morning reach Sonprayag then you have to take local jeep for Gaurikund & then your trek start for Kedarnathji (By walk / By Horse). After Darshan, you follow the same & back to Guptkashi. If anyone wants to stay at Kedarnath, accommodation is not included in the package. Whoever stays at Kedarnath has to manage their accommodation and food on their own.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 8,
+            "title": "Guptkashi Rest & Local Excursion",
+            "description": "Day at leisure in Guptkashi for relaxation and recovery after the Kedarnath trek. Pilgrims who visited by helicopter can visit Gaurikund or explore the local temple town. Dinner and overnight stay in Guptkashi.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Guptkashi"
       },
       {
-        "day": 8,
-        "title": "Guptkashi",
-        "description": "Today after breakfast people who visit Kedarnath by helicopter can visit Gaurikund (By own) or spend day on leisure. Have a comfortable stay at Hotel.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 9,
+            "title": "Guptkashi to Badrinath Dham (200 km)",
+            "description": "Early morning drive to Badrinath Dham via Joshimath. Arrive in Badrinath and check in at the hotel. Take a holy dip in the natural hot sulphur springs of Tapt Kund and attend the evening Aarti and Darshan of Lord Badrivishal. Dinner and overnight stay in Badrinath.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Badrinath"
       },
       {
-        "day": 9,
-        "title": "Guptkashi – Badrinath (200 KM)",
-        "description": "Today early Morning after Breakfast Leave for Badrinath. On Arrival Check in to Hotel than Go to Temple for Holy Darshan / Pooja, Pilgrims after having a bath in the Taptkund have the Darshan of Badrivishal. Dinner & Overnight Stay At Badrinath Hotel.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 10,
+            "title": "Badrinath Sightseeing, Mana Village to Rudraprayag",
+            "description": "Morning darshan at Badrinath Temple followed by sightseeing in Mana Village (the last Indian village before Tibet), including Vyas Gufa, Ganesh Gufa, Bhim Pul, and the origin of Saraswati River. After lunch, drive to Rudraprayag. Check in at the hotel for dinner and overnight stay.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Rudraprayag"
       },
       {
-        "day": 10,
-        "title": "Badrinath – Rudraprayag (157 km)",
-        "description": "Today Morning after breakfast, Visit Vyas Cave, Ganesh Cave, Bhim Pool & Origin Of River Saraswati And Mana Village (The Last Village Before The Tibetan Border). After Lunch drive for Rudraprayag. Check into the hotel arrival in Rudraprayag. ahve a Dinner and Overnight stay at Rudraprayag.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 11,
+            "title": "Rudraprayag to Rishikesh & Haridwar (166 km)",
+            "description": "Drive from Rudraprayag to Rishikesh. Visit the iconic Lakshman Jhula, Ram Jhula, and Triveni Ghat. Continue to Haridwar for dinner and an overnight stay.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Haridwar"
       },
       {
-        "day": 11,
-        "title": "Rudraprayag – Haridwar (166 km)",
-        "description": "Today Morning after breakfast, drive for Rishikesh visit Lakshman Jhula and Ganga Ghat at Rishikesh (By Auto on Direct Payment). Than drive to Haridwar overnight stay at hotel.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
-      },
-      {
-        "day": 12,
-        "title": "Haridwar – New Delhi (206 km)",
-        "description": "After breakfast depart to New Delhi for onward journey with Happy Memories.",
-        "meals": "Breakfast Departure",
-        "stay": ""
+            "day": 12,
+            "title": "Haridwar to New Delhi Departure (206 km)",
+            "description": "After breakfast, depart for New Delhi. Transfer to New Delhi Airport or Railway Station for your onward journey with divine memories of the Chardham Yatra.",
+            "meals": "Breakfast",
+            "stay": "Departure"
       }
-    ],
+],
     "gallery": [],
     "faqs": [
       {
@@ -2195,11 +2188,11 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "rawPrice": 24999,
     "image": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
     "highlights": [
-      "Ahmedabad – Statue of Unity",
-      "Visit Statue of Unity Sightseeing After Breakfast Check out from the Hotel and Visit Sightseeing as per Below Plan. 08:00 Am to 10 Am – Visit Jungle Safari. 10:00 Am to 12:00 PM - Khalwani to Zarwani Eco Tour. 12:30 Pm to 02:00 Pm – Lunch Time 02:00 Pm to 04:00 Pm - Rest Time 04:00 Pm to 06:00 Pm - Visit Ekta Cruise 06:00 Pm to 07:30 Pm - Unity Glow Garden 07:30 Pm to 08:30 Pm - Narmada Aarti 09:00 Pm - After Dinner Overnight stay in the Hotel.",
-      "Statue of Unity - Vadodara",
-      "Vadodara-Ahmedabad"
-    ],
+      "Ahmedabad to Statue of Unity Transfer",
+      "Jungle Safari, Zarwani Eco Tour & Ekta Cruise",
+      "Poicha Nilkanthdham Temple & Vadodara",
+      "Laxmi Vilas Palace & Ahmedabad Heritage Tour"
+],
     "description": "",
     "location": "Statue of Unity",
     "bestTimeToVisit": "",
@@ -2208,41 +2201,41 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "excluded": [],
     "itinerary": [
       {
-        "day": 1,
-        "title": "Ahmedabad – Statue of Unity",
-        "description": "Pick up from Ahmedabad Address. After Pick up, travel to the Statue of Unity. Check in Hotel and Fresh up.After Visit Sightseeing. 02:30 PM to 04:00 PM - Visit to Sardar Sarovar Dam View and Selfie Point & Valley of Flower on SIC (Seat-in-Coach) Basis. 04:00 PM to 06:00 PM - Visit to The Statue of Unity on SIC (Seat-in-Coach) Basis. (SOU Ticket of Viewing Gallery is included in the package which will be subject to availability. The tickets for the Kids having age of 03-06 years needs to be booked by guests directly from www.soutickets.in) 06:00 PM to 06:45 PM - Light Refreshment. 06:45 PM to 08:00 PM - The Statue of Unity Laser Show on SIC (Seat-in-Coach) Basis (Subject to show/ ticket availability) After dinner, I stayed overnight stay in Hotel",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 1,
+            "title": "Ahmedabad to Statue of Unity & Evening Laser Show",
+            "description": "Pick up from your Ahmedabad address and embark on a scenic drive to the Statue of Unity. Upon arrival, check in at the hotel and freshen up. Proceed for the day's scheduled sightseeing:\n\n• 02:30 PM – 04:00 PM: Visit Sardar Sarovar Dam View Point, Selfie Point, and Valley of Flowers (on SIC basis).\n• 04:00 PM – 06:00 PM: Visit the iconic Statue of Unity & Viewing Gallery (on SIC basis, subject to slot availability).\n• 06:00 PM – 06:45 PM: Light evening refreshments.\n• 06:45 PM – 08:00 PM: Experience the breathtaking Statue of Unity Laser Light & Sound Show (on SIC basis).\n\nEnjoy a delicious dinner and a comfortable overnight stay at the hotel.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Kevadia / Statue of Unity"
       },
       {
-        "day": 2,
-        "title": "Visit Statue of Unity Sightseeing After Breakfast Check out from the Hotel and Visit Sightseeing as per Below Plan. 08:00 Am to 10 Am – Visit Jungle Safari. 10:00 Am to 12:00 PM - Khalwani to Zarwani Eco Tour. 12:30 Pm to 02:00 Pm – Lunch Time 02:00 Pm to 04:00 Pm - Rest Time 04:00 Pm to 06:00 Pm - Visit Ekta Cruise 06:00 Pm to 07:30 Pm - Unity Glow Garden 07:30 Pm to 08:30 Pm - Narmada Aarti 09:00 Pm - After Dinner Overnight stay in the Hotel.",
-        "description": "",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 2,
+            "title": "Statue of Unity Sightseeing, Jungle Safari & Ekta Cruise",
+            "description": "After breakfast, check out from the hotel and proceed for an exciting full-day sightseeing tour as per the schedule:\n\n• 08:00 AM – 10:00 AM: Explore the Jungle Safari & Zoological Park.\n• 10:00 AM – 12:00 PM: Khalwani to Zarwani Eco Tourism Tour.\n• 12:30 PM – 02:00 PM: Lunch Break.\n• 02:00 PM – 04:00 PM: Leisure & Rest Time.\n• 04:00 PM – 06:00 PM: Scenic Ekta Cruise Ride on the Narmada River.\n• 06:00 PM – 07:30 PM: Walk through the illuminated Unity Glow Garden.\n• 07:30 PM – 08:30 PM: Attend the divine Narmada Maha Aarti.\n• 09:00 PM onwards: Enjoy dinner and an overnight stay at the hotel.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Kevadia / Statue of Unity"
       },
       {
-        "day": 3,
-        "title": "Statue of Unity - Vadodara",
-        "description": "Morning after breakfast check out from the hotel. And Process to Visit Poicha Swaminarayan Temple. Poicha Swaminarayan Temple: Nilkanthdham is an eye-catching, fantabulous and spectacular temple.At the same time, it is oozing with spirituality and divine vibes all in the air. Divinity, spirituality and purity of nature help one identify one’s own self and experience bliss of soul. This has been the prime opinion from most visitors that self-realisation was not afar when they approached the place. In the lap of nature, far away from concrete jungles(cities), situated at the bank of Narmada providing more than a kilometer of straight riverbank to the campus, Neelkanthdham will help you know your original state. After Visiting the Sightseeing Process to Vadodara. Overnight stay in a hotel.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 3,
+            "title": "Statue of Unity to Poicha Swaminarayan Temple & Vadodara",
+            "description": "After breakfast, check out from the hotel and proceed to Poicha to visit the magnificent Nilkanthdham Swaminarayan Temple. Situated peacefully along the banks of the Narmada River, Nilkanthdham is known for its divine architecture, serene spiritual atmosphere, and lush natural surroundings. After darshan and exploring the temple campus, drive to Vadodara. Check in at the hotel for dinner and an overnight stay.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Vadodara"
       },
       {
-        "day": 4,
-        "title": "Vadodara-Ahmedabad",
-        "description": "Morning after breakfast check out from Hotel and Process to Visit Local Sightseeing Loke - Sayaji Maharaj Museum, Sayaji Bhag, Local Market, Laxmi Villas Temple after Dinner drop at Airport / Railway Station. OR Early Morning Visit Pavagadh Kali Mata Temple, After Visit Process to Ahmedabad. Pavagadh is a municipality in Panchmahal District about 46 kilometres (29 mi) away from Vadodara in Gujarat state in western India. It is known for a famous Mahakali temple which is one of the 51 Shaktipeeths and draws thousands of pilgrims every day. However, as per records, this was originally a Jain temple belonging to the Svetambara Achalgacch sect, whose Adhistayika Mahakali's idol was installed here in the 12th century. This locality Champaner - Pavagadh Archaeological Park was declared by UNESCO as a World Heritage Site in 2004. Guest Also Visit by Rope way. https://udankhatola.com/destination/kali-devi",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 4,
+            "title": "Vadodara Sightseeing / Pavagadh Mahakali Darshan & Return to Ahmedabad",
+            "description": "After breakfast, explore Vadodara's prime attractions including the Laxmi Vilas Palace, Maharaja Fateh Singh Museum, and Sayaji Baug. Alternatively, visit the sacred Pavagadh Hill & Kalika Mata Temple (one of the 51 Shaktipeeths and a UNESCO World Heritage site, accessible by ropeway). Later in the evening, proceed back to Ahmedabad for departure drop-off at the airport or railway station.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Ahmedabad"
       },
       {
-        "day": 5,
-        "title": "Ahmedabad Sightseeing",
-        "description": "Morning after breakfast check out from Hotel and process to Visit Sightseeing: Gandhi Ashram, Hathising Jian Temple, Siddi Sayad Mosque, Adalaj Stepwell, Akshardham Temple. After Dinner drop Airport / Railway Station.",
-        "meals": "Breakfast,Lunch,Dinner",
-        "stay": ""
+            "day": 5,
+            "title": "Ahmedabad Heritage Sightseeing & Departure",
+            "description": "After breakfast, proceed for Ahmedabad local sightseeing including Sabarmati Gandhi Ashram, Hathisingh Jain Temple, Sidi Saiyyed Mosque, Adalaj Stepwell, and Gandhinagar Akshardham Temple. After an enriching tour and dinner, transfer to Ahmedabad Airport or Railway Station for your onward journey.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Departure"
       }
-    ],
+],
     "gallery": [],
     "faqs": [
       {
@@ -2497,11 +2490,11 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "rawPrice": 285999,
     "image": "https://images.unsplash.com/photo-1584810359583-96fc3448beaa?q=80&w=800",
     "highlights": [
-      "Arrival at Kathmandu and",
-      "Kathmandu (1300m) After having morning breakfast, we go for half day special prayers near Pashupatinath temple. (Rudra abishega Homa puja with 11 pandits, if you wish we can arrange with nominal cost). Later",
-      "Drive from Syabrubesi We leave Kathmandu early",
-      "Syabrubesi to Kyirong (Kerung) (2700m 24kms 2hrs) Stay at Guest House:"
-    ],
+      "Pashupatinath Temple Darshan in Kathmandu",
+      "Holy Bath & Puja at Sacred Lake Manasarovar",
+      "Complete 3-Day Kailash Parikrama via Dolma La Pass",
+      "Visit Diraphuk, Zutulpuk & Chiu Monasteries"
+],
     "description": "",
     "location": "Day 2 Activity",
     "bestTimeToVisit": "",
@@ -2510,104 +2503,104 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "excluded": [],
     "itinerary": [
       {
-        "day": 1,
-        "title": "Arrival at Kathmandu and",
-        "description": "Transfer to Hotel (1300m) Overnight stay at Hotel in Kathmandu.",
-        "meals": "",
-        "stay": ""
+            "day": 1,
+            "title": "Arrival in Kathmandu (1,300m)",
+            "description": "Arrive at Tribhuvan International Airport in Kathmandu. Meet our tour representative, transfer to the hotel, and attend the pilgrimage orientation briefing. Dinner and overnight stay in Kathmandu.",
+            "meals": "Dinner",
+            "stay": "Overnight in Kathmandu"
       },
       {
-        "day": 2,
-        "title": "Kathmandu (1300m) After having morning breakfast, we go for half day special prayers near Pashupatinath temple. (Rudra abishega Homa puja with 11 pandits, if you wish we can arrange with nominal cost). Later",
-        "description": "visit Pashupathinath temple for prayers. Shopping for essentials,",
-        "meals": "",
-        "stay": ""
+            "day": 2,
+            "title": "Kathmandu Sightseeing & Pashupatinath Darshan",
+            "description": "After breakfast, visit the sacred Pashupatinath Temple for special morning prayers and darshan (Rudra Abhishekam Homa puja can be arranged on request). Spend the afternoon shopping for pilgrimage gear and completing final travel preparations. Overnight stay in Kathmandu.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Kathmandu"
       },
       {
-        "day": 3,
-        "title": "Drive from Syabrubesi We leave Kathmandu early",
-        "description": "in the morning and drive By Luxury Bus for 170kms through the beautiful Nepalese countryside to Sabru besi or Tiure Nepal - Tibet border.",
-        "meals": "",
-        "stay": ""
+            "day": 3,
+            "title": "Kathmandu to Syabrubesi / Timure (170 km)",
+            "description": "Depart Kathmandu early in the morning by luxury tourist coach. Enjoy a scenic 170 km drive through the verdant Nepalese foothills and river valleys to Syabrubesi / Timure near the Nepal-China border. Dinner and overnight stay at the lodge.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Syabrubesi"
       },
       {
-        "day": 4,
-        "title": "Syabrubesi to Kyirong (Kerung) (2700m 24kms 2hrs) Stay at Guest House:",
-        "description": "After completing the border formalities at both the Nepalese and Chinese immigration posts we drive up to Kyirong city. Our staff will prepare fresh breakfast, packed lunch and dinner for group and serve daily at usual time with different items and food varieties. Overnight stay at Guesthouse in Kyirong.",
-        "meals": "",
-        "stay": ""
+            "day": 4,
+            "title": "Syabrubesi to Kyirong (Kerung) (2,700m)",
+            "description": "After breakfast, complete border immigration and customs clearance at both Nepal and China checkpoints. Drive uphill into Tibet to the mountain town of Kyirong (2,700m). Fresh hot vegetarian meals served by our personal kitchen team. Overnight stay at guesthouse in Kyirong.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Kyirong"
       },
       {
-        "day": 5,
-        "title": "Free and Easy day at Kyirong for acclimatization.",
-        "description": "Buffer day",
-        "meals": "",
-        "stay": ""
+            "day": 5,
+            "title": "Acclimatization Day at Kyirong",
+            "description": "Full day at leisure in Kyirong for high-altitude acclimatization. Take short gentle walks around the town and rest to adjust to the Himalayan altitude. All meals and overnight stay in Kyirong.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Kyirong"
       },
       {
-        "day": 6,
-        "title": "Drive to Saga (4500m) Today we drive over beautiful Tibetan land and passing nomad settlement and crossing numerous pass like Thong La if travel from Nyalam way and Jerkyung La if travel form Kyirong those are more than 5100m high. Further, we cross Brahmaputra (Yarlung Tsangpo) river lifeline of millions of people of Tibet and India. Saga biggest nomadic city in the area. Overnight at Hotel.",
-        "description": "",
-        "meals": "",
-        "stay": ""
+            "day": 6,
+            "title": "Scenic Drive from Kyirong to Saga (4,500m)",
+            "description": "Drive across the majestic Tibetan plateau, passing nomadic settlements and crossing mountain passes exceeding 5,100m (Thong La & Jerkyung La). Cross the sacred Brahmaputra (Yarlung Tsangpo) River into Saga, the major nomadic hub of western Tibet. Dinner and overnight stay at hotel in Saga.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Saga"
       },
       {
-        "day": 7,
-        "title": "Drive to Holy Lake Manasarovar (4550) Today we drive over beautiful arid Tibetan land and passing nomad settlement like Paryang, Mayum etc. and crossing Mayum La Pass and Dungyun Tso beautiful Lake. , exploring this amazing place. We will visit the picturesque Chiu Monastery on the North West shore of the lake, with the imposing sight of Mount Kailash in the background. Also we enjoy the good views of Mount Gurlamandata in south of Lake Manasarovar and view of Rakshas Lake (Lahang Tso) from a top of Chiu Hill. Overnight at Guesthouse in Manasarovar Lake.",
-        "description": "",
-        "meals": "",
-        "stay": ""
+            "day": 7,
+            "title": "Drive to Sacred Lake Manasarovar & Chiu Monastery (4,550m)",
+            "description": "Drive across the arid Tibetan plateau via Paryang and Mayum La Pass. Reach the holy Lake Manasarovar with awe-inspiring views of Mount Kailash and Mount Gurla Mandhata. Visit the historic Chiu Monastery on the clifftop overlooking the lake and view Rakshas Tal (Lahang Tso). Dinner and overnight stay at guesthouse near Lake Manasarovar.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight near Lake Manasarovar"
       },
       {
-        "day": 8,
-        "title": "Holy Lake Manasarovar (4550) to Darchen",
-        "description": "Puja at Manasarovar and Drive to Tarachen: Manasarovara is the lake of compassion, tranquility and bliss.\nAfter completing the memorable morning Bath and Puja we will be heading towards Tarchen. It is considered as a base camp for the Holy Kailash Parikrama.\nHighlight of the day is our own Homa puja.",
-        "meals": "",
-        "stay": ""
+            "day": 8,
+            "title": "Lake Manasarovar Holy Bath, Puja & Drive to Darchen (4,600m)",
+            "description": "Perform morning holy snan (spiritual bath) and sacred Homa puja on the banks of Lake Manasarovar. Afternoon drive to Darchen, the base camp town for the Mount Kailash Parikrama. Rest and prepare for the circumambulation trek. Dinner and overnight stay in Darchen.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Darchen"
       },
       {
-        "day": 9,
-        "title": "Day 1 of Parikrama to Diraphuk we drive for about 5 km towards Mount Kailash base camp Tarboche flagpole; which is marked by a tall pole adorned with prayer flags. This is the starting point for our kora, the 53km trek around the mountain. We walk up the Lha Chu Valley through beautiful green meadows and streams with Mount Kailash towering above us. (We follow the river, which enters a narrow canyon with high, steep cliffs and spectacular waterfalls. Continuing up the valley, the North Face of Mount Kailash comes into view before we reach the 13th century monastery at Dira Phuk. Overnight at Guesthouse in Mount Kailash North Face.",
-        "description": "",
-        "meals": "",
-        "stay": ""
+            "day": 9,
+            "title": "Kailash Parikrama Day 1 – Tarboche to Diraphuk (4,900m)",
+            "description": "Drive 5 km to Tarboche Flagpole (Yama Dwar), the sacred starting point of the 53 km Kailash Kora. Trek 12 km up the scenic Lha Chu Valley amidst high granite cliffs, waterfalls, and alpine streams. Witness the awe-inspiring North Face of Mount Kailash before arriving at the 13th-century Diraphuk Monastery. Dinner and overnight stay at guesthouse in Diraphuk.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Diraphuk"
       },
       {
-        "day": 10,
-        "title": "Trek to Zutul Phuk Monastery (4700m) Now we leave to the Lha Chu Valley and enter the Dolma Chu Valley, heading up towards a high pass, the Dolma La (5636m). It's a tough climb to the summit which is festooned with prayer flags but from there it is all downhill to Syabje Dadok and flat walk to Zuthul Phuk Monastery, with views of one of the highest lakes in the world, Gaurikunda Lake (Thukpe Dzingbu), known as the Lake of Compassion. As well as the cave monastery at Zuthul Phuk, there are several meditation caves and another cave containing an image of Jechun Milarepa. Overnight at Guesthouse in Zuthul Phuk",
-        "description": "",
-        "meals": "",
-        "stay": ""
+            "day": 10,
+            "title": "Kailash Parikrama Day 2 – Dolma La Pass (5,636m) & Gauri Kund to Zutulpuk (4,700m)",
+            "description": "Ascend the highest and toughest point of the pilgrimage—the sacred Dolma La Pass (5,636m), adorned with thousands of colorful prayer flags. View the holy turquoise waters of Gauri Kund (Lake of Compassion) and descend into the Dolma Chu Valley to the ancient cave monastery of Zutulpuk (Milarepa’s Cave). Dinner and overnight stay at guesthouse in Zutulpuk.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Zutulpuk"
       },
       {
-        "day": 11,
-        "title": "Trek from Zutul Phuk to Dzongdud and",
-        "description": "Drive to Darchen - Saga On the final day of the kora we cross several streams, and follow an impressive gorge. Along the way we are once again treated to magnificent views of Mount Kailash. We then enter the Dzongdud plain and conclude the Kora in Dzongdud Mani wall. Trek to Tangsar Tangmar and a 3 hrs walk brings us to where the river emerges onto the Barkha plain and Our jeeps will be waiting to transport us to Darchen. We Take the Lunch and Drive to Saga",
-        "meals": "",
-        "stay": ""
+            "day": 11,
+            "title": "Kailash Parikrama Day 3 – Zutulpuk to Darchen & Drive to Saga",
+            "description": "Complete the final 8 km gentle trek of the Kailash Kora to Dzongdud Mani wall. Board the waiting vehicles at Barkha plain and drive to Darchen for lunch. Proceed on a return drive to Saga. Dinner and overnight stay at hotel in Saga.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Saga"
       },
       {
-        "day": 12,
-        "title": "Drive to Kyirong Overnight Stay Kyirong.",
-        "description": "",
-        "meals": "",
-        "stay": ""
+            "day": 12,
+            "title": "Drive from Saga to Kyirong (2,700m)",
+            "description": "Enjoy a scenic return journey across the Tibetan plateau back to Kyirong. Relish hot meals prepared by our kitchen team and relax after completing the sacred pilgrimage. Dinner and overnight stay in Kyirong.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Kyirong"
       },
       {
-        "day": 13,
-        "title": "Drive to Kathmandu From Kyirong, we head back to Rasuwa Ghadi / Timure, China - Nepal border. We say goodbye to our Tibetan guide and driver and walk to Nepalese Immigration where we meet Eco Trek, after completing the re-entry formalities we continue the drive to Kathmandu which, depends on road and weather conditions.",
-        "description": "",
-        "meals": "",
-        "stay": ""
+            "day": 13,
+            "title": "Kyirong to Kathmandu via Rasuwa Gadhi Border",
+            "description": "Drive to the China-Nepal border at Rasuwa Gadhi / Timure. Complete immigration re-entry formalities and drive through Nepal's valleys back to Kathmandu. Check in at the hotel for a celebratory dinner and overnight stay in Kathmandu.",
+            "meals": "Breakfast,Lunch,Dinner",
+            "stay": "Overnight in Kathmandu"
       },
       {
-        "day": 14,
-        "title": "Drive to Kathmandu Airport Fly back to home Departure From Kathmandu.",
-        "description": "INCLUDES: Nepal side All Airport Transfer. Half day Sightseeing tour in Kathmandu Only 3 night Hotel Accommodation in Kathmandu All In Tibet Side: All accommodation (no private washroom in, Manasarovar, Derapuk & Zutulpuk, on Group Sharing) Double / Tipple Sharing Room in Shyabru Besi Double k8sharing room in Kathmandu, Kyrung, Saga and Tarchen All Luxury Bus All necessary Tibet travel permits China group visa, for the entire trip Oxygen cylinders Duffel bags Drinking water Service of Yak to carry luggage Cost does not include: - Using extra nights in lodge (except the mentioned-on itinerary). Monuments entrance fee Yaks / Horse for personal use for parikarama Porter/helpers Rescue/ evacuation or all the extra cost because of partition from the main group or serious health condition. Flight or any costs TO or FROM Kathmandu from your destination/ home town. No cost is including for those who separate from the main group Personal travel insurance Nepal visa Drinks Laundry Any expenses - Natural calamities land slide Flight delays Rescheduling Cancellations Medical evacuations Riots, Strikes Services other than specified. Thanking you for your understanding and kind consideration.",
-        "meals": "vegetarian",
-        "stay": ""
+            "day": 14,
+            "title": "Departure from Kathmandu Airport",
+            "description": "After breakfast, transfer to Tribhuvan International Airport in Kathmandu for your flight back home, carrying divine blessings and unforgettable memories of the sacred Kailash Mansarovar Yatra.",
+            "meals": "Breakfast",
+            "stay": "Departure"
       }
-    ],
+],
     "gallery": [],
     "faqs": [
       {
@@ -2893,11 +2886,11 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "rawPrice": 147999,
     "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800",
     "highlights": [
-      "Dubai city tour with Burj Khalifa",
-      "Desert safari with BBQ Dinner, Belly dance etc",
-      "Abu Dhabi city tour",
-      "Miracle Garden and Global Village"
-    ],
+      "Dubai City Tour & Burj Khalifa 124th Floor",
+      "Desert Safari with 4x4 Dune Bashing & BBQ Dinner",
+      "Abu Dhabi City Tour & BAPS Swaminarayan Temple",
+      "Dubai Miracle Garden & Global Village"
+],
     "description": "",
     "location": "Diwali Dubai Ex Ahmedabad – 08 & 10 November 2026 7 Days • Super Deal",
     "bestTimeToVisit": "",
@@ -2906,48 +2899,55 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "excluded": [],
     "itinerary": [
       {
-        "day": 2,
-        "title": "Dubai city tour with Burj Khalifa",
-        "description": "Pickup:- (Pickup Between 09:00 AM to 10:00 AM) In the morning, enjoy the Buffet Breakfast at the Hotel. We will proceed for Dubai City Tour. (Pick up between 09:30 Am to 10:00 Am) Visit Dubai Sheikh Zayed Road, Palm Jumeirah Photo stop at ‘Burj Al Arab’ and enjoy scenic view of Dubai city. Photo stop at Dubai Frame and Future Museum, In the Evening, Visit Burj Khalifa at the top 124th floor Visit (Time slot will be as per the slot availability). Look down from the world’s tallest building and enjoy the breath- Taking view and watch the amazing musical Fountain Show. We move on to Indian Restaurant for the Dinner and then Drop off back to Hotel.",
-        "meals": "Breakfast,Dinner",
-        "stay": ""
+            "day": 1,
+            "title": "Arrival in Dubai – Check-in & Evening at Leisure",
+            "description": "Arrive at Dubai / Sharjah International Airport. Meet our airport representative, board the luxury coach, and transfer to your hotel. Check in and spend the evening relaxing or exploring the city. Enjoy a delicious Indian buffet dinner and an overnight stay in Dubai.",
+            "meals": "Dinner",
+            "stay": "Overnight in Dubai"
       },
       {
-        "day": 3,
-        "title": "Desert safari with BBQ Dinner, Belly dance etc",
-        "description": "After Morning Breakfast Free for Leisure. Afternoon pick up:- (Between 02:00 PM to 02:30 PM) you will depart for a desert safari in 4x4 wheel drive. Desert safari is full of fun adventure and excitement where you experience the thrill of a roller coaster ride on the sand dunes. Deep into the heart of the desert Camp, Traditional Arabian welcome, Arabian ambience Camel ride, Henna Painting, Try Arabic costumes or simply enjoy the aromatic shisha. Enjoy a traditional BBQ dinner in the desert while watching belly dance performances and Tanoura Show. Drop off back to Hotel. Note :-Carrying Liquor in Desert Safari is strictly prohibited",
-        "meals": "Breakfast,Dinner",
-        "stay": ""
+            "day": 2,
+            "title": "Dubai City Tour & Burj Khalifa 124th Floor",
+            "description": "Enjoy a buffet breakfast at the hotel before departing for the Dubai Guided City Tour & Burj Khalifa experience:\n\n• 09:00 AM – 10:00 AM: Hotel pickup.\n• Morning Sightseeing: Drive past Sheikh Zayed Road, explore Palm Jumeirah, and enjoy photo stops at Burj Al Arab, Dubai Frame, and Museum of the Future.\n• Evening Experience: Visit the Burj Khalifa 124th Floor Observation Deck for stunning panoramic city views, followed by the spectacular Dubai Musical Fountain Show.\n\nEnjoy dinner at a premier Indian restaurant before returning to the hotel for an overnight stay.",
+            "meals": "Breakfast,Dinner",
+            "stay": "Overnight in Dubai"
       },
       {
-        "day": 4,
-        "title": "Abu Dhabi city tour",
-        "description": "After Breakfast at the Hotel, Proceed for Abu Dhabi City Tour, Visit the country’s largest mosque, Visit Swami Narayan Temple and other iconic structures of Abu Dhabi. Photo Stop at Ferrari world Theme Park and YAS Mall. Proceed to Indian Restaurant for Dinner and then Drop Off at the Hotel.",
-        "meals": "Breakfast,Dinner",
-        "stay": ""
+            "day": 3,
+            "title": "Desert Safari with Dune Bashing & BBQ Dinner",
+            "description": "Enjoy breakfast at the hotel with the morning free at your leisure.\n\n• 02:00 PM – 02:30 PM: Afternoon pickup in a 4x4 Land Cruiser for the thrilling Desert Safari.\n• Desert Adventures: Experience exhilarating roller-coaster dune bashing on red sand dunes, camel riding, sandboarding, and henna painting.\n• Evening Desert Camp: Relish an authentic BBQ dinner while enjoying live Tanoura, Fire, and Belly dance performances.\n\nReturn transfer to the hotel for an overnight stay. (Note: Carrying liquor into the desert safari is strictly prohibited).",
+            "meals": "Breakfast,Dinner",
+            "stay": "Overnight in Dubai"
       },
       {
-        "day": 5,
-        "title": "Miracle Garden and Global Village",
-        "description": "visit Morning after Breakfast, Free for Leisure .Afternoon you will depart to visit Miracle Garden. Miracle Garden occupies over 72000 square meters, making it the world’s largest natural flower garden. Evening you will enjoy the best time in Global Village. Explore 30 pavilions representing 80 countries while visiting an open-air cultural entertainment. Enjoy the Dinner at Indian Restaurant and then Drop off to Hotel.",
-        "meals": "Breakfast,Dinner",
-        "stay": ""
+            "day": 4,
+            "title": "Abu Dhabi City Tour, BAPS Swaminarayan Temple & Sheikh Zayed Mosque",
+            "description": "After breakfast, embark on a full-day tour of Abu Dhabi:\n\n• Visit the magnificent Sheikh Zayed Grand Mosque, one of the world's largest mosques.\n• Visit the grand BAPS Hindu Mandir (Swaminarayan Temple) in Abu Dhabi.\n• Enjoy photo stops at Ferrari World Abu Dhabi, Yas Island, and Yas Mall.\n\nRelish a delicious dinner at an Indian restaurant before returning to your hotel in Dubai for an overnight stay.",
+            "meals": "Breakfast,Dinner",
+            "stay": "Overnight in Dubai"
       },
       {
-        "day": 6,
-        "title": "Shopping tour",
-        "description": "In the morning, enjoy the Buffet Breakfast at the Hotel. Then Proceed for Last minutes shopping at Mina Bazaar and Gold Souq and Emirates Mall Evening enjoy the Dinner at Indian Restaurant and then Drop off to Hotel.",
-        "meals": "Breakfast,Dinner",
-        "stay": ""
+            "day": 5,
+            "title": "Dubai Miracle Garden & Global Village",
+            "description": "After breakfast, spend a relaxing morning at leisure before your afternoon excursions:\n\n• Afternoon: Visit Dubai Miracle Garden, the world's largest natural flower garden spanning over 72,000 sqm with millions of blooming floral structures.\n• Evening: Explore Global Village, featuring over 30 pavilions representing 80+ countries with world-class entertainment, shopping, and food.\n\nDinner at an Indian restaurant and overnight stay in Dubai.",
+            "meals": "Breakfast,Dinner",
+            "stay": "Overnight in Dubai"
       },
       {
-        "day": 7,
-        "title": "Hotel",
-        "description": "Check out & Drop off Sharjah After Breakfast, Check Out from the hotel. Leisure at your own",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 6,
+            "title": "Traditional Souks & Shopping Tour",
+            "description": "After breakfast, proceed on a shopping excursion visiting Dubai's iconic Gold Souk, Spice Souk, Mina Bazaar, and Mall of the Emirates. Enjoy free time for duty-free shopping and souvenirs. Dinner at an Indian restaurant and overnight stay in Dubai.",
+            "meals": "Breakfast,Dinner",
+            "stay": "Overnight in Dubai"
+      },
+      {
+            "day": 7,
+            "title": "Hotel Check-out & Airport Departure",
+            "description": "After breakfast, check out from the hotel. Spend your remaining time at leisure before your scheduled departure transfer to Dubai / Sharjah Airport for your flight back home.",
+            "meals": "Breakfast",
+            "stay": "Departure"
       }
-    ],
+],
     "gallery": [],
     "faqs": [
       {
@@ -3281,7 +3281,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
       },
       {
         "day": 7,
-        "title": "Putrajaya Tour & Flight to Bangkok (Transfer to Pattaya)",
+        "title": "Putrajaya Tour & Flight to Bangkok",
         "description": "After breakfast, check out of the hotel and proceed for a short tour of Putrajaya. Transfer to Kuala Lumpur Airport for your flight to Bangkok. Upon arrival in Bangkok, transfer directly to your hotel in Pattaya. Dinner and overnight stay in Pattaya.",
         "meals": "",
         "stay": ""
@@ -3421,7 +3421,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
       },
       {
         "day": 4,
-        "title": "Singapore to Kuala Lumpur (by Coach) – Putrajaya & KL City Tour",
+        "title": "Singapore to Kuala Lumpur & Putrajaya Tour",
         "description": "After an early breakfast at the hotel, check out and drive to Kuala Lumpur, Malaysia by coach via the scenic Express Highway (approx. 400 km / 5 hours). Enjoy lunch at nearby Putrajaya, the federal administrative center of Malaysia. Upon arrival in Kuala Lumpur, proceed on a city tour including a visit to the KL Tower (Sky Deck entry ticket included). Photo stops at the King's Palace (Istana Negara), Merdeka Square, National Mosque, and the famous Petronas Twin Towers. Indian Dinner and overnight stay in Kuala Lumpur.",
         "meals": "",
         "stay": ""
@@ -3590,7 +3590,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
       },
       {
         "day": 7,
-        "title": "Sunway Lagoon Theme Park & Petronas Twin Towers photo stop",
+        "title": "Sunway Lagoon Theme Park & Petronas Towers",
         "description": "After breakfast, proceed to Sunway Lagoon Theme Park for a full day of fun covering the Water Park, Amusement Park, Wildlife Park, Extreme Park, Scream Park, and Nickelodeon Lost Lagoon. On the way back, make a photo stop at the iconic Petronas Twin Towers. Dinner and overnight stay in Kuala Lumpur.",
         "meals": "",
         "stay": ""
@@ -3649,11 +3649,11 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "rawPrice": 87999,
     "image": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800",
     "highlights": [
-      "Arrive Chiang Mai",
-      "Chiang Mai City temple & Doi Suthep tour",
-      "Full Day Doi Inthanon National Park",
-      "Half Day"
-    ],
+      "Arrive Chiang Mai & City Temples",
+      "Doi Inthanon National Park & Waterfalls",
+      "Elephant Jungle Sanctuary Experience",
+      "Golden Triangle, Blue Temple & Mekong Boat Ride"
+],
     "description": "",
     "location": "Thailend  7 Days • Super Deal",
     "bestTimeToVisit": "",
@@ -3662,55 +3662,55 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "excluded": [],
     "itinerary": [
       {
-        "day": 1,
-        "title": "Arrive Chiang Mai",
-        "description": "Arrive at Chiang Mai airport and proceed to your hotel. Evening is free for relaxation. Overnight in Chiang Ma",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 1,
+            "title": "Arrival in Chiang Mai – Check-in & Evening Leisure",
+            "description": "Arrive at Chiang Mai International Airport. Transfer to your hotel, check in, and spend the evening relaxing or exploring the famous Night Bazaar. Overnight stay in Chiang Mai.",
+            "meals": "Breakfast",
+            "stay": "Overnight in Chiang Mai"
       },
       {
-        "day": 2,
-        "title": "Chiang Mai City temple & Doi Suthep tour",
-        "description": "After breakfast, Visit the most sacred temple in Chiangmai, Wat Prathat Doi Suthep, 15 kms from the city and 3,500 ft. above sea level. See the marvelous golden pagoda which is containing the relics of the Lord Buddha. The scenic road takes you up the mountain to the National park of Doi Pui. If you want to walk up the 300 stairs you will see the marvelous golden pagoda which contains the relics of the Lord Buddha. It was built in 1383 and it is said that an elephant was carrying the relics up the mountain and where it would take rest should be where the relics should be placed. From the temple you will enjoy a panoramic view of Chiang Mai city. This is also a very sacred and frequent visited religious site for Thai Buddhists. we continue to the biggest market in Chiang Mai, Talad Vororot and before returning to our hotel, we visit two important temples in Chiangmai, Wat Chedi luang and Wat Phrasing. Overnight at Chiang Mai",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 2,
+            "title": "Chiang Mai City Temples & Wat Phra That Doi Suthep",
+            "description": "After breakfast, visit the most sacred temple in Chiang Mai, Wat Phra That Doi Suthep, perched 3,500 ft above sea level in Doi Pui National Park. Ascend the 300 Naga stairs to admire the golden pagoda containing holy Buddha relics and panoramic city views. Later, visit Wat Chedi Luang, Wat Phra Singh, and the bustling Warorot Market. Overnight stay in Chiang Mai.",
+            "meals": "Breakfast",
+            "stay": "Overnight in Chiang Mai"
       },
       {
-        "day": 3,
-        "title": "Full Day Doi Inthanon National Park",
-        "description": "After breakfast, proceed for full day tour to Doi Inthanon National Park. Lying south of Chiang Mai, the granite mass of Doi Inthanon, 8,500 feet above sea level, is the highest summit in the country. Walk shortly to see a small Stupa contains the remains of Chao Inthawichayanon the last independent ruler of Chiang Mai who died in 1897 after Lanna Kingdom was combined to be a part of Siam. Enjoy exploring around Ang-Kha Nature Trail at the highest peak viewing beautiful Fern & Moss as well as White & Red Rhododendrons (bloom only during Jan – Feb). Visit the Twin Pagodas built by the Thai Air force in honor of their Majesties King and Queen for their 60th Birthday Anniversaries. Stop on the way down to shop at Hmong Tribal Market who trade various kinds of vegetations, temperature fruits and flowers from their own farm. Drive through Baan Khun Klaang, the biggest Hmong community of Doi Inthanon heading to the Royal’s Project initiated by his Majesty the King to stop the hill tribes from growing the Opium. Enjoy searching around taking some pictures of beautiful flower plantations and the organic farmland inside the Project. Last stop at Wachiratarn Waterfall. Relax by fresh and clear fall for freshen up after a long day tour. Transfer back to Chiang Mai. Overnight at Chiang Mai",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 3,
+            "title": "Full Day Doi Inthanon National Park & Waterfalls",
+            "description": "Full-day excursion to Doi Inthanon National Park, Thailand’s highest peak (8,500 ft). Walk along the Ang Kha Nature Trail amidst lush cloud forests, visit the King & Queen Royal Twin Pagodas, browse the Hmong Tribal Market, and marvel at the majestic Wachirathan Waterfall. Overnight stay in Chiang Mai.",
+            "meals": "Breakfast",
+            "stay": "Overnight in Chiang Mai"
       },
       {
-        "day": 4,
-        "title": "Half Day",
-        "description": "Visit to Elephant Jungle Sanctuary After breakfast pick up from your hotel. Drive approximately 1.5 hours South of Chiang Mai through rolling hills, forest, and local farming areas. Arrive at the Elephant Jungle Sanctuary. Learn about the elephants and change into traditional Karen clothing. Meet the elephants. Feed, interact, and play with the elephants in a natural environment as you learn about their behaviour and history. Take photos with the elephants. Enjoy Mud Spa with the elephants then Walk with the elephants to a river and bathe them. After drive back to Chiang Mai. Overnight at Chiang Mai",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 4,
+            "title": "Elephant Jungle Sanctuary Experience",
+            "description": "Drive through rolling hills and forests to the ethical Elephant Jungle Sanctuary. Learn about Asian elephants, change into traditional Karen clothing, feed and interact with the elephants, enjoy an elephant mud spa, and bathe them in the natural river. Return to Chiang Mai for an overnight stay.",
+            "meals": "Breakfast",
+            "stay": "Overnight in Chiang Mai"
       },
       {
-        "day": 5,
-        "title": "Visit White Temple After breakfast and check out from hotel.",
-        "description": "Start from the hotel in Chiang Mai driving along a wildly route via Doi Saket through scenic hills, valleys and villages. A short break is made at Mae Kachan Hot Spring. Visit White Temple. Transfer to Chiang Rai hotel. Check in and overnight stay at Chiang Rai",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 5,
+            "title": "Chiang Mai to Chiang Rai & White Temple Tour",
+            "description": "Check out from your hotel in Chiang Mai and drive through mountain landscapes with a stop at Mae Kachan Hot Springs. Visit the world-renowned White Temple (Wat Rong Khun) in Chiang Rai before checking in at your hotel for an overnight stay.",
+            "meals": "Breakfast",
+            "stay": "Overnight in Chiang Rai"
       },
       {
-        "day": 6,
-        "title": "Full day Golden Triangle &",
-        "description": "Visit Wat Rong Sua Ten (Blue Temple) After breakfast, depart from your hotel in the morning to the Golden Triangle. Enroute visit Visit Wat Rong Sua Ten (Blue Temple). Then continue your trip to the Golden Triangle, where the Ruak River and the Mekong River meet forming the borders of three countries - Thailand, Myanmar, and Laos - and visit the House of Opium museum. After that, you will take boat along the Mekong River about 40 min. Then return on your trip to the ancient city of Chiang Sean at Wat Chedi Luang, and return to town by sunset. Overnight at Chiang Rai",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 6,
+            "title": "Golden Triangle, Blue Temple & Mekong Boat Ride",
+            "description": "Visit the stunning Wat Rong Suea Ten (Blue Temple). Continue to the historic Golden Triangle where Thailand, Myanmar, and Laos meet along the Mekong River. Visit the House of Opium museum, take a scenic boat cruise on the Mekong River, and explore ancient Chiang Saen before returning to Chiang Rai for an overnight stay.",
+            "meals": "Breakfast",
+            "stay": "Overnight in Chiang Rai"
       },
       {
-        "day": 7,
-        "title": "Chiang Rai – Back to Home",
-        "description": "After breakfast proceed to Airport from Chiang Rai",
-        "meals": "Breakfast",
-        "stay": ""
+            "day": 7,
+            "title": "Chiang Rai Airport Departure",
+            "description": "After breakfast, check out from the hotel and transfer to Chiang Rai Airport for your flight back home.",
+            "meals": "Breakfast",
+            "stay": "Departure"
       }
-    ],
+],
     "gallery": [],
     "faqs": [
       {

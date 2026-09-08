@@ -280,7 +280,7 @@ export default function PackageDetailPage({
                           </div>
                         </div>
 
-                        <p className="text-xs text-slate-600 leading-relaxed font-semibold">
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium whitespace-pre-line">
                           {day.description}
                         </p>
                       </div>
