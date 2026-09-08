@@ -131,13 +131,13 @@ export default function PackageDetailPage({
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Hero Header */}
-      <section className="relative h-[50vh] bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-black/25 z-10" />
+      <section className="relative h-[50vh] min-h-[380px] bg-slate-900 overflow-hidden pt-20">
         <img
           src={item.image}
           alt={item.name}
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-slate-950/30 z-10" />
         <div className="absolute inset-0 z-20 flex items-end pb-12">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <div className="flex flex-wrap gap-2">

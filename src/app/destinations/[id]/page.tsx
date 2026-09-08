@@ -85,8 +85,8 @@ export default function DestinationDetailPage({ params }: PageProps) {
       {/* ==========================================
           HERO BANNER SECTION
           ========================================== */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white overflow-hidden select-none">
-        <div className="absolute inset-0 z-0 opacity-25">
+      <section className="relative pt-32 pb-24 bg-slate-900 text-white overflow-hidden select-none">
+        <div className="absolute inset-0 z-0">
           <Image
             src={destination.image}
             alt={destination.title || destination.name}
@@ -94,7 +94,7 @@ export default function DestinationDetailPage({ params }: PageProps) {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-slate-950/30" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
