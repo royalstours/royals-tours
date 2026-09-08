@@ -241,10 +241,10 @@ export default function Home() {
       <TopRatedLocations onOpenInquiry={handleOpenInquiry} />
 
       {/* Static Why Travel With Us Section */}
-      <section className="bg-gradient-to-b from-[#FAFDFB] via-[#FCFDFC] to-[#FAFBFC] py-20 border-b border-slate-100 relative overflow-hidden text-slate-800">
+      <section className="bg-gradient-to-br from-[#FFF6EC] via-[#FFFBF3] to-[#F0FDF8] py-20 border-b border-orange-200/60 relative overflow-hidden text-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-12">
-            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-50 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100/70 border border-orange-200/80 px-3.5 py-1.5 rounded-full inline-block">
               Why Travel With Us
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
@@ -257,8 +257,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl border border-slate-150 shadow-md shadow-slate-900/5 space-y-4 hover:border-orange-300 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-500 text-2xl font-bold shadow-xs">
+            <div className="bg-white p-8 rounded-3xl border border-orange-100 shadow-md shadow-orange-500/5 space-y-4 hover:border-orange-300 hover:shadow-lg transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-orange-100/70 flex items-center justify-center text-orange-500 text-2xl font-bold shadow-xs">
                 <svg className="w-6 h-6 stroke-orange-500 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                 </svg>
@@ -271,8 +271,8 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-3xl border border-slate-150 shadow-md shadow-slate-900/5 space-y-4 hover:border-teal-300 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600 text-2xl font-bold shadow-xs">
+            <div className="bg-white p-8 rounded-3xl border border-teal-100 shadow-md shadow-teal-500/5 space-y-4 hover:border-teal-300 hover:shadow-lg transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-teal-100/70 flex items-center justify-center text-teal-600 text-2xl font-bold shadow-xs">
                 <svg className="w-6 h-6 stroke-teal-600 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <circle cx="12" cy="8" r="5" />
                   <path d="M20 21a8 8 0 0 0-16 0" />
@@ -286,8 +286,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-slate-150 shadow-md shadow-slate-900/5 space-y-4 hover:border-amber-300 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 text-2xl font-bold shadow-xs">
+            <div className="bg-white p-8 rounded-3xl border border-amber-100 shadow-md shadow-amber-500/5 space-y-4 hover:border-amber-300 hover:shadow-lg transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-amber-100/70 flex items-center justify-center text-amber-600 text-2xl font-bold shadow-xs">
                 <svg className="w-6 h-6 stroke-amber-600 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7 3.5 8.5l7.3 3.6-3.6 3.6L4.5 15l-1 1 2.5 1.5L7.5 20l1-1-.7-2.7 3.6-3.6 3.6 7.3z"/>
                 </svg>
@@ -304,13 +304,13 @@ export default function Home() {
       </section>
 
       {/* Dynamic Welcome About Section */}
-      <section id="about" className="py-20 bg-gradient-to-b from-[#F9FCFB] via-white to-[#F8FAFC] border-b border-slate-100">
+      <section id="about" className="py-20 bg-gradient-to-b from-[#F0FDF8] via-[#F6FCFA] to-[#F0F9FF] border-b border-teal-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-50 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100/70 border border-orange-200/80 px-3.5 py-1.5 rounded-full inline-block mb-3">
                   {homeAbout.welcomeTag}
                 </span>
                 <h2 className="text-2xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">
@@ -328,15 +328,15 @@ export default function Home() {
 
               {/* Stat badges */}
               <div className="grid grid-cols-3 gap-4 pt-4">
-                <div className="bg-slate-50/70 border border-slate-200/80 p-4 rounded-2xl text-center shadow-2xs">
+                <div className="bg-gradient-to-br from-orange-50 to-amber-50/50 border border-orange-200/70 p-4 rounded-2xl text-center shadow-2xs">
                   <span className="block text-xl sm:text-2xl font-black font-heading text-orange-600">{homeAbout.stat1Value}</span>
                   <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat1Label}</span>
                 </div>
-                <div className="bg-slate-50/70 border border-slate-200/80 p-4 rounded-2xl text-center shadow-2xs">
+                <div className="bg-gradient-to-br from-teal-50 to-emerald-50/50 border border-teal-200/70 p-4 rounded-2xl text-center shadow-2xs">
                   <span className="block text-xl sm:text-2xl font-black font-heading text-teal-600">{homeAbout.stat2Value}</span>
                   <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat2Label}</span>
                 </div>
-                <div className="bg-slate-50/70 border border-slate-200/80 p-4 rounded-2xl text-center shadow-2xs">
+                <div className="bg-gradient-to-br from-sky-50 to-blue-50/50 border border-sky-200/70 p-4 rounded-2xl text-center shadow-2xs">
                   <span className="block text-xl sm:text-2xl font-black font-heading text-sky-600">{homeAbout.stat3Value}</span>
                   <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block mt-1">{homeAbout.stat3Label}</span>
                 </div>
@@ -344,7 +344,7 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-2 border-slate-100 ring-4 ring-orange-400/15 shadow-xl group">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-2 border-slate-100 ring-4 ring-orange-400/20 shadow-xl group">
                 <img
                   src={homeAbout.image}
                   alt={homeAbout.imageAlt}
@@ -358,11 +358,11 @@ export default function Home() {
       </section>
 
       {/* Dynamic Group Departures */}
-      <section id="group-departures" className="py-20 bg-gradient-to-b from-[#FFFDFB] via-[#FAF9F6] to-white border-y border-slate-150">
+      <section id="group-departures" className="py-20 bg-gradient-to-b from-[#FFF3E8] via-[#FFF8EE] to-[#FFF4EA] border-y border-orange-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
-            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-50 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100/70 border border-orange-200/80 px-3.5 py-1.5 rounded-full inline-block">
               VEG GROUP DEPARTURES
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
@@ -469,11 +469,11 @@ export default function Home() {
       </section>
 
       {/* Featured Tour Packages */}
-      <section id="featured-packages" className="py-20 bg-gradient-to-b from-[#F8FAFD] via-white to-[#F6F9F9] border-b border-slate-100">
+      <section id="featured-packages" className="py-20 bg-gradient-to-b from-[#F0F9FF] via-[#EBF5FE] to-[#F0FDFA] border-b border-sky-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
-            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-50 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100/70 border border-orange-200/80 px-3.5 py-1.5 rounded-full inline-block">
               POPULAR HOLIDAYS
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
@@ -552,10 +552,10 @@ export default function Home() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-20 bg-gradient-to-b from-[#F8FCFB] via-white to-[#F8FAFC] text-slate-800 border-y border-slate-100">
+      <section className="py-20 bg-gradient-to-br from-[#EEFAF7] via-[#F4FCFA] to-[#EBF6FF] text-slate-800 border-y border-teal-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-16">
-            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-50 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100/70 border border-orange-200/80 px-3.5 py-1.5 rounded-full inline-block">
               Our Services
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">
@@ -614,11 +614,11 @@ export default function Home() {
       </section>
 
       {/* Guest Testimonials Carousel marquee */}
-      <section className="py-20 bg-gradient-to-b from-[#FFFDFB] via-[#FAFAFA] to-white border-b border-slate-100 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-[#FFF7ED] via-[#FFFBF0] to-[#FFF5EB] border-b border-amber-200/60 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto space-y-3 mb-16">
-            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-50 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100/70 border border-orange-200/80 px-3.5 py-1.5 rounded-full inline-block">
               TESTIMONIALS
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900">

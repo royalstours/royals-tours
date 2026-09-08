@@ -39,7 +39,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-nav">
       {/* Top Vibrant Travel Gradient Stripe */}
-      <div className="h-[2.5px] w-full bg-gradient-to-r from-orange-500/80 via-amber-400/80 via-teal-500/80 to-sky-500/80" />
+      <div className="h-[3px] w-full bg-gradient-to-r from-[#FF5E36] via-[#F59E0B] via-[#0D9488] to-[#0284C7]" />
 
       <div className="max-w-360 mx-auto px-4 sm:px-6 xl:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24 gap-2 xl:gap-4">
@@ -122,7 +122,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white/98 backdrop-blur-2xl border-b border-slate-200 px-4 pt-4 pb-6 space-y-4 shadow-xl select-none">
+        <div className="xl:hidden bg-gradient-to-b from-[#FFEFE3]/98 via-[#FFF6E5]/98 via-[#E6FAF4]/98 to-[#E8F5FF]/98 backdrop-blur-2xl border-b border-orange-200/80 px-4 pt-4 pb-6 space-y-4 shadow-xl select-none">
           {/* Mobile Links */}
           <div className="space-y-1">
             {navItems.map((item) => {
@@ -134,8 +134,8 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors ${
                     active
-                      ? "bg-orange-50 text-orange-600 font-extrabold border border-orange-200 shadow-2xs"
-                      : "text-slate-800 hover:bg-slate-50 hover:text-orange-600"
+                      ? "bg-white text-orange-600 font-extrabold border border-orange-300 shadow-xs"
+                      : "text-slate-800 hover:bg-white/70 hover:text-orange-600"
                   }`}
                 >
                   {item.label}
@@ -168,7 +168,7 @@ export default function Navbar(props: NavbarProps) {
   return (
     <Suspense fallback={
       <header className="fixed top-0 left-0 right-0 z-50 glass-nav h-20 sm:h-24">
-        <div className="h-[2.5px] w-full bg-gradient-to-r from-orange-500/80 via-amber-400/80 via-teal-500/80 to-sky-500/80" />
+        <div className="h-[3px] w-full bg-gradient-to-r from-[#FF5E36] via-[#F59E0B] via-[#0D9488] to-[#0284C7]" />
         <div className="max-w-360 mx-auto px-4 sm:px-6 xl:px-8 flex items-center justify-between h-full">
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-13.75 h-13.75 sm:w-20.5 sm:h-20.5 flex items-center justify-center">
