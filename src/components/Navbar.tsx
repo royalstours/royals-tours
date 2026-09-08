@@ -122,7 +122,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-gradient-to-b from-[#FFF5ED]/98 via-[#FFFBF0]/98 to-[#F0FDFA]/98 backdrop-blur-2xl border-b border-orange-200/80 px-4 pt-4 pb-6 space-y-4 shadow-2xl select-none">
+        <div className="xl:hidden bg-gradient-to-b from-[#FFD4B9]/98 via-[#FEE2AA]/98 via-[#C3F5E8]/98 to-[#C6EBFF]/98 backdrop-blur-2xl border-b-2 border-orange-300/90 px-4 pt-4 pb-6 space-y-4 shadow-2xl select-none">
           {/* Mobile Links */}
           <div className="space-y-1">
             {navItems.map((item) => {
