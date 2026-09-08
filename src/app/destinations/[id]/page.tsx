@@ -464,7 +464,8 @@ export default function DestinationDetailPage({ params }: PageProps) {
                   <div className="border-t border-slate-100 pt-4">
                     <a
                       href={destination.pdfItineraryUrl}
-                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full bg-orange-50 hover:bg-orange-100 border border-orange-200 text-orange-700 py-3 rounded-xl font-heading font-bold text-xs text-center flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-xs"
                     >
                       <span>📄</span> Download Detailed PDF

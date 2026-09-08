@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
+import { connectDB } from "@/lib/mongodb";
+import FileAsset from "@/models/FileAsset";
 
 function getCloudinaryConfig() {
   const cloudName =
@@ -25,25 +27,6 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const { cloudName, apiKey, apiSecret } = getCloudinaryConfig();
-
-    if (!cloudName || !apiKey || !apiSecret) {
-      return NextResponse.json(
-        {
-          error:
-            "Cloudinary credentials missing. Please ensure NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET are set in your environment variables.",
-        },
-        { status: 400 }
-      );
-    }
-
-    cloudinary.config({
-      cloud_name: cloudName,
-      api_key: apiKey,
-      api_secret: apiSecret,
-      secure: true,
-    });
-
     const formData = await req.formData();
     const file = formData.get("file") as File | null;
 
@@ -56,6 +39,58 @@ export async function POST(req: Request) {
 
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
+
+    const isPdf =
+      file.type === "application/pdf" ||
+      (file.name && file.name.toLowerCase().endsWith(".pdf"));
+
+    // For PDF files, store directly in MongoDB FileAsset to ensure seamless, unrestricted client download
+    if (isPdf) {
+      await connectDB();
+      const savedDoc = await FileAsset.create({
+        filename: file.name || "itinerary.pdf",
+        contentType: "application/pdf",
+        data: buffer,
+        size: buffer.length,
+      });
+
+      return NextResponse.json({
+        url: `/api/files/${savedDoc._id}.pdf`,
+        public_id: savedDoc._id.toString(),
+        filename: file.name,
+        format: "pdf",
+        bytes: savedDoc.size,
+      });
+    }
+
+    // For images, upload to Cloudinary CDN
+    const { cloudName, apiKey, apiSecret } = getCloudinaryConfig();
+
+    if (!cloudName || !apiKey || !apiSecret) {
+      // Fallback to storing in MongoDB if Cloudinary is not configured
+      await connectDB();
+      const savedDoc = await FileAsset.create({
+        filename: file.name || "image.jpg",
+        contentType: file.type || "image/jpeg",
+        data: buffer,
+        size: buffer.length,
+      });
+
+      return NextResponse.json({
+        url: `/api/files/${savedDoc._id}`,
+        public_id: savedDoc._id.toString(),
+        filename: file.name,
+        format: file.type,
+        bytes: savedDoc.size,
+      });
+    }
+
+    cloudinary.config({
+      cloud_name: cloudName,
+      api_key: apiKey,
+      api_secret: apiSecret,
+      secure: true,
+    });
 
     const result = await new Promise<any>((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
@@ -84,7 +119,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error("Upload API route failure:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to upload image to Cloudinary" },
+      { error: error.message || "Failed to upload file." },
       { status: 500 }
     );
   }
