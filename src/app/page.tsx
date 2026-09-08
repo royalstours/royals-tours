@@ -241,7 +241,7 @@ export default function Home() {
       <TopRatedLocations onOpenInquiry={handleOpenInquiry} />
 
       {/* Static Why Travel With Us Section */}
-      <section className="bg-gradient-to-b from-orange-50/50 via-white to-amber-50/30 py-20 border-b border-orange-100 relative overflow-hidden text-slate-800">
+      <section className="bg-gradient-to-br from-[#FFF5EC] via-[#FFF9EE] to-[#F0FDF9] py-20 border-b border-orange-200/70 relative overflow-hidden text-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-12">
             <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
@@ -304,7 +304,7 @@ export default function Home() {
       </section>
 
       {/* Dynamic Welcome About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-gradient-to-b from-[#F0FDF9] via-[#F6FCFB] to-[#F0F9FF] border-b border-teal-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -358,7 +358,7 @@ export default function Home() {
       </section>
 
       {/* Dynamic Group Departures */}
-      <section id="group-departures" className="py-20 bg-gradient-to-b from-slate-50 via-orange-50/20 to-slate-50 border-y border-slate-200">
+      <section id="group-departures" className="py-20 bg-gradient-to-b from-[#FFF2E8] via-[#FFF8EE] to-[#FFF4EA] border-y border-orange-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
@@ -469,7 +469,7 @@ export default function Home() {
       </section>
 
       {/* Featured Tour Packages */}
-      <section id="featured-packages" className="py-20 bg-white">
+      <section id="featured-packages" className="py-20 bg-gradient-to-b from-[#F0F9FF] via-[#EAF5FE] to-[#F0FDFA] border-b border-sky-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
@@ -552,7 +552,7 @@ export default function Home() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 via-teal-50/20 to-slate-50 text-slate-800 border-t border-slate-200">
+      <section className="py-20 bg-gradient-to-br from-[#EEFAF7] via-[#F4FCFA] to-[#EBF6FF] text-slate-800 border-y border-teal-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto space-y-3 mb-16">
             <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-200/60 px-3.5 py-1.5 rounded-full inline-block">
@@ -614,7 +614,7 @@ export default function Home() {
       </section>
 
       {/* Guest Testimonials Carousel marquee */}
-      <section className="py-20 bg-slate-50 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-[#FFF7ED] via-[#FFFBF0] to-[#FFF5EB] border-b border-amber-200/70 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto space-y-3 mb-16">

@@ -97,7 +97,7 @@ export default function TopRatedLocations({ onOpenInquiry }: TopRatedLocationsPr
   // The locations array above is already defined in this sequence!
 
   return (
-    <section className="py-12 bg-white border-b border-slate-100">
+    <section className="py-14 bg-gradient-to-b from-[#FFF5EC] via-[#FFF9F2] to-[#FFF6ED] border-b border-orange-200/60 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="mb-6">
