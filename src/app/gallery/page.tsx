@@ -55,7 +55,7 @@ export default function GalleryPage() {
       <Navbar onOpenInquiry={openInquiryModal} />
 
       {/* Page Header */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white overflow-hidden shadow-md">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden shadow-md">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=1600"
@@ -63,17 +63,17 @@ export default function GalleryPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/20 border border-white/30 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
+          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/15 border border-white/20 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
             REAL TRAVELER MEMORIES
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight drop-shadow-sm">
             Our Travel <span className="text-amber-200">Gallery</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-white/80 max-w-2xl mx-auto font-sans leading-relaxed">
             Take a peak into our group departure trips, mountain summit climbs, and beach moments around the world.
           </p>
         </div>
@@ -147,7 +147,7 @@ export default function GalleryPage() {
           </div>
 
           {/* Social Proof CTA */}
-          <div className="mt-16 bg-gradient-to-r from-orange-50 via-amber-50 to-teal-50 text-slate-850 rounded-3xl p-8 sm:p-12 border border-orange-100 text-center space-y-4 shadow-sm">
+          <div className="mt-16 bg-white text-slate-850 rounded-3xl p-8 sm:p-12 border border-slate-200 text-center space-y-4 shadow-xs">
             <span className="text-orange-500 text-2xl block">📸</span>
             <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900">
               Want to Be Featured in Our Next Journey?
@@ -158,7 +158,7 @@ export default function GalleryPage() {
             <div className="pt-2">
               <button
                 onClick={openInquiryModal}
-                className="gradient-btn px-8 py-3.5 rounded-full text-sm font-bold font-heading cursor-pointer shadow-lg text-white"
+                className="gradient-btn px-8 py-3.5 rounded-full text-sm font-bold font-heading cursor-pointer shadow-md text-white"
               >
                 Book Your Seat Now
               </button>

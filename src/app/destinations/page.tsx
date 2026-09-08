@@ -172,7 +172,7 @@ export default function DestinationsPage() {
       <Navbar onOpenInquiry={openInquiryModal} />
 
       {/* Page Header */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white overflow-hidden shadow-md">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden shadow-md">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600"
@@ -180,17 +180,17 @@ export default function DestinationsPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/20 border border-white/30 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
+          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/15 border border-white/20 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
             EXPLORE THE WORLD WITH US
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight drop-shadow-sm">
             Our Featured <span className="text-amber-200">Destinations</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-white/80 max-w-2xl mx-auto font-sans leading-relaxed">
             Discover our international group departures featuring country slogans, tropical island retreats, and domestic summit treks.
           </p>
         </div>

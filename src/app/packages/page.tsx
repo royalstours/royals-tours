@@ -118,19 +118,19 @@ function CatalogContent() {
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Hero Banner Header */}
-      <section className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
+      <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
         <div className="absolute inset-0 bg-black/10 z-10" />
-        <div className="absolute right-[-20px] bottom-[-40px] text-white/10 font-black text-[120px] pointer-events-none select-none uppercase">
+        <div className="absolute right-[-20px] bottom-[-40px] text-white/5 font-black text-[120px] pointer-events-none select-none uppercase">
           Tours
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-4">
-          <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
+          <span className="bg-white/15 text-white border border-white/20 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
             Our Catalog
           </span>
           <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white drop-shadow-sm">
             Majestic Tour Packages
           </h1>
-          <p className="text-xs text-white/90 font-medium max-w-lg leading-relaxed">
+          <p className="text-xs text-white/80 font-medium max-w-lg leading-relaxed">
             Choose from our pre-scheduled Pure Veg domestic group departures or custom international vacation packages.
           </p>
         </div>

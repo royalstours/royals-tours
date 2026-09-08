@@ -20,19 +20,19 @@ export default function AboutPage() {
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
+      <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
         <div className="absolute inset-0 bg-black/10 z-10" />
-        <div className="absolute right-[-20px] bottom-[-40px] text-white/10 font-black text-[120px] pointer-events-none select-none uppercase">
+        <div className="absolute right-[-20px] bottom-[-40px] text-white/5 font-black text-[120px] pointer-events-none select-none uppercase">
           About
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-4">
-          <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
+          <span className="bg-white/15 text-white border border-white/20 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
             Our Story
           </span>
           <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white drop-shadow-sm">
             About Royals Tours
           </h1>
-          <p className="text-xs text-white/90 font-medium max-w-lg leading-relaxed">
+          <p className="text-xs text-white/80 font-medium max-w-lg leading-relaxed">
             Crafting majestic travel memories and pure vegetarian group holiday experiences.
           </p>
         </div>
@@ -45,7 +45,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div>
-              <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-100/80 border border-orange-200 px-3 py-1 rounded-full inline-block mb-3">
+              <span className="text-[10px] font-black uppercase text-orange-600 tracking-widest bg-orange-50 border border-orange-200/80 px-3 py-1 rounded-full inline-block mb-3">
                 Experience the Difference
               </span>
               <h2 className="font-heading font-black text-xl sm:text-3xl uppercase tracking-tight text-slate-900 leading-tight">
@@ -68,14 +68,14 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/contact"
-                className="bg-white hover:bg-orange-50/60 border border-orange-200/80 text-orange-700 font-heading font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-xs transition-colors"
+                className="bg-white hover:bg-orange-50/60 border border-slate-200 text-slate-800 hover:text-orange-600 font-heading font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-xs transition-colors"
               >
                 Contact Helplines
               </Link>
             </div>
           </div>
 
-          <div className="h-96 rounded-3xl overflow-hidden shadow-xl border-2 border-orange-100 relative bg-slate-100 group">
+          <div className="h-96 rounded-3xl overflow-hidden shadow-lg border border-slate-200 relative bg-slate-100 group">
             <img
               src="https://images.unsplash.com/photo-1590050752117-238cb0612b1b?q=80&w=800"
               alt="Himalayan Mountains Scenic"
@@ -87,7 +87,7 @@ export default function AboutPage() {
         {/* Pillars / USPs Grid with Vibrant Travel Palettes */}
         <div className="space-y-8">
           <div className="text-center max-w-xl mx-auto space-y-2">
-            <span className="text-[10px] font-black uppercase text-teal-600 tracking-widest bg-teal-100/80 border border-teal-200 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-black uppercase text-teal-600 tracking-widest bg-teal-50 border border-teal-200 px-3 py-1 rounded-full">
               Our Values
             </span>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-900 mt-2">
@@ -98,8 +98,8 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Pillar 1: Pure Veg Kitchen */}
-            <div className="bg-gradient-to-b from-emerald-50/40 to-white p-8 rounded-3xl border border-emerald-100 hover:border-emerald-400 shadow-sm hover:shadow-xl shadow-emerald-500/5 transition-all space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 shadow-xs">
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 hover:border-emerald-300 shadow-xs hover:shadow-lg transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 shadow-xs">
                 <svg className="w-6 h-6 stroke-emerald-600 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
                 </svg>
@@ -113,8 +113,8 @@ export default function AboutPage() {
             </div>
 
             {/* Pillar 2: Curated Paths */}
-            <div className="bg-gradient-to-b from-sky-50/40 to-white p-8 rounded-3xl border border-sky-100 hover:border-sky-400 shadow-sm hover:shadow-xl shadow-sky-500/5 transition-all space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-600 shadow-xs">
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 hover:border-sky-300 shadow-xs hover:shadow-lg transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center text-sky-600 shadow-xs">
                 <svg className="w-6 h-6 stroke-sky-600 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
                   <line x1="9" y1="3" x2="9" y2="18" />
@@ -130,8 +130,8 @@ export default function AboutPage() {
             </div>
 
             {/* Pillar 3: Absolute Hospitality */}
-            <div className="bg-gradient-to-b from-orange-50/40 to-white p-8 rounded-3xl border border-orange-100 hover:border-orange-400 shadow-sm hover:shadow-xl shadow-orange-500/5 transition-all space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-600 shadow-xs">
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 hover:border-orange-300 shadow-xs hover:shadow-lg transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-600 shadow-xs">
                 <svg className="w-6 h-6 stroke-orange-600 fill-none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
@@ -147,14 +147,14 @@ export default function AboutPage() {
         </div>
 
         {/* Travel Highlights & Stats Strip */}
-        <div className="bg-gradient-to-r from-orange-50/90 via-amber-50/80 to-teal-50/90 border border-orange-100/90 rounded-3xl p-8 sm:p-12 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-xs">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-1">
               <span className="text-3xl sm:text-4xl font-black font-heading text-orange-600">8000+</span>
               <p className="text-xs uppercase font-extrabold text-slate-800 tracking-wider">Delighted Travelers</p>
               <p className="text-[11px] text-slate-500 font-medium">Joined our group and private holiday packages</p>
             </div>
-            <div className="space-y-1 border-y md:border-y-0 md:border-x border-orange-200/60 py-6 md:py-0">
+            <div className="space-y-1 border-y md:border-y-0 md:border-x border-slate-150 py-6 md:py-0">
               <span className="text-3xl sm:text-4xl font-black font-heading text-teal-600">50+</span>
               <p className="text-xs uppercase font-extrabold text-slate-800 tracking-wider">Top Global Locations</p>
               <p className="text-[11px] text-slate-500 font-medium">Domestic wonders and exotic international getaways</p>

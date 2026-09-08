@@ -112,7 +112,7 @@ export default function FaqsPage() {
       <Navbar onOpenInquiry={openInquiryModal} />
 
       {/* Page Header */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white overflow-hidden shadow-md">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden shadow-md">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600"
@@ -120,17 +120,17 @@ export default function FaqsPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/20 border border-white/30 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
+          <span className="text-xs uppercase font-heading font-bold text-white tracking-widest bg-white/15 border border-white/20 px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm">
             HELP &amp; KNOWLEDGE BASE
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight drop-shadow-sm">
             Frequently Asked <span className="text-amber-200">Questions</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-white/80 max-w-2xl mx-auto font-sans leading-relaxed">
             Find answers to common questions about international group departures, visa procedures, solo room sharing, and payment schedules.
           </p>
         </div>
@@ -226,7 +226,7 @@ export default function FaqsPage() {
           )}
 
           {/* Need More Assistance Card */}
-          <div className="mt-14 bg-gradient-to-r from-orange-50 via-amber-50 to-teal-50 text-slate-850 rounded-3xl p-8 border border-orange-100/80 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="mt-14 bg-white text-slate-850 rounded-3xl p-8 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
             <div>
               <h3 className="text-xl font-bold font-heading text-slate-900">Still have questions?</h3>
               <p className="text-xs text-slate-600 mt-1">Our travel specialists are available on WhatsApp and Phone 7 days a week.</p>
