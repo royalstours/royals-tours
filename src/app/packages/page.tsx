@@ -112,11 +112,36 @@ function CatalogContent() {
     loadData();
   }, []);
 
+  const handleCategorySelect = (slug: string) => {
+    setActiveCategory(slug);
+    if (typeof window !== "undefined") {
+      if (slug === "all") {
+        window.history.replaceState(null, "", "/packages");
+      } else {
+        window.history.replaceState(null, "", `/packages?cat=${slug}`);
+      }
+    }
+  };
+
   const filteredItems = items.filter((item) => {
     // 1. Filter by Active Category Tab
     if (activeCategory !== "all") {
-      const itemCat = item.category?.toLowerCase();
-      if (itemCat !== activeCategory && !itemCat.includes(activeCategory)) {
+      const itemCat = (item.category || "").toLowerCase();
+      const activeCatObj = categories.find(
+        (c) => c.slug.toLowerCase() === activeCategory || c.name.toLowerCase() === activeCategory
+      );
+      const matchSlug = activeCategory;
+      const matchName = activeCatObj ? activeCatObj.name.toLowerCase() : "";
+
+      const isMatch =
+        itemCat === matchSlug ||
+        itemCat === matchName ||
+        (matchName && itemCat.includes(matchName)) ||
+        (matchSlug && itemCat.includes(matchSlug)) ||
+        (matchSlug === "domestic" && itemCat.includes("domestic")) ||
+        (matchSlug === "international" && itemCat.includes("international"));
+
+      if (!isMatch) {
         return false;
       }
     }
@@ -192,7 +217,7 @@ function CatalogContent() {
               </h3>
               <div className="flex flex-col gap-2">
                 <button
-                  onClick={() => setActiveCategory("all")}
+                  onClick={() => handleCategorySelect("all")}
                   className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                     activeCategory === "all"
                       ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
@@ -202,17 +227,26 @@ function CatalogContent() {
                   🌐 All Packages ({items.length})
                 </button>
                 {categories.map((cat) => {
-                  const count = items.filter(
-                    (i) =>
-                      i.category?.toLowerCase() === cat.slug.toLowerCase() ||
-                      i.category?.toLowerCase() === cat.name.toLowerCase()
-                  ).length;
+                  const catSlug = cat.slug.toLowerCase();
+                  const catName = cat.name.toLowerCase();
+                  const count = items.filter((i) => {
+                    const iCat = (i.category || "").toLowerCase();
+                    return (
+                      iCat === catSlug ||
+                      iCat === catName ||
+                      (catSlug === "domestic" && iCat.includes("domestic")) ||
+                      (catSlug === "international" && iCat.includes("international")) ||
+                      (catName && iCat.includes(catName))
+                    );
+                  }).length;
+                  const isSelected = activeCategory === catSlug || activeCategory === catName;
+
                   return (
                     <button
                       key={cat._id}
-                      onClick={() => setActiveCategory(cat.slug.toLowerCase())}
+                      onClick={() => handleCategorySelect(catSlug)}
                       className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
-                        activeCategory === cat.slug.toLowerCase()
+                        isSelected
                           ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
                           : "bg-slate-50 text-slate-700 hover:bg-orange-50/70 hover:text-orange-600 border border-slate-200/60"
                       }`}

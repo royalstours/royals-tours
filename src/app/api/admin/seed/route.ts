@@ -40,10 +40,6 @@ export async function POST() {
     const defaultCategories = [
       { name: "Domestic Tours", slug: "domestic", description: "Curated pure vegetarian group & family tours across India with private kitchen cooks.", icon: "🇮🇳", order: 0 },
       { name: "International Tours", slug: "international", description: "Handcrafted customized holidays to exotic global destinations with full visa & hotel assistance.", icon: "✈️", order: 1 },
-      { name: "Honeymoon Specials", slug: "honeymoon", description: "Romantic escapes, private pool villas, candlelight dinners, and scenic luxury retreats.", icon: "💍", order: 2 },
-      { name: "Pilgrimage & Yatra", slug: "pilgrimage", description: "Sacred Chardham, Kailash Mansarovar, Gokul Mathura, and spiritual yatras with pure Jain/Swaminarayan meals.", icon: "🛕", order: 3 },
-      { name: "Treks & Adventure", slug: "trek", description: "High altitude mountain passes, summit expeditions, and thrilling outdoor camping adventures.", icon: "🏔️", order: 4 },
-      { name: "Weekend Getaways", slug: "weekend", description: "Quick short breaks, beach holidays, and relaxing nature retreats from Ahmedabad.", icon: "🌴", order: 5 },
     ];
 
     for (const cat of defaultCategories) {

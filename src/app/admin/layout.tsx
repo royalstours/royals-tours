@@ -52,7 +52,6 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   const navItems = [
     { label: "Dashboard Overview", href: "/admin", icon: "📊" },
-    { label: "Holiday Packages", href: "/admin/packages", icon: "🧳" },
     { label: "Package Categories", href: "/admin/categories", icon: "🏷️" },
     { label: "Group Departures", href: "/admin/destinations", icon: "✈️" },
     { label: "Top Locations", href: "/admin/top-locations", icon: "⭐" },

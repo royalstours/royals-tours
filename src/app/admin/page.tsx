@@ -300,10 +300,10 @@ export default function AdminDashboardOverview() {
                 🏷️ Categories ({categories.length})
               </Link>
               <Link
-                href="/admin/packages"
+                href="/admin/destinations"
                 className="text-center bg-slate-900 hover:bg-slate-850 text-white font-bold uppercase text-[9px] tracking-wider py-3.5 rounded-xl transition-all"
               >
-                🧳 All Packages
+                ✈️ Group Tours
               </Link>
             </div>
             <Link
@@ -314,10 +314,10 @@ export default function AdminDashboardOverview() {
             </Link>
             <div className="grid grid-cols-2 gap-2">
               <Link
-                href="/admin/destinations"
+                href="/admin/invoices"
                 className="text-center bg-slate-50 hover:bg-slate-100 border border-slate-100 text-slate-700 font-bold uppercase text-[9px] tracking-wider py-3.5 rounded-xl transition-all"
               >
-                ✈️ Group Tours
+                🧾 Invoices
               </Link>
               <Link
                 href="/admin/bookings"

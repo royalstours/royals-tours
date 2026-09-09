@@ -511,10 +511,6 @@ export default function TravelItemForm({
                   <>
                     <option value="domestic">🍱 Domestic Tours (domestic)</option>
                     <option value="international">✈️ International Tours (international)</option>
-                    <option value="honeymoon">💍 Honeymoon Specials (honeymoon)</option>
-                    <option value="pilgrimage">🛕 Pilgrimage &amp; Yatra (pilgrimage)</option>
-                    <option value="trek">🏔️ Treks &amp; Adventure (trek)</option>
-                    <option value="weekend">🌴 Weekend Getaways (weekend)</option>
                   </>
                 )}
               </select>
