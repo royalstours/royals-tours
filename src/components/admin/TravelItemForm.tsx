@@ -42,7 +42,62 @@ export default function TravelItemForm({
   const [id, setId] = useState(""); // Custom Slug/ID
   const [title, setTitle] = useState("");
   const [slogan, setSlogan] = useState("");
-  const [category, setCategory] = useState<"international" | "domestic" | "trek">("international");
+  const [category, setCategory] = useState<string>("domestic");
+  const [availableCategories, setAvailableCategories] = useState<{ _id: string; name: string; slug: string; icon?: string }[]>([]);
+  const [quickCatModal, setQuickCatModal] = useState(false);
+  const [newCatName, setNewCatName] = useState("");
+  const [newCatSlug, setNewCatSlug] = useState("");
+  const [newCatIcon, setNewCatIcon] = useState("🧳");
+  const [creatingCat, setCreatingCat] = useState(false);
+  const [catError, setCatError] = useState("");
+
+  useEffect(() => {
+    async function loadCategories() {
+      try {
+        const res = await fetch("/api/package-categories");
+        if (res.ok) {
+          const data = await res.json();
+          setAvailableCategories(data);
+        }
+      } catch (err) {
+        console.error("Failed to load categories in form:", err);
+      }
+    }
+    loadCategories();
+  }, []);
+
+  const handleQuickCreateCategory = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newCatName.trim()) {
+      setCatError("Category name is required.");
+      return;
+    }
+    setCreatingCat(true);
+    setCatError("");
+    try {
+      const slug = newCatSlug.trim() || newCatName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const res = await fetch("/api/package-categories", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: newCatName.trim(), slug, icon: newCatIcon || "🧳" }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setAvailableCategories((prev) => [...prev, data]);
+        setCategory(data.slug);
+        setQuickCatModal(false);
+        setNewCatName("");
+        setNewCatSlug("");
+        setNewCatIcon("🧳");
+      } else {
+        setCatError(data.error || "Failed to create category.");
+      }
+    } catch (err) {
+      setCatError("An error occurred while creating category.");
+    } finally {
+      setCreatingCat(false);
+    }
+  };
   const [duration, setDuration] = useState("5N / 6D");
   const [badge, setBadge] = useState("");
   const [price, setPrice] = useState("");
@@ -424,16 +479,44 @@ export default function TravelItemForm({
         {activeTab === "logistics" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
-                Category *
-              </label>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-400">
+                  Category *
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCatError("");
+                    setNewCatName("");
+                    setNewCatSlug("");
+                    setQuickCatModal(true);
+                  }}
+                  className="text-[10px] font-bold text-orange-600 hover:text-orange-500 uppercase tracking-wider cursor-pointer"
+                >
+                  + Add New Category
+                </button>
+              </div>
               <select
                 value={category}
-                onChange={(e) => setCategory(e.target.value as any)}
+                onChange={(e) => setCategory(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500 bg-white"
               >
-                <option value="international">✈️ International Departure</option>
-                <option value="domestic">🍱 Domestic Pure Veg Departure</option>
+                {availableCategories.length > 0 ? (
+                  availableCategories.map((cat) => (
+                    <option key={cat._id} value={cat.slug}>
+                      {cat.icon || "🧳"} {cat.name} ({cat.slug})
+                    </option>
+                  ))
+                ) : (
+                  <>
+                    <option value="domestic">🍱 Domestic Tours (domestic)</option>
+                    <option value="international">✈️ International Tours (international)</option>
+                    <option value="honeymoon">💍 Honeymoon Specials (honeymoon)</option>
+                    <option value="pilgrimage">🛕 Pilgrimage &amp; Yatra (pilgrimage)</option>
+                    <option value="trek">🏔️ Treks &amp; Adventure (trek)</option>
+                    <option value="weekend">🌴 Weekend Getaways (weekend)</option>
+                  </>
+                )}
               </select>
             </div>
 
@@ -1125,6 +1208,91 @@ export default function TravelItemForm({
           {loading ? "Saving Travel Item..." : submitLabel}
         </button>
       </div>
+      {/* Quick Category Modal */}
+      {quickCatModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-xs p-4">
+          <div className="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full border border-slate-100 shadow-2xl animate-dialog">
+            <h3 className="font-heading font-black text-lg text-slate-900 uppercase">
+              Add New Category
+            </h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Create a new category on the fly to tag this package.
+            </p>
+
+            {catError && (
+              <div className="p-3 mt-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold">
+                ⚠️ {catError}
+              </div>
+            )}
+
+            <div className="space-y-4 mt-4">
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-600 mb-1">
+                  Category Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Honeymoon Specials"
+                  value={newCatName}
+                  onChange={(e) => {
+                    setNewCatName(e.target.value);
+                    setNewCatSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
+                  }}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-600 mb-1">
+                    Slug *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. honeymoon"
+                    value={newCatSlug}
+                    onChange={(e) => setNewCatSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500 font-mono text-[11px]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-600 mb-1">
+                    Icon
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 💍"
+                    value={newCatIcon}
+                    onChange={(e) => setNewCatIcon(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500"
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setQuickCatModal(false)}
+                  disabled={creatingCat}
+                  className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold uppercase text-[10px] tracking-wider py-3 rounded-xl transition-all cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleQuickCreateCategory}
+                  disabled={creatingCat}
+                  className="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold uppercase text-[10px] tracking-wider py-3 rounded-xl shadow transition-all cursor-pointer disabled:opacity-50"
+                >
+                  {creatingCat ? "Adding..." : "Add Category"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </form>
   );
 }

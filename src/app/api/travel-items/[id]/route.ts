@@ -3,8 +3,8 @@ import { connectDB } from "@/lib/mongodb";
 import TravelItem from "@/models/TravelItem";
 import DomesticTravelItem from "@/models/DomesticTravelItem";
 import InternationalTravelItem from "@/models/InternationalTravelItem";
+import HolidayPackage from "@/models/HolidayPackage";
 import mongoose from "mongoose";
-
 import TopRatedLocation from "@/models/TopRatedLocation";
 
 function serializeTravelItem(item: any) {
@@ -16,41 +16,44 @@ function serializeTravelItem(item: any) {
   };
 }
 
-// Helper to find travel item by Mongoose ObjectId or slug/name
+// Helper to find travel item by Mongoose ObjectId or slug/name across all collections
 async function findTravelItem(identifier: string) {
   if (mongoose.Types.ObjectId.isValid(identifier)) {
-    let item = await DomesticTravelItem.findById(identifier);
-    let category = "domestic";
-    if (!item) {
-      item = await InternationalTravelItem.findById(identifier);
-      category = "international";
-    }
-    if (!item) {
-      item = await TravelItem.findById(identifier);
-      if (item) category = item.category || "domestic";
-    }
-    if (item) return { item, category, Model: category === "domestic" ? DomesticTravelItem : (category === "international" ? InternationalTravelItem : TravelItem) };
+    let item = await HolidayPackage.findById(identifier);
+    if (item) return { item, category: item.category, Model: HolidayPackage };
+
+    item = await DomesticTravelItem.findById(identifier);
+    if (item) return { item, category: "domestic", Model: DomesticTravelItem };
+
+    item = await InternationalTravelItem.findById(identifier);
+    if (item) return { item, category: "international", Model: InternationalTravelItem };
+
+    item = await TravelItem.findById(identifier);
+    if (item) return { item, category: item.category || "domestic", Model: TravelItem };
   }
 
   // Fallback lookup by id slug or name
-  let item = await DomesticTravelItem.findOne({
+  let item = await HolidayPackage.findOne({
+    $or: [{ id: identifier }, { name: new RegExp(`^${identifier}$`, "i") }, { title: new RegExp(`^${identifier}$`, "i") }]
+  });
+  if (item) return { item, category: item.category, Model: HolidayPackage };
+
+  item = await DomesticTravelItem.findOne({
     $or: [{ id: identifier }, { name: new RegExp(`^${identifier}$`, "i") }]
   });
-  let category = "domestic";
-  if (!item) {
-    item = await InternationalTravelItem.findOne({
-      $or: [{ id: identifier }, { name: new RegExp(`^${identifier}$`, "i") }]
-    });
-    category = "international";
-  }
-  if (!item) {
-    item = await TravelItem.findOne({
-      $or: [{ id: identifier }, { name: new RegExp(`^${identifier}$`, "i") }]
-    });
-    if (item) category = item.category || "domestic";
-  }
+  if (item) return { item, category: "domestic", Model: DomesticTravelItem };
 
-  return item ? { item, category, Model: category === "domestic" ? DomesticTravelItem : (category === "international" ? InternationalTravelItem : TravelItem) } : null;
+  item = await InternationalTravelItem.findOne({
+    $or: [{ id: identifier }, { name: new RegExp(`^${identifier}$`, "i") }]
+  });
+  if (item) return { item, category: "international", Model: InternationalTravelItem };
+
+  item = await TravelItem.findOne({
+    $or: [{ id: identifier }, { name: new RegExp(`^${identifier}$`, "i") }]
+  });
+  if (item) return { item, category: item.category || "domestic", Model: TravelItem };
+
+  return null;
 }
 
 export async function GET(
@@ -101,10 +104,21 @@ export async function PUT(
     }
 
     let updatedItem;
+    // Check if target model should change based on category / fixed departure
+    let TargetModel = result.Model;
     if (body.category && body.category !== result.category) {
-      // Category changed, delete from old and insert to new
+      if (body.category === "domestic" && body.isFixedDeparture) {
+        TargetModel = DomesticTravelItem;
+      } else if (body.category === "international" && body.isFixedDeparture) {
+        TargetModel = InternationalTravelItem;
+      } else {
+        TargetModel = HolidayPackage;
+      }
+    }
+
+    if (TargetModel !== result.Model) {
+      // Move between collections
       await result.Model.findByIdAndDelete(result.item._id);
-      const TargetModel = body.category === "domestic" ? DomesticTravelItem : InternationalTravelItem;
       const count = await TargetModel.countDocuments();
       
       const payload = {

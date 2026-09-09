@@ -3,6 +3,8 @@ import { connectDB } from "@/lib/mongodb";
 import TravelItem from "@/models/TravelItem";
 import DomesticTravelItem from "@/models/DomesticTravelItem";
 import InternationalTravelItem from "@/models/InternationalTravelItem";
+import HolidayPackage from "@/models/HolidayPackage";
+import PackageCategory from "@/models/PackageCategory";
 import User from "@/models/User";
 import FAQ from "@/models/FAQ";
 import TopRatedLocation from "@/models/TopRatedLocation";
@@ -34,22 +36,40 @@ export async function POST() {
       { upsert: true, new: true }
     );
 
-    // 2. Seed travel items
+    // 2. Seed Package Categories
+    const defaultCategories = [
+      { name: "Domestic Tours", slug: "domestic", description: "Curated pure vegetarian group & family tours across India with private kitchen cooks.", icon: "🇮🇳", order: 0 },
+      { name: "International Tours", slug: "international", description: "Handcrafted customized holidays to exotic global destinations with full visa & hotel assistance.", icon: "✈️", order: 1 },
+      { name: "Honeymoon Specials", slug: "honeymoon", description: "Romantic escapes, private pool villas, candlelight dinners, and scenic luxury retreats.", icon: "💍", order: 2 },
+      { name: "Pilgrimage & Yatra", slug: "pilgrimage", description: "Sacred Chardham, Kailash Mansarovar, Gokul Mathura, and spiritual yatras with pure Jain/Swaminarayan meals.", icon: "🛕", order: 3 },
+      { name: "Treks & Adventure", slug: "trek", description: "High altitude mountain passes, summit expeditions, and thrilling outdoor camping adventures.", icon: "🏔️", order: 4 },
+      { name: "Weekend Getaways", slug: "weekend", description: "Quick short breaks, beach holidays, and relaxing nature retreats from Ahmedabad.", icon: "🌴", order: 5 },
+    ];
+
+    for (const cat of defaultCategories) {
+      await PackageCategory.findOneAndUpdate(
+        { slug: cat.slug },
+        { ...cat },
+        { upsert: true, new: true }
+      );
+    }
+
+    // 3. Seed travel items and holiday packages
     const itemsToSeed = Object.values(detailedTravelItems);
-    // Clear both collections by dropping them to remove old indexes
+    
     try {
       await DomesticTravelItem.collection.drop();
-    } catch (e) {
-      console.log("DomesticTravelItem collection drop ignored (probably doesn't exist yet)");
-    }
+    } catch (e) {}
     try {
       await InternationalTravelItem.collection.drop();
-    } catch (e) {
-      console.log("InternationalTravelItem collection drop ignored (probably doesn't exist yet)");
-    }
+    } catch (e) {}
+    try {
+      await HolidayPackage.collection.drop();
+    } catch (e) {}
 
     let domesticCount = 0;
     let internationalCount = 0;
+    let holidayCount = 0;
     const seedResults = [];
 
     for (let i = 0; i < itemsToSeed.length; i++) {
@@ -90,6 +110,7 @@ export async function POST() {
         pdfItineraryUrl: item.pdfItineraryUrl || "",
       };
 
+      // Seed into Domestic / International collections for group departures
       if (item.category === "domestic") {
         const seededItem = await DomesticTravelItem.findOneAndUpdate(
           { title: item.title || item.name },
@@ -107,9 +128,17 @@ export async function POST() {
         seedResults.push(seededItem);
         internationalCount++;
       }
+
+      // Also seed all packages into HolidayPackage collection for holiday tours management
+      await HolidayPackage.findOneAndUpdate(
+        { title: item.title || item.name },
+        { ...payload, order: holidayCount },
+        { upsert: true, new: true, runValidators: true }
+      );
+      holidayCount++;
     }
 
-    // 3. Seed top rated locations
+    // 4. Seed top rated locations
     const defaultTopLocations = [
       {
         name: "Kashmir",
@@ -181,7 +210,7 @@ export async function POST() {
       );
     }
 
-    // 4. Seed FAQs if empty
+    // 5. Seed FAQs if empty
     const seededFaqsCount = await FAQ.countDocuments();
     let seededFaqsCountResult = 0;
     if (seededFaqsCount === 0) {
@@ -195,7 +224,7 @@ export async function POST() {
       seededFaqsCountResult = faqsToSeed.length;
     }
 
-    // 5. Seed Hero Slides if empty
+    // 6. Seed Hero Slides if empty
     const seededHeroCount = await HeroSlide.countDocuments();
     let seededHeroCountResult = 0;
     if (seededHeroCount === 0) {
@@ -232,7 +261,7 @@ export async function POST() {
       seededHeroCountResult = heroSlidesToSeed.length;
     }
 
-    // 6. Seed Highlight Cards if empty
+    // 7. Seed Highlight Cards if empty
     const seededHighlightsCount = await HighlightCard.countDocuments();
     let seededHighlightsCountResult = 0;
     if (seededHighlightsCount === 0) {
@@ -264,7 +293,7 @@ export async function POST() {
       seededHighlightsCountResult = highlightsToSeed.length;
     }
 
-    // 7. Seed Home About if empty
+    // 8. Seed Home About if empty
     const seededAboutCount = await HomeAbout.countDocuments();
     let seededAboutCountResult = 0;
     if (seededAboutCount === 0) {
@@ -286,7 +315,7 @@ export async function POST() {
       seededAboutCountResult = 1;
     }
 
-    // 8. Seed Testimonials if empty
+    // 9. Seed Testimonials if empty
     const seededTestimonialsCount = await Testimonial.countDocuments();
     let seededTestimonialsCountResult = 0;
     if (seededTestimonialsCount === 0) {
@@ -303,12 +332,10 @@ export async function POST() {
       seededTestimonialsCountResult = testimonialsToSeed.length;
     }
 
-    // 9. Seed Gallery Items
+    // 10. Seed Gallery Items
     try {
       await GalleryItem.collection.drop();
-    } catch (e) {
-      console.log("GalleryItem collection drop ignored (probably doesn't exist yet)");
-    }
+    } catch (e) {}
     const photosToSeed = galleryImages.map((img, idx) => ({
       title: img.title,
       location: img.location,
@@ -321,12 +348,14 @@ export async function POST() {
     const seededGalleryCountResult = photosToSeed.length;
 
     return NextResponse.json({
-      message: "Database seeded successfully",
+      message: "Database seeded successfully with categories and holiday packages",
       adminUser: {
         email: seededUser.email,
         role: seededUser.role,
       },
+      seededCategoriesCount: defaultCategories.length,
       seededItemsCount: seedResults.length,
+      seededHolidayCount: holidayCount,
       seededTopLocationsCount: defaultTopLocations.length,
       seededFaqsCount: seededFaqsCountResult || seededFaqsCount,
       seededHeroSlidesCount: seededHeroCountResult || seededHeroCount,

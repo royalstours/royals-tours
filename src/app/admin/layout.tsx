@@ -52,8 +52,9 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   const navItems = [
     { label: "Dashboard Overview", href: "/admin", icon: "📊" },
+    { label: "Holiday Packages", href: "/admin/packages", icon: "🧳" },
+    { label: "Package Categories", href: "/admin/categories", icon: "🏷️" },
     { label: "Group Departures", href: "/admin/destinations", icon: "✈️" },
-    { label: "Custom Packages", href: "/admin/packages", icon: "🧳" },
     { label: "Top Locations", href: "/admin/top-locations", icon: "⭐" },
     { label: "Hero Slides", href: "/admin/hero-slides", icon: "🖼️" },
     { label: "Highlights Slider", href: "/admin/highlight-cards", icon: "💎" },
@@ -65,7 +66,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
     { label: "Bookings", href: "/admin/bookings", icon: "🎟️" },
     { label: "Invoices", href: "/admin/invoices", icon: "🧾" },
     { label: "Itineraries", href: "/admin/itineraries", icon: "🗺️" },
-    { label: "Add New Travel Item", href: "/admin/travel-items/new", icon: "➕" },
+    { label: "Add Travel Item", href: "/admin/travel-items/new", icon: "➕" },
   ];
 
   return (
@@ -98,6 +99,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
               const isActive = (itemHref: string) => {
                 if (pathname === itemHref) return true;
                 if (itemHref === "/admin/destinations" && pathname.startsWith("/admin/travel-items")) return true;
+                if (itemHref === "/admin/categories" && pathname.startsWith("/admin/categories")) return true;
                 return false;
               };
               return navItems.map((item) => {
@@ -176,6 +178,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
               const isActive = (itemHref: string) => {
                 if (pathname === itemHref) return true;
                 if (itemHref === "/admin/destinations" && pathname.startsWith("/admin/travel-items")) return true;
+                if (itemHref === "/admin/categories" && pathname.startsWith("/admin/categories")) return true;
                 return false;
               };
               return navItems.map((item) => {

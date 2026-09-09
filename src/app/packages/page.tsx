@@ -12,7 +12,7 @@ interface TravelItem {
   id: string;
   name: string;
   title: string;
-  category: "international" | "domestic" | "trek";
+  category: string;
   duration: string;
   badge: string;
   price: string;
@@ -25,8 +25,16 @@ interface TravelItem {
   pricingTiers?: { name: string; price: string; rawPrice: number; details?: string }[];
 }
 
-// Module-level client-side cache to prevent duplicate fetches on page navigations
+interface PackageCategory {
+  _id: string;
+  name: string;
+  slug: string;
+  description?: string;
+  icon?: string;
+}
+
 let cachedItems: TravelItem[] | null = null;
+let cachedCategories: PackageCategory[] | null = null;
 
 export default function PackagesCatalog() {
   return (
@@ -35,7 +43,7 @@ export default function PackagesCatalog() {
         <Navbar onOpenInquiry={() => {}} />
         <div className="flex-grow flex items-center justify-center bg-slate-50">
           <span className="text-slate-800 font-bold text-xs uppercase tracking-wider animate-pulse">
-            🔄 Loading Travel Catalog...
+            🔄 Loading Holiday Catalog...
           </span>
         </div>
         <Footer />
@@ -51,15 +59,16 @@ function CatalogContent() {
   const catParam = searchParams.get("cat");
 
   const [items, setItems] = useState<TravelItem[]>([]);
+  const [categories, setCategories] = useState<PackageCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeTab, setActiveTab] = useState<"all" | "domestic" | "international">("all");
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
   useEffect(() => {
-    if (catParam === "domestic" || catParam === "international") {
-      setActiveTab(catParam);
+    if (catParam) {
+      setActiveCategory(catParam.toLowerCase());
     } else {
-      setActiveTab("all");
+      setActiveCategory("all");
     }
   }, [catParam]);
   
@@ -72,40 +81,53 @@ function CatalogContent() {
   };
 
   useEffect(() => {
-    async function loadItems() {
-      if (cachedItems) {
+    async function loadData() {
+      if (cachedItems && cachedCategories) {
         setItems(cachedItems);
+        setCategories(cachedCategories);
         setLoading(false);
         return;
       }
       try {
-        const res = await fetch("/api/travel-items");
-        if (res.ok) {
-          const data = await res.json();
-          cachedItems = data;
-          setItems(data);
+        const [itemRes, catRes] = await Promise.all([
+          fetch("/api/travel-items"),
+          fetch("/api/package-categories"),
+        ]);
+        if (itemRes.ok) {
+          const itemData = await itemRes.json();
+          cachedItems = itemData;
+          setItems(itemData);
+        }
+        if (catRes.ok) {
+          const catData = await catRes.json();
+          cachedCategories = catData;
+          setCategories(catData);
         }
       } catch (err) {
-        console.error("Failed to load catalog items:", err);
+        console.error("Failed to load catalog data:", err);
       } finally {
         setLoading(false);
       }
     }
-    loadItems();
+    loadData();
   }, []);
 
   const filteredItems = items.filter((item) => {
     // 1. Filter by Active Category Tab
-    if (activeTab === "domestic" && item.category !== "domestic") return false;
-    if (activeTab === "international" && item.category !== "international") return false;
+    if (activeCategory !== "all") {
+      const itemCat = item.category?.toLowerCase();
+      if (itemCat !== activeCategory && !itemCat.includes(activeCategory)) {
+        return false;
+      }
+    }
     
     // 2. Filter by Search Query
     if (searchQuery.trim() !== "") {
       const q = searchQuery.toLowerCase();
       return (
-        item.title.toLowerCase().includes(q) ||
-        item.name.toLowerCase().includes(q) ||
-        item.description.toLowerCase().includes(q) ||
+        item.title?.toLowerCase().includes(q) ||
+        item.name?.toLowerCase().includes(q) ||
+        item.description?.toLowerCase().includes(q) ||
         item.location?.toLowerCase().includes(q)
       );
     }
@@ -121,17 +143,17 @@ function CatalogContent() {
       <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white pt-32 pb-16 relative overflow-hidden shadow-md">
         <div className="absolute inset-0 bg-black/10 z-10" />
         <div className="absolute right-[-20px] bottom-[-40px] text-white/5 font-black text-[120px] pointer-events-none select-none uppercase">
-          Tours
+          Holiday
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-4">
           <span className="bg-white/15 text-white border border-white/20 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest inline-block backdrop-blur-sm">
-            Our Catalog
+            Holiday Catalog
           </span>
           <h1 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-white drop-shadow-sm">
-            Majestic Tour Packages
+            Majestic Holiday Packages
           </h1>
           <p className="text-xs text-white/80 font-medium max-w-lg leading-relaxed">
-            Choose from our pre-scheduled Pure Veg domestic group departures or custom international vacation packages.
+            Curated domestic group departures with pure veg kitchen cooks, exotic international escapes, honeymoons, and custom holidays.
           </p>
         </div>
       </section>
@@ -157,58 +179,54 @@ function CatalogContent() {
                   className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-4 pr-10 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-amber-500 placeholder-slate-400"
                 />
                 <svg className="absolute right-3 top-3 text-slate-400 w-3.5 h-3.5 stroke-current fill-none pointer-events-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
               </div>
             </div>
 
             {/* Category Selectors */}
             <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-xs space-y-4">
               <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-slate-900">
-                Categories
+                Holiday Categories
               </h3>
               <div className="flex flex-col gap-2">
                 <button
-                  onClick={() => setActiveTab("all")}
+                  onClick={() => setActiveCategory("all")}
                   className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
-                    activeTab === "all"
+                    activeCategory === "all"
                       ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
                       : "bg-slate-50 text-slate-700 hover:bg-orange-50/70 hover:text-orange-600 border border-slate-200/60"
                   }`}
                 >
-                  🌐 All Offerings ({items.length})
+                  🌐 All Packages ({items.length})
                 </button>
-                <button
-                  onClick={() => setActiveTab("domestic")}
-                  className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
-                    activeTab === "domestic"
-                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
-                      : "bg-slate-50 text-slate-700 hover:bg-orange-50/70 hover:text-orange-600 border border-slate-200/60"
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <svg className="w-4 h-4 stroke-current fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
-                    </svg>
-                    Domestic Group Tours ({items.filter(i => i.category === "domestic").length})
-                  </span>
-                </button>
-                <button
-                  onClick={() => setActiveTab("international")}
-                  className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
-                    activeTab === "international"
-                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
-                      : "bg-slate-50 text-slate-700 hover:bg-orange-50/70 hover:text-orange-600 border border-slate-200/60"
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <svg className="w-4 h-4 stroke-current fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7 3.5 8.5l7.3 3.6-3.6 3.6L4.5 15l-1 1 2.5 1.5L7.5 20l1-1-.7-2.7 3.6-3.6 3.6 7.3z"/>
-                    </svg>
-                    International Vacations ({items.filter(i => i.category === "international").length})
-                  </span>
-                </button>
+                {categories.map((cat) => {
+                  const count = items.filter(
+                    (i) =>
+                      i.category?.toLowerCase() === cat.slug.toLowerCase() ||
+                      i.category?.toLowerCase() === cat.name.toLowerCase()
+                  ).length;
+                  return (
+                    <button
+                      key={cat._id}
+                      onClick={() => setActiveCategory(cat.slug.toLowerCase())}
+                      className={`text-left w-full px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
+                        activeCategory === cat.slug.toLowerCase()
+                          ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20"
+                          : "bg-slate-50 text-slate-700 hover:bg-orange-50/70 hover:text-orange-600 border border-slate-200/60"
+                      }`}
+                    >
+                      <span className="flex items-center justify-between">
+                        <span className="flex items-center gap-2 truncate">
+                          <span>{cat.icon || "🧳"}</span>
+                          <span className="truncate">{cat.name}</span>
+                        </span>
+                        <span className="text-[10px] font-normal opacity-80 shrink-0">({count})</span>
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -251,104 +269,69 @@ function CatalogContent() {
                           {item.badge}
                         </span>
                       )}
-                      <span className="absolute bottom-4 right-4 z-10 bg-white/95 backdrop-blur-md text-sky-700 border border-sky-200 px-3 py-1 rounded-full font-bold text-[9px] uppercase tracking-wider flex items-center gap-1 shadow-xs">
-                        <svg className="w-2.5 h-2.5 stroke-sky-700 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        {item.duration}
-                      </span>
                       <img
                         src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex justify-between items-end text-white">
+                        <span className="text-[10px] font-bold tracking-wider uppercase bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+                          ⏱ {item.duration}
+                        </span>
+                        <span className="text-xs font-black uppercase text-amber-300 bg-black/50 px-2 py-0.5 rounded border border-amber-300/30">
+                          {item.category}
+                        </span>
+                      </div>
                     </div>
 
-                    {/* Content Body */}
-                    <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    {/* Content */}
+                    <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                       <div className="space-y-2">
-                        <span className="text-[9px] font-black uppercase text-orange-600 tracking-wider">
-                        {item.category === "international" ? (
-                          <span className="flex items-center gap-1">
-                            <svg className="w-2.5 h-2.5 stroke-orange-600 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                              <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7 3.5 8.5l7.3 3.6-3.6 3.6L4.5 15l-1 1 2.5 1.5L7.5 20l1-1-.7-2.7 3.6-3.6 3.6 7.3z"/>
-                            </svg>
-                            International Tour
-                          </span>
-                        ) : (
-                          <span className="flex items-center gap-1">
-                            <svg className="w-2.5 h-2.5 stroke-orange-600 fill-none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M18 8V2M21 2v9a5 5 0 0 1-5 5h-1v6" />
-                            </svg>
-                            Domestic Group Tour
-                          </span>
-                        )}
-                        </span>
-                        <h3 className="font-heading font-black text-sm uppercase text-slate-950 group-hover:text-orange-600 transition-colors leading-tight">
+                        <h3 className="font-heading font-black text-sm uppercase text-slate-900 leading-tight group-hover:text-orange-600 transition-colors">
                           {item.title}
                         </h3>
-                        <p className="text-[11px] text-slate-500 leading-relaxed line-clamp-2 font-medium">
+                        <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
 
-                      <div className="space-y-4">
-                        {/* Mini Highlights */}
-                        {item.highlights && item.highlights.length > 0 && (
-                          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
-                            {item.highlights.slice(0, 3).map((hl, hlIdx) => (
-                              <span
-                                key={hlIdx}
-                                className="bg-orange-50/60 border border-orange-100 text-orange-900 font-bold text-[8px] uppercase px-2 py-0.5 rounded-md"
-                              >
-                                {hl}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Price & CTA Link */}
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                          <div>
-                            <span className="text-[8px] font-black text-slate-400 uppercase block leading-none">
-                              Price starts at
+                      {/* Highlights Pills */}
+                      {item.highlights && item.highlights.length > 0 && (
+                        <div className="flex flex-wrap gap-1">
+                          {item.highlights.slice(0, 2).map((h, i) => (
+                            <span key={i} className="text-[9px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded-md font-medium border border-slate-100">
+                              ✓ {h}
                             </span>
-                            <span className="text-xs font-heading font-black text-orange-600">
-                              {(() => {
-                                const formatPrice = (priceStr: string) => {
-                                  if (!priceStr) return "";
-                                  let clean = priceStr.replace(/^₹\s*/, "").replace(/\s*PP\s*$/i, "").trim();
-                                  return clean ? `₹${clean}` : "";
-                                };
-                                const rawPrice = item.pricingTiers && item.pricingTiers.length > 0
-                                  ? item.pricingTiers[0].price || item.price
-                                  : item.price;
-                                return formatPrice(rawPrice);
-                              })()}
-                            </span>
-                          </div>
-                          <div
-                            className="gradient-btn font-heading font-black text-[9px] uppercase tracking-wider px-4 py-2 rounded-xl transition-all shadow-xs"
-                          >
-                            Explore →
-                          </div>
+                          ))}
                         </div>
-                      </div>
+                      )}
 
+                      {/* Pricing and Action */}
+                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                          <span className="text-[9px] text-slate-400 font-bold block uppercase tracking-wider">
+                            Starting from
+                          </span>
+                          <span className="text-sm font-heading font-black text-slate-900">
+                            {item.price}
+                          </span>
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-wider text-orange-600 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                          Details →
+                        </span>
+                      </div>
                     </div>
                   </Link>
                 ))}
               </div>
             )}
-
           </div>
 
         </div>
       </main>
 
       <Footer />
-
       <InquiryModal
         isOpen={inquiryOpen}
         onClose={() => setInquiryOpen(false)}

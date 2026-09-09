@@ -17,19 +17,35 @@ interface TravelItem {
   pricingTiers?: any[];
 }
 
+interface PackageCategory {
+  _id: string;
+  name: string;
+  slug: string;
+  icon?: string;
+}
+
 export default function AdminPackagesPage() {
   const [packages, setPackages] = useState<TravelItem[]>([]);
+  const [categories, setCategories] = useState<PackageCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
 
-  async function fetchPackages() {
+  async function fetchPackagesAndCategories() {
     try {
-      const res = await fetch("/api/travel-items?isFixedDeparture=false");
-      if (res.ok) {
-        const data = await res.json();
+      const [pkgRes, catRes] = await Promise.all([
+        fetch("/api/travel-items?isFixedDeparture=false"),
+        fetch("/api/package-categories"),
+      ]);
+      if (pkgRes.ok) {
+        const data = await pkgRes.json();
         setPackages(data);
+      }
+      if (catRes.ok) {
+        const catData = await catRes.json();
+        setCategories(catData);
       }
     } catch (err) {
       console.error("Failed to load packages:", err);
@@ -39,7 +55,7 @@ export default function AdminPackagesPage() {
   }
 
   useEffect(() => {
-    fetchPackages();
+    fetchPackagesAndCategories();
   }, []);
 
   const handleDelete = async () => {
@@ -62,13 +78,26 @@ export default function AdminPackagesPage() {
     }
   };
 
-  const filtered = packages.filter(
-    (item) =>
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.title.toLowerCase().includes(search.toLowerCase()) ||
-      item.category.toLowerCase().includes(search.toLowerCase()) ||
-      item.id.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = packages.filter((item) => {
+    // 1. Filter by category
+    if (selectedCategory !== "all") {
+      if (item.category?.toLowerCase() !== selectedCategory.toLowerCase()) {
+        return false;
+      }
+    }
+
+    // 2. Filter by search
+    if (search.trim() !== "") {
+      const q = search.toLowerCase();
+      return (
+        item.name.toLowerCase().includes(q) ||
+        item.title.toLowerCase().includes(q) ||
+        item.category.toLowerCase().includes(q) ||
+        item.id.toLowerCase().includes(q)
+      );
+    }
+    return true;
+  });
 
   return (
     <div className="space-y-6 select-none animate-fadeIn">
@@ -76,39 +105,81 @@ export default function AdminPackagesPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="font-heading font-black text-2xl md:text-3xl uppercase tracking-tight text-slate-900">
-            Custom Tour Packages
+            Holiday Tour Packages
           </h2>
           <p className="text-xs font-bold text-slate-400 mt-1">
-            Manage your flexible domestic, international, and summit trek travel packages.
+            Manage your custom holiday tours across all domestic, international, and special categories.
           </p>
         </div>
-        <Link
-          href="/admin/travel-items/new?type=package"
-          className="bg-slate-900 hover:bg-slate-800 text-white font-bold uppercase text-[10px] tracking-wider px-6 py-3.5 rounded-xl shadow-md transition-all self-start md:self-auto flex items-center gap-2 cursor-pointer"
-        >
-          <span>➕ Add Package</span>
-        </Link>
+        <div className="flex flex-wrap items-center gap-2.5">
+          <Link
+            href="/admin/categories"
+            className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-bold uppercase text-[10px] tracking-wider px-5 py-3 rounded-xl shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <span>🏷️ Manage Categories ({categories.length})</span>
+          </Link>
+          <Link
+            href="/admin/travel-items/new?type=holiday"
+            className="bg-slate-900 hover:bg-slate-800 text-white font-bold uppercase text-[10px] tracking-wider px-6 py-3.5 rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <span>➕ Add Holiday Package</span>
+          </Link>
+        </div>
       </div>
 
-      {/* Filter Bar */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
-        <div className="relative w-full sm:w-80">
-          <input
-            type="text"
-            placeholder="Search packages by name, title..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500 placeholder:text-slate-400"
-          />
-          <span className="absolute left-3.5 top-3 text-slate-400 text-sm">🔍</span>
+      {/* Filter Bar with Category Tabs */}
+      <div className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col gap-4 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="relative w-full sm:w-80">
+            <input
+              type="text"
+              placeholder="Search packages by name, title..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500 placeholder:text-slate-400"
+            />
+            <span className="absolute left-3.5 top-3 text-slate-400 text-sm">🔍</span>
+          </div>
+
+          <div className="flex items-center gap-4 text-xs font-bold text-slate-500">
+            <span>Showing: <strong className="text-slate-800">{filtered.length}</strong> of {packages.length}</span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-4 text-xs font-bold text-slate-500">
-          <span>Total: <strong className="text-slate-800">{filtered.length}</strong></span>
-          <span>•</span>
-          <span>Treks & Summits: <strong className="text-slate-800">{packages.filter(p => p.category === "trek").length}</strong></span>
-          <span>•</span>
-          <span>International: <strong className="text-slate-800">{packages.filter(p => p.category === "international").length}</strong></span>
+        {/* Dynamic Category Filter Pills */}
+        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+          <button
+            onClick={() => setSelectedCategory("all")}
+            className={`px-3.5 py-1.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              selectedCategory === "all"
+                ? "bg-slate-900 text-white shadow-xs"
+                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+            }`}
+          >
+            🌐 All ({packages.length})
+          </button>
+          {categories.map((cat) => {
+            const count = packages.filter(
+              (p) =>
+                p.category?.toLowerCase() === cat.slug.toLowerCase() ||
+                p.category?.toLowerCase() === cat.name.toLowerCase()
+            ).length;
+            return (
+              <button
+                key={cat._id}
+                onClick={() => setSelectedCategory(cat.slug)}
+                className={`px-3.5 py-1.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
+                  selectedCategory === cat.slug
+                    ? "bg-orange-600 text-white shadow-xs"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                }`}
+              >
+                <span>{cat.icon || "🧳"}</span>
+                <span>{cat.name}</span>
+                <span className="opacity-70 text-[9px]">({count})</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -122,13 +193,13 @@ export default function AdminPackagesPage() {
           <span className="text-4xl block mb-2">🧳</span>
           <h3 className="font-heading font-black text-lg text-slate-950 uppercase">No Tour Packages Found</h3>
           <p className="text-xs font-semibold text-slate-400 mt-1 mb-4">
-            Try adjusting your search query or create a new custom package.
+            Try adjusting your search query, selecting another category, or creating a new holiday package.
           </p>
           <Link
-            href="/admin/travel-items/new?type=package"
+            href="/admin/travel-items/new?type=holiday"
             className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-5 py-2.5 rounded-xl shadow cursor-pointer"
           >
-            Create First Package
+            Create Holiday Package
           </Link>
         </div>
       ) : (
@@ -137,7 +208,7 @@ export default function AdminPackagesPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-100 text-[10px] font-black uppercase text-slate-400 tracking-wider">
-                  <th className="py-4 px-6">Tour Package</th>
+                  <th className="py-4 px-6">Holiday Tour Package</th>
                   <th className="py-4 px-4">Category</th>
                   <th className="py-4 px-4 text-right">Price</th>
                   <th className="py-4 px-4 text-center">Badge</th>
@@ -160,7 +231,11 @@ export default function AdminPackagesPage() {
                         <span className="text-[10px] text-slate-400">{item.duration}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-4 uppercase text-[10px]">{item.category}</td>
+                    <td className="py-4 px-4">
+                      <span className="bg-orange-50 text-orange-700 border border-orange-200/80 uppercase text-[9px] font-black px-2.5 py-1 rounded-full">
+                        {item.category}
+                      </span>
+                    </td>
                     <td className="py-4 px-4 text-right font-mono text-slate-900">
                       <div>
                         {(() => {
@@ -217,7 +292,7 @@ export default function AdminPackagesPage() {
               Delete Tour Package?
             </h3>
             <p className="text-xs text-slate-500 mt-2">
-              Are you sure you want to delete the custom package <strong>{deleteId}</strong>? This action will remove the catalog item and its itinerary details from MongoDB permanently.
+              Are you sure you want to delete the holiday package <strong>{deleteId}</strong>? This action will remove the catalog item and its itinerary details from MongoDB permanently.
             </p>
             <div className="flex gap-3 mt-6">
               <button

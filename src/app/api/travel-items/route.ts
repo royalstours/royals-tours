@@ -3,6 +3,7 @@ import { connectDB } from "@/lib/mongodb";
 import TravelItem from "@/models/TravelItem";
 import DomesticTravelItem from "@/models/DomesticTravelItem";
 import InternationalTravelItem from "@/models/InternationalTravelItem";
+import HolidayPackage from "@/models/HolidayPackage";
 
 function serializeTravelItem(item: any) {
   if (!item) return null;
@@ -28,13 +29,34 @@ export async function GET(req: Request) {
 
     let dbItems = [];
     if (category === "domestic") {
-      dbItems = (await DomesticTravelItem.find(query).sort({ order: 1 })).map(serializeTravelItem);
+      const domesticItems = (await DomesticTravelItem.find(query).sort({ order: 1 })).map(serializeTravelItem);
+      const holidayDomestic = (await HolidayPackage.find({ ...query, category: "domestic" }).sort({ order: 1 })).map(serializeTravelItem);
+      dbItems = [...domesticItems, ...holidayDomestic];
     } else if (category === "international") {
-      dbItems = (await InternationalTravelItem.find(query).sort({ order: 1 })).map(serializeTravelItem);
+      const intlItems = (await InternationalTravelItem.find(query).sort({ order: 1 })).map(serializeTravelItem);
+      const holidayIntl = (await HolidayPackage.find({ ...query, category: "international" }).sort({ order: 1 })).map(serializeTravelItem);
+      dbItems = [...intlItems, ...holidayIntl];
+    } else if (category && category !== "all") {
+      // Custom category query against HolidayPackage & legacy TravelItem
+      const holidayCatItems = (await HolidayPackage.find({ ...query, category: new RegExp(`^${category}$`, "i") }).sort({ order: 1 })).map(serializeTravelItem);
+      const legacyCatItems = (await TravelItem.find({ ...query, category: new RegExp(`^${category}$`, "i") }).sort({ order: 1 })).map(serializeTravelItem);
+      dbItems = [...holidayCatItems, ...legacyCatItems];
     } else {
       const domesticItems = (await DomesticTravelItem.find(query).sort({ order: 1 })).map(serializeTravelItem);
       const internationalItems = (await InternationalTravelItem.find(query).sort({ order: 1 })).map(serializeTravelItem);
-      dbItems = [...domesticItems, ...internationalItems];
+      const holidayItems = (await HolidayPackage.find(query).sort({ order: 1 })).map(serializeTravelItem);
+      
+      // Merge unique by title/id
+      const seenTitles = new Set();
+      const combined = [];
+      for (const item of [...domesticItems, ...internationalItems, ...holidayItems]) {
+        const key = item.title?.toLowerCase() || item.id;
+        if (!seenTitles.has(key)) {
+          seenTitles.add(key);
+          combined.push(item);
+        }
+      }
+      dbItems = combined;
     }
     return NextResponse.json(dbItems);
   } catch (error: any) {
@@ -58,12 +80,20 @@ export async function POST(req: Request) {
       );
     }
 
-    const Model = body.category === "domestic" ? DomesticTravelItem : InternationalTravelItem;
+    let Model = HolidayPackage;
+    if (body.category === "domestic" && body.isFixedDeparture) {
+      Model = DomesticTravelItem;
+    } else if (body.category === "international" && body.isFixedDeparture) {
+      Model = InternationalTravelItem;
+    } else {
+      Model = HolidayPackage;
+    }
 
-    // Check if title is unique
+    // Check if title is unique across collections
     const existingDomestic = await DomesticTravelItem.findOne({ title: body.title });
     const existingInternational = await InternationalTravelItem.findOne({ title: body.title });
-    if (existingDomestic || existingInternational) {
+    const existingHoliday = await HolidayPackage.findOne({ title: body.title });
+    if (existingDomestic || existingInternational || existingHoliday) {
       return NextResponse.json(
         { error: `A travel item with title "${body.title}" already exists.` },
         { status: 400 }

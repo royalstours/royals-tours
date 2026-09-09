@@ -16,6 +16,13 @@ interface TravelItem {
   image: string;
 }
 
+interface PackageCategory {
+  _id: string;
+  name: string;
+  slug: string;
+  icon?: string;
+}
+
 interface Inquiry {
   _id: string;
   name: string;
@@ -31,6 +38,7 @@ interface Inquiry {
 
 export default function AdminDashboardOverview() {
   const [items, setItems] = useState<TravelItem[]>([]);
+  const [categories, setCategories] = useState<PackageCategory[]>([]);
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [bookings, setBookings] = useState<any[]>([]);
   const [invoices, setInvoices] = useState<any[]>([]);
@@ -43,8 +51,9 @@ export default function AdminDashboardOverview() {
 
   async function fetchDashboardData() {
     try {
-      const [itemRes, inqRes, bookingsRes, invoicesRes] = await Promise.all([
+      const [itemRes, catRes, inqRes, bookingsRes, invoicesRes] = await Promise.all([
         fetch("/api/travel-items"),
+        fetch("/api/package-categories"),
         fetch("/api/admin/inquiries"),
         fetch("/api/booking-confirmations"),
         fetch("/api/invoices"),
@@ -53,6 +62,11 @@ export default function AdminDashboardOverview() {
       if (itemRes.ok) {
         const itemData = await itemRes.json();
         setItems(itemData);
+      }
+
+      if (catRes.ok) {
+        const catData = await catRes.json();
+        setCategories(catData);
       }
 
       if (inqRes.ok) {
@@ -81,7 +95,7 @@ export default function AdminDashboardOverview() {
   }, []);
 
   const handleSeed = async () => {
-    if (!confirm("Are you sure you want to seed the database? This will sync all default static travel catalog data into MongoDB.")) {
+    if (!confirm("Are you sure you want to seed the database? This will sync all default static travel catalog data and categories into MongoDB.")) {
       return;
     }
     setSeeding(true);
@@ -93,7 +107,7 @@ export default function AdminDashboardOverview() {
       const data = await res.json();
       if (res.ok) {
         setSeedResult(data);
-        alert(`Successfully seeded database with ${data.seededItemsCount} items!`);
+        alert(`Successfully seeded database with ${data.seededItemsCount} items and ${data.seededCategoriesCount || 6} categories!`);
         fetchDashboardData();
       } else {
         alert(data.error || "Failed to seed database.");
@@ -106,11 +120,7 @@ export default function AdminDashboardOverview() {
   };
 
   const destinationsCount = items.filter((item) => item.isFixedDeparture).length;
-  const packagesCount = items.filter((item) => !item.isFixedDeparture).length;
-  const internationalCount = items.filter((item) => item.category === "international").length;
-  const domesticCount = items.filter((item) => item.category === "domestic").length;
-  const trekCount = items.filter((item) => item.category === "trek").length;
-
+  const holidayPackagesCount = items.filter((item) => !item.isFixedDeparture).length;
   const pendingInquiriesCount = inquiries.filter((inq) => inq.status === "pending").length;
 
   // Bookings & Invoices calculations
@@ -144,7 +154,7 @@ export default function AdminDashboardOverview() {
             Catalog, Bookings &amp; Billing
           </h2>
           <p className="text-slate-400 text-sm max-w-xl mt-1 font-semibold">
-            Manage your travel group departures, custom tour packages, client inquiries, bookings, invoices, and itineraries.
+            Manage your holiday tour packages, dynamic categories, group departures, client leads, bookings, invoices, and itineraries.
           </p>
         </div>
         <div className="absolute right-[-40px] top-[-40px] text-white/5 font-black text-[150px] pointer-events-none select-none">
@@ -158,16 +168,34 @@ export default function AdminDashboardOverview() {
         <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-xs flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
-              Total Catalog
+              Holiday Packages &amp; Tours
             </span>
-            <span className="text-xl">🗺️</span>
+            <span className="text-xl">🧳</span>
           </div>
           <div className="mt-4">
             <span className="font-heading font-black text-3xl text-slate-900">
               {items.length}
             </span>
             <span className="block text-[10px] font-bold text-slate-400 mt-1">
-              Active offerings ({domesticCount} domestic, {internationalCount} int'l)
+              Across {categories.length} dynamic categories
+            </span>
+          </div>
+        </div>
+
+        {/* Categories Count */}
+        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-xs flex flex-col justify-between">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+              Package Categories
+            </span>
+            <span className="text-xl">🏷️</span>
+          </div>
+          <div className="mt-4">
+            <span className="font-heading font-black text-3xl text-orange-600">
+              {categories.length}
+            </span>
+            <span className="block text-[10px] font-bold text-slate-400 mt-1">
+              Active category filters
             </span>
           </div>
         </div>
@@ -186,24 +214,6 @@ export default function AdminDashboardOverview() {
             </span>
             <span className="block text-[10px] font-bold text-slate-400 mt-1">
               Out of {inquiries.length} total leads
-            </span>
-          </div>
-        </div>
-
-        {/* Bookings Confirmation Count */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
-              Total Bookings
-            </span>
-            <span className="text-xl">🎟️</span>
-          </div>
-          <div className="mt-4">
-            <span className="font-heading font-black text-3xl text-emerald-600">
-              {bookingsCount}
-            </span>
-            <span className="block text-[10px] font-bold text-slate-400 mt-1">
-              Confirmed client travels
             </span>
           </div>
         </div>
@@ -236,7 +246,7 @@ export default function AdminDashboardOverview() {
               Database Seeding &amp; Synced Status
             </h3>
             <p className="text-xs text-slate-500 mt-1">
-              Initialize MongoDB with the defaults from the static travel file (<code className="bg-slate-100 px-1 py-0.5 rounded">travelData.ts</code>) to seed initial packages instantly.
+              Initialize MongoDB with the default travel catalog, holiday packages, and categories (<code className="bg-slate-100 px-1 py-0.5 rounded">travelData.ts</code>).
             </p>
           </div>
 
@@ -245,7 +255,7 @@ export default function AdminDashboardOverview() {
               <span className="text-slate-500">Seed Status:</span>
               {items.length > 0 ? (
                 <span className="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full uppercase text-[10px]">
-                  Database Seeded
+                  Database Seeded ({items.length} Tours, {categories.length} Categories)
                 </span>
               ) : (
                 <span className="text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full uppercase text-[10px]">
@@ -277,23 +287,23 @@ export default function AdminDashboardOverview() {
           </h3>
           <div className="flex flex-col gap-2.5">
             <Link
-              href="/admin/travel-items/new"
+              href="/admin/travel-items/new?type=holiday"
               className="w-full text-center bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold uppercase text-[10px] tracking-wider py-3.5 rounded-xl shadow-md transition-all"
             >
-              ➕ Add New Travel Item
+              ➕ Add Holiday Package
             </Link>
             <div className="grid grid-cols-2 gap-2">
               <Link
-                href="/admin/bookings/new"
+                href="/admin/categories"
                 className="text-center bg-slate-900 hover:bg-slate-850 text-white font-bold uppercase text-[9px] tracking-wider py-3.5 rounded-xl transition-all"
               >
-                🎟️ Create Booking
+                🏷️ Categories ({categories.length})
               </Link>
               <Link
-                href="/admin/invoices/new"
+                href="/admin/packages"
                 className="text-center bg-slate-900 hover:bg-slate-850 text-white font-bold uppercase text-[9px] tracking-wider py-3.5 rounded-xl transition-all"
               >
-                🧾 Create Invoice
+                🧳 All Packages
               </Link>
             </div>
             <Link
@@ -307,105 +317,17 @@ export default function AdminDashboardOverview() {
                 href="/admin/destinations"
                 className="text-center bg-slate-50 hover:bg-slate-100 border border-slate-100 text-slate-700 font-bold uppercase text-[9px] tracking-wider py-3.5 rounded-xl transition-all"
               >
-                ✈️ Destinations
+                ✈️ Group Tours
               </Link>
               <Link
-                href="/admin/packages"
+                href="/admin/bookings"
                 className="text-center bg-slate-50 hover:bg-slate-100 border border-slate-100 text-slate-700 font-bold uppercase text-[9px] tracking-wider py-3.5 rounded-xl transition-all"
               >
-                🧳 Packages
+                🎟️ Bookings
               </Link>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Recent Inquiries Section */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-xs overflow-hidden">
-        <div className="p-6 border-b border-slate-100 flex items-center justify-between">
-          <h3 className="font-heading font-extrabold text-sm uppercase tracking-wider text-slate-800">
-            Recent Travel Inquiries
-          </h3>
-          <Link
-            href="/admin/inquiries"
-            className="text-[10px] font-black uppercase text-amber-600 hover:text-amber-500 tracking-wider"
-          >
-            View All Inquiries →
-          </Link>
-        </div>
-        {recentInquiries.length === 0 ? (
-          <div className="p-12 text-center text-xs text-slate-400 font-bold uppercase">
-            No traveler inquiries submitted yet.
-          </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-slate-50 border-b border-slate-100 text-[10px] font-black uppercase text-slate-400 tracking-wider">
-                  <th className="py-4 px-6">Traveler</th>
-                  <th className="py-4 px-4">Destination/Subject</th>
-                  <th className="py-4 px-4">Date</th>
-                  <th className="py-4 px-4 text-center">Status</th>
-                  <th className="py-4 px-6 text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-xs font-semibold text-slate-650">
-                {recentInquiries.map((inq) => (
-                  <tr key={inq._id} className="hover:bg-slate-50/50">
-                    <td className="py-4 px-6">
-                      <div className="font-bold text-slate-900">{inq.name}</div>
-                      <div className="text-[10px] text-slate-400">{inq.phone} • {inq.email}</div>
-                    </td>
-                    <td className="py-4 px-4">
-                      {inq.destination ? (
-                        <span className="text-slate-800 font-bold uppercase">{inq.destination}</span>
-                      ) : (
-                        <span className="text-slate-550 italic">{inq.subject || "General Inquiry"}</span>
-                      )}
-                    </td>
-                    <td className="py-4 px-4 text-slate-450">
-                      {new Date(inq.createdAt).toLocaleDateString("en-IN", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      })}
-                    </td>
-                    <td className="py-4 px-4 text-center">
-                      {inq.status === "pending" && (
-                        <span className="bg-rose-50 text-rose-600 border border-rose-100 px-2 py-0.5 rounded text-[9px] font-black uppercase">
-                          Pending
-                        </span>
-                      )}
-                      {inq.status === "contacted" && (
-                        <span className="bg-amber-50 text-amber-600 border border-amber-100 px-2 py-0.5 rounded text-[9px] font-black uppercase">
-                          Contacted
-                        </span>
-                      )}
-                      {inq.status === "booked" && (
-                        <span className="bg-emerald-50 text-emerald-600 border border-emerald-100 px-2 py-0.5 rounded text-[9px] font-black uppercase">
-                          Booked
-                        </span>
-                      )}
-                      {inq.status === "cancelled" && (
-                        <span className="bg-slate-100 text-slate-500 px-2 py-0.5 rounded text-[9px] font-black uppercase">
-                          Cancelled
-                        </span>
-                      )}
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <Link
-                        href="/admin/inquiries"
-                        className="text-amber-650 hover:text-amber-550 font-bold"
-                      >
-                        Manage
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
 
       {/* Recent Items Table */}
@@ -431,7 +353,7 @@ export default function AdminDashboardOverview() {
                   <th className="py-4 px-6 text-center">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-xs font-semibold text-slate-655">
+              <tbody className="divide-y divide-slate-100 text-xs font-semibold text-slate-600">
                 {recentItems.map((item) => (
                   <tr key={item._id} className="hover:bg-slate-50/50">
                     <td className="py-4 px-6 flex items-center gap-3">
@@ -447,7 +369,11 @@ export default function AdminDashboardOverview() {
                         <span className="text-[10px] text-slate-400">{item.duration}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-4 uppercase text-[10px]">{item.category}</td>
+                    <td className="py-4 px-4 uppercase text-[10px]">
+                      <span className="bg-orange-50 text-orange-700 px-2 py-0.5 rounded font-bold border border-orange-200/80">
+                        {item.category}
+                      </span>
+                    </td>
                     <td className="py-4 px-4 text-right font-mono text-slate-900">{item.price}</td>
                     <td className="py-4 px-4 text-center">
                       {item.isFixedDeparture ? (
@@ -456,7 +382,7 @@ export default function AdminDashboardOverview() {
                         </span>
                       ) : (
                         <span className="text-orange-600 bg-orange-50 px-2 py-0.5 rounded text-[9px] font-black uppercase">
-                          Custom Pkg.
+                          Holiday Pkg.
                         </span>
                       )}
                     </td>

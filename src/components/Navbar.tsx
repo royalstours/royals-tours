@@ -12,8 +12,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Group Departures", href: "/destinations" },
-  { label: "International Tours", href: "/packages?cat=international" },
-  { label: "Domestic Tours", href: "/packages?cat=domestic" },
+  { label: "Holiday", href: "/packages" },
   { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
   { label: "FAQs", href: "/faqs" },
@@ -27,6 +26,9 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
 
   const isActive = (path: string) => {
     if (path === "/") return pathname === "/";
+    if (path === "/packages") {
+      return pathname.startsWith("/packages") || pathname.startsWith("/holiday");
+    }
     if (path.includes("?")) {
       const [pathBase, queryStr] = path.split("?");
       const params = new URLSearchParams(queryStr);
@@ -72,7 +74,7 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`text-[10px] 2xl:text-xs font-bold uppercase tracking-wider transition-all duration-200 px-3 py-1.5 rounded-full whitespace-nowrap ${
+                    className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider transition-all duration-200 px-3.5 py-1.5 rounded-full whitespace-nowrap ${
                       active
                         ? "bg-white/95 text-orange-600 font-extrabold border border-orange-300/90 shadow-xs"
                         : "text-slate-800 hover:text-orange-600 hover:bg-white/70"
@@ -150,12 +152,9 @@ function NavbarInner({ onOpenInquiry }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenInquiry("");
               }}
-              className="w-full gradient-btn py-3.5 rounded-xl font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer text-white shadow-lg shadow-orange-500/25"
+              className="w-full gradient-btn py-3 rounded-xl font-heading font-bold text-xs uppercase tracking-wider text-white shadow-md shadow-orange-500/20"
             >
-              <span>Enquire Now</span>
-              <svg className="w-4 h-4 transform rotate-45 text-amber-200" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-              </svg>
+              Enquire Now
             </button>
           </div>
         </div>
@@ -169,20 +168,9 @@ export default function Navbar(props: NavbarProps) {
     <Suspense fallback={
       <header className="fixed top-0 left-0 right-0 z-50 glass-nav h-20 sm:h-24">
         <div className="h-[3px] w-full bg-gradient-to-r from-[#FF5E36] via-[#F59E0B] via-[#0D9488] to-[#0284C7]" />
-        <div className="max-w-360 mx-auto px-4 sm:px-6 xl:px-8 flex items-center justify-between h-full">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative w-13.75 h-13.75 sm:w-20.5 sm:h-20.5 flex items-center justify-center">
-              <img src="/website-logo.webp" alt="Royals Tours Logo" className="w-full h-full object-contain" />
-            </div>
-            <span className="text-slate-900 font-heading font-extrabold text-[12px] xs:text-sm sm:text-base leading-tight tracking-wider">
-              ROYALS <span className="text-orange-500">TOURS</span>
-            </span>
-          </Link>
-        </div>
       </header>
     }>
       <NavbarInner {...props} />
     </Suspense>
   );
 }
-
