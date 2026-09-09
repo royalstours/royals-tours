@@ -14,32 +14,49 @@ interface TravelItem {
   duration: string;
   badge?: string;
   image: string;
+  isFixedDeparture?: boolean;
   pricingTiers?: any[];
+}
+
+interface PackageCategory {
+  _id: string;
+  name: string;
+  slug: string;
+  icon?: string;
 }
 
 export default function AdminDestinationsPage() {
   const [destinations, setDestinations] = useState<TravelItem[]>([]);
+  const [categories, setCategories] = useState<PackageCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
 
-  async function fetchDestinations() {
+  async function fetchDestinationsAndCategories() {
     try {
-      const res = await fetch("/api/travel-items?isFixedDeparture=true");
-      if (res.ok) {
-        const data = await res.json();
+      const [itemRes, catRes] = await Promise.all([
+        fetch("/api/travel-items"),
+        fetch("/api/package-categories"),
+      ]);
+      if (itemRes.ok) {
+        const data = await itemRes.json();
         setDestinations(data);
       }
+      if (catRes.ok) {
+        const catData = await catRes.json();
+        setCategories(catData);
+      }
     } catch (err) {
-      console.error("Failed to load destinations:", err);
+      console.error("Failed to load catalog and categories:", err);
     } finally {
       setLoading(false);
     }
   }
 
   useEffect(() => {
-    fetchDestinations();
+    fetchDestinationsAndCategories();
   }, []);
 
   const handleDelete = async () => {
@@ -50,25 +67,67 @@ export default function AdminDestinationsPage() {
         method: "DELETE",
       });
       if (res.ok) {
-        setDestinations((prev) => prev.filter((item) => item.id !== deleteId));
+        setDestinations((prev) => prev.filter((item) => item.id !== deleteId && item._id !== deleteId));
         setDeleteId(null);
       } else {
-        alert("Failed to delete destination.");
+        alert("Failed to delete destination / package.");
       }
     } catch (err) {
-      alert("Error deleting destination.");
+      alert("Error deleting destination / package.");
     } finally {
       setDeleting(false);
     }
   };
 
-  const filtered = destinations.filter(
-    (item) =>
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.title.toLowerCase().includes(search.toLowerCase()) ||
-      item.category.toLowerCase().includes(search.toLowerCase()) ||
-      item.id.toLowerCase().includes(search.toLowerCase())
-  );
+  const getCategoryCount = (catSlug: string, catName: string) => {
+    const slugLower = catSlug.toLowerCase();
+    const nameLower = catName.toLowerCase();
+    return destinations.filter((item) => {
+      const itemCat = (item.category || "").toLowerCase();
+      return (
+        itemCat === slugLower ||
+        itemCat === nameLower ||
+        (slugLower === "domestic" && itemCat.includes("domestic")) ||
+        (slugLower === "international" && itemCat.includes("international")) ||
+        (nameLower && itemCat.includes(nameLower))
+      );
+    }).length;
+  };
+
+  const filtered = destinations.filter((item) => {
+    // 1. Filter by selected category
+    if (selectedCategory !== "all") {
+      const itemCat = (item.category || "").toLowerCase();
+      const activeCatObj = categories.find(
+        (c) => c.slug.toLowerCase() === selectedCategory || c.name.toLowerCase() === selectedCategory
+      );
+      const matchSlug = selectedCategory.toLowerCase();
+      const matchName = activeCatObj ? activeCatObj.name.toLowerCase() : "";
+
+      const isMatch =
+        itemCat === matchSlug ||
+        itemCat === matchName ||
+        (matchName && itemCat.includes(matchName)) ||
+        (matchSlug && itemCat.includes(matchSlug)) ||
+        (matchSlug === "domestic" && itemCat.includes("domestic")) ||
+        (matchSlug === "international" && itemCat.includes("international"));
+
+      if (!isMatch) return false;
+    }
+
+    // 2. Filter by search query
+    if (search.trim() !== "") {
+      const q = search.toLowerCase();
+      return (
+        (item.name || "").toLowerCase().includes(q) ||
+        (item.title || "").toLowerCase().includes(q) ||
+        (item.category || "").toLowerCase().includes(q) ||
+        (item.id || "").toLowerCase().includes(q)
+      );
+    }
+
+    return true;
+  });
 
   return (
     <div className="space-y-6 select-none animate-fadeIn">
@@ -79,11 +138,11 @@ export default function AdminDestinationsPage() {
             Group Departures (Destinations)
           </h2>
           <p className="text-xs font-bold text-slate-400 mt-1">
-            Manage your pre-scheduled international/domestic group departures.
+            Manage your pre-scheduled international/domestic group departures and holiday packages.
           </p>
         </div>
         <Link
-          href="/admin/travel-items/new?type=destination"
+          href="/admin/travel-items/new"
           className="bg-slate-900 hover:bg-slate-800 text-white font-bold uppercase text-[10px] tracking-wider px-6 py-3.5 rounded-xl shadow-md transition-all self-start md:self-auto flex items-center gap-2 cursor-pointer"
         >
           <span>➕ Add Destination</span>
@@ -91,24 +150,47 @@ export default function AdminDestinationsPage() {
       </div>
 
       {/* Filter Bar */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
-        <div className="relative w-full sm:w-80">
-          <input
-            type="text"
-            placeholder="Search destinations by name, title..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500 placeholder:text-slate-400"
-          />
-          <span className="absolute left-3.5 top-3 text-slate-400 text-sm">🔍</span>
+      <div className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+          <div className="relative w-full sm:w-72">
+            <input
+              type="text"
+              placeholder="Search destinations by name, title..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500 placeholder:text-slate-400"
+            />
+            <span className="absolute left-3.5 top-3 text-slate-400 text-sm">🔍</span>
+          </div>
+
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="w-full sm:w-auto px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:border-amber-500 bg-white text-slate-700 cursor-pointer"
+          >
+            <option value="all">All Categories ({destinations.length})</option>
+            {categories.map((cat) => (
+              <option key={cat._id} value={cat.slug.toLowerCase()}>
+                {cat.icon || "🧳"} {cat.name} ({getCategoryCount(cat.slug, cat.name)})
+              </option>
+            ))}
+          </select>
         </div>
 
-        <div className="flex items-center gap-4 text-xs font-bold text-slate-500">
-          <span>Total: <strong className="text-slate-800">{filtered.length}</strong></span>
-          <span>•</span>
-          <span>International: <strong className="text-slate-800">{destinations.filter(d => d.category === "international").length}</strong></span>
-          <span>•</span>
-          <span>Domestic: <strong className="text-slate-800">{destinations.filter(d => d.category === "domestic").length}</strong></span>
+        {/* Dynamic Category Breakdown on Right Side */}
+        <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-500 self-start md:self-auto">
+          <span>Total: <strong className="text-slate-800">{destinations.length}</strong></span>
+          {categories.map((cat) => {
+            const count = getCategoryCount(cat.slug, cat.name);
+            return (
+              <span key={cat._id} className="flex items-center gap-2">
+                <span className="text-slate-300">•</span>
+                <span>
+                  {cat.name}: <strong className="text-slate-800">{count}</strong>
+                </span>
+              </span>
+            );
+          })}
         </div>
       </div>
 
@@ -125,7 +207,7 @@ export default function AdminDestinationsPage() {
             Try adjusting your search query or create a new destination.
           </p>
           <Link
-            href="/admin/travel-items/new?type=destination"
+            href="/admin/travel-items/new"
             className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-[10px] tracking-wider uppercase px-5 py-2.5 rounded-xl shadow cursor-pointer"
           >
             Create First Destination
@@ -145,63 +227,75 @@ export default function AdminDestinationsPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 text-xs font-semibold text-slate-600">
-                {filtered.map((item) => (
-                  <tr key={item._id} className="hover:bg-slate-50/50">
-                    <td className="py-4 px-6 flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl overflow-hidden relative bg-slate-100 shrink-0">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <span className="font-bold text-slate-900 block">{item.name}</span>
-                        <span className="text-[10px] text-slate-400">{item.duration}</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-4 uppercase text-[10px]">{item.category}</td>
-                    <td className="py-4 px-4 text-right font-mono text-slate-900">
-                      <div>
-                        {(() => {
-                          const formatPrice = (priceStr: string) => {
-                            if (!priceStr) return "";
-                            let clean = priceStr.replace(/^₹\s*/, "").replace(/\s*PP\s*$/i, "").trim();
-                            return clean ? `₹${clean}` : "";
-                          };
-                          const rawPrice = item.pricingTiers && item.pricingTiers.length > 0
-                            ? item.pricingTiers[0].price || item.price
-                            : item.price;
-                          return formatPrice(rawPrice);
-                        })()}
-                      </div>
-                      <div className="text-[10px] text-slate-400">Raw: {item.rawPrice}</div>
-                    </td>
-                    <td className="py-4 px-4 text-center">
-                      {item.badge ? (
-                        <span className="bg-amber-50 text-amber-700 border border-amber-200/50 px-2 py-0.5 rounded text-[9px] font-bold">
-                          {item.badge}
+                {filtered.map((item) => {
+                  const matchedCat = categories.find(
+                    (c) =>
+                      c.slug.toLowerCase() === item.category?.toLowerCase() ||
+                      c.name.toLowerCase() === item.category?.toLowerCase()
+                  );
+                  return (
+                    <tr key={item._id} className="hover:bg-slate-50/50">
+                      <td className="py-4 px-6 flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl overflow-hidden relative bg-slate-100 shrink-0">
+                          <img
+                            src={item.image}
+                            alt={item.name || item.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <span className="font-bold text-slate-900 block">{item.name || item.title}</span>
+                          <span className="text-[10px] text-slate-400">{item.duration}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-4">
+                        <span className="bg-slate-100 text-slate-700 font-bold px-2.5 py-1 rounded-full text-[10px] border border-slate-200 inline-flex items-center gap-1.5 uppercase">
+                          <span>{matchedCat?.icon || "🧳"}</span>
+                          <span>{matchedCat?.name || item.category}</span>
                         </span>
-                      ) : (
-                        <span className="text-slate-400 italic text-[10px]">-</span>
-                      )}
-                    </td>
-                    <td className="py-4 px-6 text-center space-x-3">
-                      <Link
-                        href={`/admin/travel-items/${item.id}/edit`}
-                        className="text-amber-600 hover:text-amber-500 font-bold"
-                      >
-                        Edit
-                      </Link>
-                      <button
-                        onClick={() => setDeleteId(item.id)}
-                        className="text-rose-600 hover:text-rose-500 font-bold cursor-pointer"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+                      <td className="py-4 px-4 text-right font-mono text-slate-900">
+                        <div>
+                          {(() => {
+                            const formatPrice = (priceStr: string) => {
+                              if (!priceStr) return "";
+                              let clean = priceStr.replace(/^₹\s*/, "").replace(/\s*PP\s*$/i, "").trim();
+                              return clean ? `₹${clean}` : "";
+                            };
+                            const rawPrice = item.pricingTiers && item.pricingTiers.length > 0
+                              ? item.pricingTiers[0].price || item.price
+                              : item.price;
+                            return formatPrice(rawPrice);
+                          })()}
+                        </div>
+                        <div className="text-[10px] text-slate-400">Raw: {item.rawPrice}</div>
+                      </td>
+                      <td className="py-4 px-4 text-center">
+                        {item.badge ? (
+                          <span className="bg-amber-50 text-amber-700 border border-amber-200/50 px-2 py-0.5 rounded text-[9px] font-bold uppercase">
+                            {item.badge}
+                          </span>
+                        ) : (
+                          <span className="text-slate-400 italic text-[10px]">-</span>
+                        )}
+                      </td>
+                      <td className="py-4 px-6 text-center space-x-3">
+                        <Link
+                          href={`/admin/travel-items/${item.id}/edit`}
+                          className="text-amber-600 hover:text-amber-500 font-bold"
+                        >
+                          Edit
+                        </Link>
+                        <button
+                          onClick={() => setDeleteId(item.id)}
+                          className="text-rose-600 hover:text-rose-500 font-bold cursor-pointer"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
