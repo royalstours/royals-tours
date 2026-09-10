@@ -227,8 +227,8 @@ export async function POST() {
       const heroSlidesToSeed = [
         {
           type: "image",
-          src: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1200",
-          title: "Majestic Leh Ladakh Adventure",
+          src: "https://res.cloudinary.com/dgb6durda/image/upload/v1788781147/royal_tours/wsxayu4u6gtdyy9vxvfi.webp",
+          title: "Leh Ladakh",
           subtitle: "Cross High Mountain Passes & Ride Double-Humped Camels in Nubra",
           badge: "Special Departure",
           alt: "Leh Ladakh",

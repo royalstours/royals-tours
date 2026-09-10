@@ -14,6 +14,56 @@ import { servicesList, testimonials, fixedDepartures, featuredPackages } from "@
 
 // Module-level client-side cache to prevent duplicate fetches on page navigations
 let cachedAllItems: any[] | null = null;
+let cachedHeroSlides: HeroMediaItem[] | null = null;
+
+const DEFAULT_HERO_SLIDES: HeroMediaItem[] = [
+  {
+    id: "6a92a691b09ce8a740728af8",
+    type: "image",
+    src: "https://res.cloudinary.com/dgb6durda/image/upload/v1788781147/royal_tours/wsxayu4u6gtdyy9vxvfi.webp",
+    alt: "Leh Ladakh",
+    badge: "Special Departure",
+    title: "Leh Ladakh",
+    subtitle: "Cross High Mountain Passes & Ride Double-Humped Camels in Nubra",
+  },
+  {
+    id: "6a92a691b09ce8a740728afa",
+    type: "image",
+    src: "https://res.cloudinary.com/dgb6durda/image/upload/v1788780660/royal_tours/lpz70ut0gtdcu8nxz46w.jpg",
+    alt: "Kerala",
+    badge: "Popular Holiday",
+    title: "Kerala",
+    subtitle: "Athirappilly Falls, Munnar Tea Gardens & Houseboat Stay",
+  },
+  {
+    id: "6a98054c762a1f572c772887",
+    type: "image",
+    src: "https://res.cloudinary.com/dgb6durda/image/upload/v1788443502/royal_tours/kgviwy0zeziwec3ybqo6.jpg",
+    mobileSrc: "https://res.cloudinary.com/dgb6durda/image/upload/v1788347693/royal_tours/lle0vkb3ap8f52b8p1sj.jpg",
+    alt: "Singapore",
+    badge: "International Tour",
+    title: "Singapore",
+    subtitle: "BEST PACKAGE OF INTERNATIONAL",
+  },
+  {
+    id: "6a9805f0762a1f572c772888",
+    type: "image",
+    src: "https://res.cloudinary.com/dgb6durda/image/upload/v1788781008/royal_tours/slkdwjkgye29zzknefqx.webp",
+    alt: "Malaysia",
+    badge: "International Tour",
+    title: "Malaysia",
+    subtitle: "MALAYSIA TOUR SPECIAL",
+  },
+  {
+    id: "6aa09a95b0175505d9fba76c",
+    type: "image",
+    src: "https://res.cloudinary.com/dgb6durda/image/upload/v1788910186/royal_tours/zmqciqbleo1ktdwxtklo.webp",
+    alt: "Nepal",
+    badge: "Nepal Tours",
+    title: "Hills Station Tours",
+    subtitle: "",
+  },
+];
 
 export default function Home() {
   const router = useRouter();
@@ -24,7 +74,7 @@ export default function Home() {
   const [dbFeaturedPackages, setDbFeaturedPackages] = useState<any[]>(featuredPackages);
   const [dbTestimonials, setDbTestimonials] = useState<any[] | null>(null);
   
-  const [heroSlides, setHeroSlides] = useState<HeroMediaItem[]>([]);
+  const [heroSlides, setHeroSlides] = useState<HeroMediaItem[]>(cachedHeroSlides || DEFAULT_HERO_SLIDES);
   const [highlightCards, setHighlightCards] = useState<HighlightCardItem[]>([]);
   const [homeAbout, setHomeAbout] = useState<any>({
     welcomeTag: "WELCOME TO ROYALS TOURS",
@@ -100,7 +150,7 @@ export default function Home() {
           if (slidesRes.ok) {
             const slidesData = await slidesRes.json();
             if (slidesData && slidesData.length > 0) {
-              setHeroSlides(slidesData.map((s: any) => ({
+              const mapped = slidesData.map((s: any) => ({
                 id: s._id,
                 type: s.type,
                 src: s.src,
@@ -111,7 +161,9 @@ export default function Home() {
                 badge: s.badge || "",
                 title: s.title || "",
                 subtitle: s.subtitle || "",
-              })));
+              }));
+              cachedHeroSlides = mapped;
+              setHeroSlides(mapped);
             }
           }
         } catch (err) {
@@ -195,43 +247,13 @@ export default function Home() {
     return list;
   })();
 
-  const fallbackSlides: HeroMediaItem[] = [
-    {
-      id: "slide-1",
-      type: "image",
-      src: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1200",
-      title: "Majestic Leh Ladakh Adventure",
-      subtitle: "Cross High Mountain Passes & Ride Double-Humped Camels in Nubra",
-      badge: "Group Departure",
-      alt: "Leh Ladakh",
-    },
-    {
-      id: "slide-2",
-      type: "image",
-      src: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200",
-      title: "Tropical Bali Cost Saver",
-      subtitle: "Private Pool Villas, Nusa Penida Excursions & Tanah Lot Sunsets",
-      badge: "Custom Package",
-      alt: "Bali Indonesia",
-    },
-    {
-      id: "slide-3",
-      type: "image",
-      src: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
-      title: "Royals Kerala Backwaters",
-      subtitle: "Athirappilly Falls, Munnar Tea Gardens & Houseboat Stay",
-      badge: "Popular Holiday",
-      alt: "Kerala Backwaters",
-    },
-  ];
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar onOpenInquiry={handleOpenInquiry} />
 
       {/* Hero Carousel */}
       <HeroSection
-        mediaItems={heroSlides.length > 0 ? heroSlides : fallbackSlides}
+        mediaItems={heroSlides}
         openInquiryModal={handleOpenInquiry}
       />
 

@@ -1031,7 +1031,7 @@ export const detailedTravelItems: Record<string, DetailedTravelItem> = {
     "badge": "",
     "price": "₹35,999 PP",
     "rawPrice": 35999,
-    "image": "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=800",
+    "image": "https://res.cloudinary.com/dgb6durda/image/upload/v1788781147/royal_tours/wsxayu4u6gtdyy9vxvfi.webp",
     "highlights": [
       "Arrival in Leh & Complete Rest",
       "Sham Valley Sightseeing & Confluence Tour",
