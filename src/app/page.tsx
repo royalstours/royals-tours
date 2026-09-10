@@ -37,8 +37,11 @@ export default function Home() {
     stat2Label: "Top Locations",
     stat3Value: "100%",
     stat3Label: "Veg/Jain Kitchens Support",
-    image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000",
-    imageAlt: "Travelers overlooking scenic valley"
+    mediaType: "video",
+    mediaUrl: "https://res.cloudinary.com/dgb6durda/video/upload/v1788347407/royal_tours/za5i4d6iepgkjjclkqbl.mp4",
+    mediaPoster: "",
+    image: "https://res.cloudinary.com/dgb6durda/video/upload/v1788347407/royal_tours/za5i4d6iepgkjjclkqbl.mp4",
+    imageAlt: "Majestic Himalayan mountain landscapes and happy travelers"
   });
 
   useEffect(() => {
@@ -344,12 +347,30 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-2 border-slate-100 ring-4 ring-orange-400/20 shadow-xl group">
-                <img
-                  src={homeAbout.image}
-                  alt={homeAbout.imageAlt}
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
-                />
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-2 border-slate-100 ring-4 ring-orange-400/20 shadow-xl bg-slate-900 group">
+                {(homeAbout.mediaType === "video" ||
+                  Boolean(homeAbout.mediaUrl && /\.(mp4|webm|mov|m4v|mkv|avi)($|\?)/i.test(homeAbout.mediaUrl)) ||
+                  Boolean(homeAbout.mediaUrl && homeAbout.mediaUrl.includes("/video/upload/")) ||
+                  Boolean(homeAbout.image && /\.(mp4|webm|mov|m4v|mkv|avi)($|\?)/i.test(homeAbout.image)) ||
+                  Boolean(homeAbout.image && homeAbout.image.includes("/video/upload/"))) ? (
+                  <video
+                    key={homeAbout.mediaUrl || homeAbout.image}
+                    src={homeAbout.mediaUrl || homeAbout.image}
+                    poster={homeAbout.mediaPoster || undefined}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    key={homeAbout.mediaUrl || homeAbout.image}
+                    src={homeAbout.mediaUrl || homeAbout.image || "https://res.cloudinary.com/dgb6durda/video/upload/v1788347407/royal_tours/za5i4d6iepgkjjclkqbl.mp4"}
+                    alt={homeAbout.imageAlt || "About Royals Tours"}
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
               </div>
             </div>
 

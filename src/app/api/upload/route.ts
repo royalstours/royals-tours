@@ -63,15 +63,21 @@ export async function POST(req: Request) {
       });
     }
 
-    // For images, upload to Cloudinary CDN
+    const isVideo =
+      file.type.startsWith("video/") ||
+      Boolean(file.name && /\.(mp4|webm|mov|mkv|avi|m4v|3gp)$/i.test(file.name));
+
+    // For images and videos, upload to Cloudinary CDN
     const { cloudName, apiKey, apiSecret } = getCloudinaryConfig();
 
     if (!cloudName || !apiKey || !apiSecret) {
       // Fallback to storing in MongoDB if Cloudinary is not configured
       await connectDB();
+      const fallbackExt = isVideo ? "mp4" : "jpg";
+      const fallbackType = isVideo ? "video/mp4" : "image/jpeg";
       const savedDoc = await FileAsset.create({
-        filename: file.name || "image.jpg",
-        contentType: file.type || "image/jpeg",
+        filename: file.name || `media.${fallbackExt}`,
+        contentType: file.type || fallbackType,
         data: buffer,
         size: buffer.length,
       });
@@ -80,8 +86,9 @@ export async function POST(req: Request) {
         url: `/api/files/${savedDoc._id}`,
         public_id: savedDoc._id.toString(),
         filename: file.name,
-        format: file.type,
+        format: file.type || fallbackType,
         bytes: savedDoc.size,
+        resource_type: isVideo ? "video" : "image",
       });
     }
 
@@ -96,7 +103,7 @@ export async function POST(req: Request) {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
           folder: "royal_tours",
-          resource_type: "auto",
+          resource_type: isVideo ? "video" : "auto",
         },
         (error, result) => {
           if (error) {
