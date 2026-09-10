@@ -20,7 +20,7 @@ const caveat = Caveat({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://royalstours.in";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://royalstours.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://royalstours.in/sitemap.xml
+Sitemap: https://royalstours.com/sitemap.xml
