@@ -4,17 +4,16 @@ import TravelItem from "@/models/TravelItem";
 import HolidayPackage from "@/models/HolidayPackage";
 import { fixedDepartures, featuredPackages } from "@/data/travelData";
 
-export const dynamic = "force-dynamic";
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://royalstours.com";
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://royalstours.com").replace(/\/+$/, "");
   const now = new Date();
 
   // Core static public routes
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/`,
+      url: `${baseUrl}`,
       lastModified: now,
       changeFrequency: "daily",
       priority: 1.0,
@@ -102,12 +101,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 2. Fetch live data from MongoDB
   try {
-    await connectDB();
+    const connectWithTimeout = Promise.race([
+      connectDB(),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("DB Timeout")), 3000)),
+    ]);
+    await connectWithTimeout;
 
     const dbTravelItems: any[] = await TravelItem.find(
       {},
       "id _id updatedAt isFixedDeparture"
-    ).lean();
+    ).maxTimeMS(2500).lean();
 
     for (const item of dbTravelItems) {
       const id = String(item.id || item._id);
@@ -125,7 +128,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const dbHolidayPackages: any[] = await HolidayPackage.find(
       {},
       "id _id updatedAt isFixedDeparture"
-    ).lean();
+    ).maxTimeMS(2500).lean();
 
     for (const item of dbHolidayPackages) {
       const id = String(item.id || item._id);
