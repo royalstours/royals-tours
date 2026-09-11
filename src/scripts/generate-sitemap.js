@@ -12,7 +12,7 @@ try {
   // If ts-node not loaded, read file with regex or fallback
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://royalstours.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.royalstours.com";
 const today = new Date().toISOString().split('T')[0];
 
 const staticPages = [

@@ -2,165 +2,110 @@ import type { MetadataRoute } from "next";
 import { connectDB } from "@/lib/mongodb";
 import TravelItem from "@/models/TravelItem";
 import HolidayPackage from "@/models/HolidayPackage";
-import { fixedDepartures, featuredPackages } from "@/data/travelData";
+import { detailedTravelItems } from "@/data/travelData";
 
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://royalstours.com").replace(/\/+$/, "");
-  const now = new Date();
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.royalstours.com").replace(/\/+$/, "");
 
-  // Core static public routes
-  const staticRoutes: MetadataRoute.Sitemap = [
+  // 1. Core static indexable pages
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1.0,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/packages`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.9,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/holiday`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.9,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/destinations`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.9,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/services`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/gallery`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.7,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/faqs`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
+      lastModified: new Date("2026-09-10"),
     },
     {
       url: `${baseUrl}/terms-and-conditions`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
+      lastModified: new Date("2026-09-10"),
     },
   ];
 
-  // Dynamic route collectors
-  const packageEntries = new Map<string, { lastModified: Date; isFixedDeparture?: boolean }>();
-  const destinationEntries = new Map<string, Date>();
+  // 2. Collect unique canonical package slugs
+  const packageMap = new Map<string, Date | undefined>();
 
-  // 1. Seed with local fallback data
-  for (const item of featuredPackages) {
-    if (item.id) {
-      packageEntries.set(String(item.id), { lastModified: now, isFixedDeparture: false });
+  // Seed with all catalog package slugs
+  for (const slug of Object.keys(detailedTravelItems)) {
+    if (slug && !/^[0-9a-fA-F]{24}$/.test(slug)) {
+      packageMap.set(slug, new Date("2026-09-08"));
     }
   }
 
-  for (const fd of fixedDepartures) {
-    if (fd.id) {
-      const idStr = String(fd.id);
-      packageEntries.set(idStr, { lastModified: now, isFixedDeparture: true });
-      destinationEntries.set(idStr, now);
-    }
-  }
-
-  // 2. Fetch live data from MongoDB
+  // Fetch live published items from MongoDB (if connected)
   try {
     const connectWithTimeout = Promise.race([
       connectDB(),
-      new Promise((_, reject) => setTimeout(() => reject(new Error("DB Timeout")), 3000)),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("DB Timeout")), 2500)),
     ]);
     await connectWithTimeout;
 
-    const dbTravelItems: any[] = await TravelItem.find(
-      {},
-      "id _id updatedAt isFixedDeparture"
-    ).maxTimeMS(2500).lean();
-
+    const dbTravelItems: any[] = await TravelItem.find({}, "id _id updatedAt").maxTimeMS(2000).lean();
     for (const item of dbTravelItems) {
-      const id = String(item.id || item._id);
-      const lastModified = item.updatedAt ? new Date(item.updatedAt) : now;
-      packageEntries.set(id, {
-        lastModified,
-        isFixedDeparture: Boolean(item.isFixedDeparture),
-      });
-
-      if (item.isFixedDeparture) {
-        destinationEntries.set(id, lastModified);
+      const slug = item.id;
+      // Filter out raw MongoDB ObjectIds (24 hex characters)
+      if (slug && !/^[0-9a-fA-F]{24}$/.test(slug)) {
+        packageMap.set(slug, item.updatedAt ? new Date(item.updatedAt) : new Date("2026-09-08"));
       }
     }
 
-    const dbHolidayPackages: any[] = await HolidayPackage.find(
-      {},
-      "id _id updatedAt isFixedDeparture"
-    ).maxTimeMS(2500).lean();
-
+    const dbHolidayPackages: any[] = await HolidayPackage.find({}, "id _id updatedAt").maxTimeMS(2000).lean();
     for (const item of dbHolidayPackages) {
-      const id = String(item.id || item._id);
-      const lastModified = item.updatedAt ? new Date(item.updatedAt) : now;
-      packageEntries.set(id, {
-        lastModified,
-        isFixedDeparture: Boolean(item.isFixedDeparture),
-      });
+      const slug = item.id;
+      if (slug && !/^[0-9a-fA-F]{24}$/.test(slug)) {
+        packageMap.set(slug, item.updatedAt ? new Date(item.updatedAt) : new Date("2026-09-08"));
+      }
     }
   } catch (err) {
     console.error("Sitemap dynamic database fetch error (falling back to static catalog):", err);
   }
 
-  // Convert package entries to sitemap items
-  const dynamicPackageRoutes: MetadataRoute.Sitemap = Array.from(packageEntries.entries()).map(
-    ([id, meta]) => ({
-      url: `${baseUrl}/packages/${id}`,
-      lastModified: meta.lastModified,
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    })
-  );
+  // 3. Map to clean sitemap objects without changefreq or priority
+  const packagePages: MetadataRoute.Sitemap = Array.from(packageMap.entries()).map(([slug, lastModified]) => {
+    const entry: { url: string; lastModified?: Date } = {
+      url: `${baseUrl}/packages/${slug}`,
+    };
+    if (lastModified) {
+      entry.lastModified = lastModified;
+    }
+    return entry;
+  });
 
-  // Convert destination entries to sitemap items
-  const dynamicDestinationRoutes: MetadataRoute.Sitemap = Array.from(destinationEntries.entries()).map(
-    ([id, lastModified]) => ({
-      url: `${baseUrl}/destinations/${id}`,
-      lastModified,
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    })
-  );
-
-  return [...staticRoutes, ...dynamicPackageRoutes, ...dynamicDestinationRoutes];
+  return [...staticPages, ...packagePages];
 }
+
